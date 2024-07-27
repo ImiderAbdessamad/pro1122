@@ -1,0 +1,48 @@
+
+<p-dialog [(visible)]="viewDialog" [style]="{width: '70vw'}" header="{{'remoteRepoInfo.tabPan' | translate}}" [modal]="true" styleClass="p-fluid">
+    <ng-template pTemplate="content">
+        <p-tabView>
+            <p-tabPanel header="{{'remoteRepoInfo.tabPan' | translate}}">
+                <div class="grid">
+                    <div class="field col-12 md:col-6">
+                        <label for="1">{{'remoteRepoInfo.title' | translate}}</label>
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'remoteRepoInfo.title' | translate}}" autofocus  id="1" [ngModel]="item.title">
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="2">{{'remoteRepoInfo.username' | translate}}</label>
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'remoteRepoInfo.username' | translate}}" autofocus  id="2" [ngModel]="item.username">
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="3">{{'remoteRepoInfo.token' | translate}}</label>
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'remoteRepoInfo.token' | translate}}" autofocus  id="3" [ngModel]="item.token">
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="4">{{'remoteRepoInfo.name' | translate}}</label>
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'remoteRepoInfo.name' | translate}}" autofocus  id="4" [ngModel]="item.name">
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="5">{{'remoteRepoInfo.remoteRepoType' | translate}}</label>
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'remoteRepoInfo.remoteRepoType' | translate}}" autofocus  id="5" [ngModel]="item.remoteRepoType?.libelle">
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="6">{{'remoteRepoInfo.collaborator' | translate}}</label>
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'remoteRepoInfo.collaborator' | translate}}" autofocus  id="6" [ngModel]="item.collaborator?.id">
+                    </div>
+                </div>
+            </p-tabPanel>
+
+        </p-tabView>
+
+    </ng-template>
+
+    <ng-template pTemplate="footer" >
+        <div class="p-flexbox">
+            <div>
+                <button pButton pRipple label="Annuler" icon="pi pi-times" class="p-button-outlined" (click)="hideViewDialog()"></button>
+            </div>
+        </div>
+    </ng-template>
+</p-dialog>
+
+
+

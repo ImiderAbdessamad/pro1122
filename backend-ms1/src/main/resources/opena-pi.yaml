@@ -1,0 +1,3713 @@
+openapi: 3.0.3
+info:
+  title: Title
+  description: Title
+  version: 1.0.0
+servers:
+  - url: 'https'
+paths:
+  /projects:
+    get:
+      summary: List all projects
+      operationId: listProjects
+      tags:
+        - projects
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of projects
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/Projects'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a project
+      operationId: createProjects
+      tags:
+        - projects
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /projects/{projectId}:
+    get:
+      summary: Info for a specific project
+      operationId: showProjectById
+      tags:
+        - projects
+      parameters:
+        - name: projectId
+          in: path
+          required: true
+          description: The id of the project to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/Projects'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /paimentCoupons:
+    get:
+      summary: List all paimentCoupons
+      operationId: listPaimentCoupons
+      tags:
+        - paimentCoupons
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of paimentCoupons
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/PaimentCoupons'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a paimentCoupon
+      operationId: createPaimentCoupons
+      tags:
+        - paimentCoupons
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /paimentCoupons/{paimentCouponId}:
+    get:
+      summary: Info for a specific paimentCoupon
+      operationId: showPaimentCouponById
+      tags:
+        - paimentCoupons
+      parameters:
+        - name: paimentCouponId
+          in: path
+          required: true
+          description: The id of the paimentCoupon to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/PaimentCoupons'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /blogs:
+    get:
+      summary: List all blogs
+      operationId: listBlogs
+      tags:
+        - blogs
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of blogs
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/Blogs'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a blog
+      operationId: createBlogs
+      tags:
+        - blogs
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /blogs/{blogId}:
+    get:
+      summary: Info for a specific blog
+      operationId: showBlogById
+      tags:
+        - blogs
+      parameters:
+        - name: blogId
+          in: path
+          required: true
+          description: The id of the blog to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/Blogs'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /inscriptionCollaboratorStates:
+    get:
+      summary: List all inscriptionCollaboratorStates
+      operationId: listInscriptionCollaboratorStates
+      tags:
+        - inscriptionCollaboratorStates
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of inscriptionCollaboratorStates
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/InscriptionCollaboratorStates'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a inscriptionCollaboratorState
+      operationId: createInscriptionCollaboratorStates
+      tags:
+        - inscriptionCollaboratorStates
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /inscriptionCollaboratorStates/{inscriptionCollaboratorStateId}:
+    get:
+      summary: Info for a specific inscriptionCollaboratorState
+      operationId: showInscriptionCollaboratorStateById
+      tags:
+        - inscriptionCollaboratorStates
+      parameters:
+        - name: inscriptionCollaboratorStateId
+          in: path
+          required: true
+          description: The id of the inscriptionCollaboratorState to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/InscriptionCollaboratorStates'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /paimentCollaboratorStates:
+    get:
+      summary: List all paimentCollaboratorStates
+      operationId: listPaimentCollaboratorStates
+      tags:
+        - paimentCollaboratorStates
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of paimentCollaboratorStates
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/PaimentCollaboratorStates'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a paimentCollaboratorState
+      operationId: createPaimentCollaboratorStates
+      tags:
+        - paimentCollaboratorStates
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /paimentCollaboratorStates/{paimentCollaboratorStateId}:
+    get:
+      summary: Info for a specific paimentCollaboratorState
+      operationId: showPaimentCollaboratorStateById
+      tags:
+        - paimentCollaboratorStates
+      parameters:
+        - name: paimentCollaboratorStateId
+          in: path
+          required: true
+          description: The id of the paimentCollaboratorState to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/PaimentCollaboratorStates'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /remoteRepoTypes:
+    get:
+      summary: List all remoteRepoTypes
+      operationId: listRemoteRepoTypes
+      tags:
+        - remoteRepoTypes
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of remoteRepoTypes
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/RemoteRepoTypes'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a remoteRepoType
+      operationId: createRemoteRepoTypes
+      tags:
+        - remoteRepoTypes
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /remoteRepoTypes/{remoteRepoTypeId}:
+    get:
+      summary: Info for a specific remoteRepoType
+      operationId: showRemoteRepoTypeById
+      tags:
+        - remoteRepoTypes
+      parameters:
+        - name: remoteRepoTypeId
+          in: path
+          required: true
+          description: The id of the remoteRepoType to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/RemoteRepoTypes'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /influencers:
+    get:
+      summary: List all influencers
+      operationId: listInfluencers
+      tags:
+        - influencers
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of influencers
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/Influencers'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a influencer
+      operationId: createInfluencers
+      tags:
+        - influencers
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /influencers/{influencerId}:
+    get:
+      summary: Info for a specific influencer
+      operationId: showInfluencerById
+      tags:
+        - influencers
+      parameters:
+        - name: influencerId
+          in: path
+          required: true
+          description: The id of the influencer to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/Influencers'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /paimentCouponStates:
+    get:
+      summary: List all paimentCouponStates
+      operationId: listPaimentCouponStates
+      tags:
+        - paimentCouponStates
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of paimentCouponStates
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/PaimentCouponStates'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a paimentCouponState
+      operationId: createPaimentCouponStates
+      tags:
+        - paimentCouponStates
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /paimentCouponStates/{paimentCouponStateId}:
+    get:
+      summary: Info for a specific paimentCouponState
+      operationId: showPaimentCouponStateById
+      tags:
+        - paimentCouponStates
+      parameters:
+        - name: paimentCouponStateId
+          in: path
+          required: true
+          description: The id of the paimentCouponState to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/PaimentCouponStates'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /forumStates:
+    get:
+      summary: List all forumStates
+      operationId: listForumStates
+      tags:
+        - forumStates
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of forumStates
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/ForumStates'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a forumState
+      operationId: createForumStates
+      tags:
+        - forumStates
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /forumStates/{forumStateId}:
+    get:
+      summary: Info for a specific forumState
+      operationId: showForumStateById
+      tags:
+        - forumStates
+      parameters:
+        - name: forumStateId
+          in: path
+          required: true
+          description: The id of the forumState to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/ForumStates'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /projectTechnologys:
+    get:
+      summary: List all projectTechnologys
+      operationId: listProjectTechnologys
+      tags:
+        - projectTechnologys
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of projectTechnologys
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/ProjectTechnologys'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a projectTechnology
+      operationId: createProjectTechnologys
+      tags:
+        - projectTechnologys
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /projectTechnologys/{projectTechnologyId}:
+    get:
+      summary: Info for a specific projectTechnology
+      operationId: showProjectTechnologyById
+      tags:
+        - projectTechnologys
+      parameters:
+        - name: projectTechnologyId
+          in: path
+          required: true
+          description: The id of the projectTechnology to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/ProjectTechnologys'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /yamlFiles:
+    get:
+      summary: List all yamlFiles
+      operationId: listYamlFiles
+      tags:
+        - yamlFiles
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of yamlFiles
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/YamlFiles'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a yamlFile
+      operationId: createYamlFiles
+      tags:
+        - yamlFiles
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /yamlFiles/{yamlFileId}:
+    get:
+      summary: Info for a specific yamlFile
+      operationId: showYamlFileById
+      tags:
+        - yamlFiles
+      parameters:
+        - name: yamlFileId
+          in: path
+          required: true
+          description: The id of the yamlFile to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/YamlFiles'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /agents:
+    get:
+      summary: List all agents
+      operationId: listAgents
+      tags:
+        - agents
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of agents
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/Agents'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a agent
+      operationId: createAgents
+      tags:
+        - agents
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /agents/{agentId}:
+    get:
+      summary: Info for a specific agent
+      operationId: showAgentById
+      tags:
+        - agents
+      parameters:
+        - name: agentId
+          in: path
+          required: true
+          description: The id of the agent to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/Agents'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /citys:
+    get:
+      summary: List all citys
+      operationId: listCitys
+      tags:
+        - citys
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of citys
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/Citys'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a city
+      operationId: createCitys
+      tags:
+        - citys
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /citys/{cityId}:
+    get:
+      summary: Info for a specific city
+      operationId: showCityById
+      tags:
+        - citys
+      parameters:
+        - name: cityId
+          in: path
+          required: true
+          description: The id of the city to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/Citys'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /packagingPlans:
+    get:
+      summary: List all packagingPlans
+      operationId: listPackagingPlans
+      tags:
+        - packagingPlans
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of packagingPlans
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/PackagingPlans'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a packagingPlan
+      operationId: createPackagingPlans
+      tags:
+        - packagingPlans
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /packagingPlans/{packagingPlanId}:
+    get:
+      summary: Info for a specific packagingPlan
+      operationId: showPackagingPlanById
+      tags:
+        - packagingPlans
+      parameters:
+        - name: packagingPlanId
+          in: path
+          required: true
+          description: The id of the packagingPlan to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/PackagingPlans'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /couponStates:
+    get:
+      summary: List all couponStates
+      operationId: listCouponStates
+      tags:
+        - couponStates
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of couponStates
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/CouponStates'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a couponState
+      operationId: createCouponStates
+      tags:
+        - couponStates
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /couponStates/{couponStateId}:
+    get:
+      summary: Info for a specific couponState
+      operationId: showCouponStateById
+      tags:
+        - couponStates
+      parameters:
+        - name: couponStateId
+          in: path
+          required: true
+          description: The id of the couponState to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/CouponStates'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /custumorSupportConversations:
+    get:
+      summary: List all custumorSupportConversations
+      operationId: listCustumorSupportConversations
+      tags:
+        - custumorSupportConversations
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of custumorSupportConversations
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/CustumorSupportConversations'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a custumorSupportConversation
+      operationId: createCustumorSupportConversations
+      tags:
+        - custumorSupportConversations
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /custumorSupportConversations/{custumorSupportConversationId}:
+    get:
+      summary: Info for a specific custumorSupportConversation
+      operationId: showCustumorSupportConversationById
+      tags:
+        - custumorSupportConversations
+      parameters:
+        - name: custumorSupportConversationId
+          in: path
+          required: true
+          description: The id of the custumorSupportConversation to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/CustumorSupportConversations'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /forums:
+    get:
+      summary: List all forums
+      operationId: listForums
+      tags:
+        - forums
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of forums
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/Forums'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a forum
+      operationId: createForums
+      tags:
+        - forums
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /forums/{forumId}:
+    get:
+      summary: Info for a specific forum
+      operationId: showForumById
+      tags:
+        - forums
+      parameters:
+        - name: forumId
+          in: path
+          required: true
+          description: The id of the forum to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/Forums'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /offreCloudProviders:
+    get:
+      summary: List all offreCloudProviders
+      operationId: listOffreCloudProviders
+      tags:
+        - offreCloudProviders
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of offreCloudProviders
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/OffreCloudProviders'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a offreCloudProvider
+      operationId: createOffreCloudProviders
+      tags:
+        - offreCloudProviders
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /offreCloudProviders/{offreCloudProviderId}:
+    get:
+      summary: Info for a specific offreCloudProvider
+      operationId: showOffreCloudProviderById
+      tags:
+        - offreCloudProviders
+      parameters:
+        - name: offreCloudProviderId
+          in: path
+          required: true
+          description: The id of the offreCloudProvider to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/OffreCloudProviders'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /paimentCollaborators:
+    get:
+      summary: List all paimentCollaborators
+      operationId: listPaimentCollaborators
+      tags:
+        - paimentCollaborators
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of paimentCollaborators
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/PaimentCollaborators'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a paimentCollaborator
+      operationId: createPaimentCollaborators
+      tags:
+        - paimentCollaborators
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /paimentCollaborators/{paimentCollaboratorId}:
+    get:
+      summary: Info for a specific paimentCollaborator
+      operationId: showPaimentCollaboratorById
+      tags:
+        - paimentCollaborators
+      parameters:
+        - name: paimentCollaboratorId
+          in: path
+          required: true
+          description: The id of the paimentCollaborator to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/PaimentCollaborators'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /projectTechnologyProfiles:
+    get:
+      summary: List all projectTechnologyProfiles
+      operationId: listProjectTechnologyProfiles
+      tags:
+        - projectTechnologyProfiles
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of projectTechnologyProfiles
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/ProjectTechnologyProfiles'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a projectTechnologyProfile
+      operationId: createProjectTechnologyProfiles
+      tags:
+        - projectTechnologyProfiles
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /projectTechnologyProfiles/{projectTechnologyProfileId}:
+    get:
+      summary: Info for a specific projectTechnologyProfile
+      operationId: showProjectTechnologyProfileById
+      tags:
+        - projectTechnologyProfiles
+      parameters:
+        - name: projectTechnologyProfileId
+          in: path
+          required: true
+          description: The id of the projectTechnologyProfile to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/ProjectTechnologyProfiles'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /cloudProviders:
+    get:
+      summary: List all cloudProviders
+      operationId: listCloudProviders
+      tags:
+        - cloudProviders
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of cloudProviders
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/CloudProviders'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a cloudProvider
+      operationId: createCloudProviders
+      tags:
+        - cloudProviders
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /cloudProviders/{cloudProviderId}:
+    get:
+      summary: Info for a specific cloudProvider
+      operationId: showCloudProviderById
+      tags:
+        - cloudProviders
+      parameters:
+        - name: cloudProviderId
+          in: path
+          required: true
+          description: The id of the cloudProvider to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/CloudProviders'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /blogSubjects:
+    get:
+      summary: List all blogSubjects
+      operationId: listBlogSubjects
+      tags:
+        - blogSubjects
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of blogSubjects
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/BlogSubjects'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a blogSubject
+      operationId: createBlogSubjects
+      tags:
+        - blogSubjects
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /blogSubjects/{blogSubjectId}:
+    get:
+      summary: Info for a specific blogSubject
+      operationId: showBlogSubjectById
+      tags:
+        - blogSubjects
+      parameters:
+        - name: blogSubjectId
+          in: path
+          required: true
+          description: The id of the blogSubject to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/BlogSubjects'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /contactUsCategorys:
+    get:
+      summary: List all contactUsCategorys
+      operationId: listContactUsCategorys
+      tags:
+        - contactUsCategorys
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of contactUsCategorys
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/ContactUsCategorys'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a contactUsCategory
+      operationId: createContactUsCategorys
+      tags:
+        - contactUsCategorys
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /contactUsCategorys/{contactUsCategoryId}:
+    get:
+      summary: Info for a specific contactUsCategory
+      operationId: showContactUsCategoryById
+      tags:
+        - contactUsCategorys
+      parameters:
+        - name: contactUsCategoryId
+          in: path
+          required: true
+          description: The id of the contactUsCategory to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/ContactUsCategorys'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /blogComments:
+    get:
+      summary: List all blogComments
+      operationId: listBlogComments
+      tags:
+        - blogComments
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of blogComments
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/BlogComments'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a blogComment
+      operationId: createBlogComments
+      tags:
+        - blogComments
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /blogComments/{blogCommentId}:
+    get:
+      summary: Info for a specific blogComment
+      operationId: showBlogCommentById
+      tags:
+        - blogComments
+      parameters:
+        - name: blogCommentId
+          in: path
+          required: true
+          description: The id of the blogComment to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/BlogComments'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /inscriptionCollaborators:
+    get:
+      summary: List all inscriptionCollaborators
+      operationId: listInscriptionCollaborators
+      tags:
+        - inscriptionCollaborators
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of inscriptionCollaborators
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/InscriptionCollaborators'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a inscriptionCollaborator
+      operationId: createInscriptionCollaborators
+      tags:
+        - inscriptionCollaborators
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /inscriptionCollaborators/{inscriptionCollaboratorId}:
+    get:
+      summary: Info for a specific inscriptionCollaborator
+      operationId: showInscriptionCollaboratorById
+      tags:
+        - inscriptionCollaborators
+      parameters:
+        - name: inscriptionCollaboratorId
+          in: path
+          required: true
+          description: The id of the inscriptionCollaborator to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/InscriptionCollaborators'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /contactUsStates:
+    get:
+      summary: List all contactUsStates
+      operationId: listContactUsStates
+      tags:
+        - contactUsStates
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of contactUsStates
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/ContactUsStates'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a contactUsState
+      operationId: createContactUsStates
+      tags:
+        - contactUsStates
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /contactUsStates/{contactUsStateId}:
+    get:
+      summary: Info for a specific contactUsState
+      operationId: showContactUsStateById
+      tags:
+        - contactUsStates
+      parameters:
+        - name: contactUsStateId
+          in: path
+          required: true
+          description: The id of the contactUsState to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/ContactUsStates'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /forumSubjects:
+    get:
+      summary: List all forumSubjects
+      operationId: listForumSubjects
+      tags:
+        - forumSubjects
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of forumSubjects
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/ForumSubjects'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a forumSubject
+      operationId: createForumSubjects
+      tags:
+        - forumSubjects
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /forumSubjects/{forumSubjectId}:
+    get:
+      summary: Info for a specific forumSubject
+      operationId: showForumSubjectById
+      tags:
+        - forumSubjects
+      parameters:
+        - name: forumSubjectId
+          in: path
+          required: true
+          description: The id of the forumSubject to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/ForumSubjects'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /projectTechnologyTypes:
+    get:
+      summary: List all projectTechnologyTypes
+      operationId: listProjectTechnologyTypes
+      tags:
+        - projectTechnologyTypes
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of projectTechnologyTypes
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/ProjectTechnologyTypes'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a projectTechnologyType
+      operationId: createProjectTechnologyTypes
+      tags:
+        - projectTechnologyTypes
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /projectTechnologyTypes/{projectTechnologyTypeId}:
+    get:
+      summary: Info for a specific projectTechnologyType
+      operationId: showProjectTechnologyTypeById
+      tags:
+        - projectTechnologyTypes
+      parameters:
+        - name: projectTechnologyTypeId
+          in: path
+          required: true
+          description: The id of the projectTechnologyType to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/ProjectTechnologyTypes'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /custumorSupportConversationCategorys:
+    get:
+      summary: List all custumorSupportConversationCategorys
+      operationId: listCustumorSupportConversationCategorys
+      tags:
+        - custumorSupportConversationCategorys
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of custumorSupportConversationCategorys
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/CustumorSupportConversationCategorys'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a custumorSupportConversationCategory
+      operationId: createCustumorSupportConversationCategorys
+      tags:
+        - custumorSupportConversationCategorys
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /custumorSupportConversationCategorys/{custumorSupportConversationCategoryId}:
+    get:
+      summary: Info for a specific custumorSupportConversationCategory
+      operationId: showCustumorSupportConversationCategoryById
+      tags:
+        - custumorSupportConversationCategorys
+      parameters:
+        - name: custumorSupportConversationCategoryId
+          in: path
+          required: true
+          description: The id of the custumorSupportConversationCategory to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/CustumorSupportConversationCategorys'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /coupons:
+    get:
+      summary: List all coupons
+      operationId: listCoupons
+      tags:
+        - coupons
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of coupons
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/Coupons'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a coupon
+      operationId: createCoupons
+      tags:
+        - coupons
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /coupons/{couponId}:
+    get:
+      summary: Info for a specific coupon
+      operationId: showCouponById
+      tags:
+        - coupons
+      parameters:
+        - name: couponId
+          in: path
+          required: true
+          description: The id of the coupon to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/Coupons'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /packagings:
+    get:
+      summary: List all packagings
+      operationId: listPackagings
+      tags:
+        - packagings
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of packagings
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/Packagings'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a packaging
+      operationId: createPackagings
+      tags:
+        - packagings
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /packagings/{packagingId}:
+    get:
+      summary: Info for a specific packaging
+      operationId: showPackagingById
+      tags:
+        - packagings
+      parameters:
+        - name: packagingId
+          in: path
+          required: true
+          description: The id of the packaging to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/Packagings'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /custumorSupportConversationStates:
+    get:
+      summary: List all custumorSupportConversationStates
+      operationId: listCustumorSupportConversationStates
+      tags:
+        - custumorSupportConversationStates
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of custumorSupportConversationStates
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/CustumorSupportConversationStates'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a custumorSupportConversationState
+      operationId: createCustumorSupportConversationStates
+      tags:
+        - custumorSupportConversationStates
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /custumorSupportConversationStates/{custumorSupportConversationStateId}:
+    get:
+      summary: Info for a specific custumorSupportConversationState
+      operationId: showCustumorSupportConversationStateById
+      tags:
+        - custumorSupportConversationStates
+      parameters:
+        - name: custumorSupportConversationStateId
+          in: path
+          required: true
+          description: The id of the custumorSupportConversationState to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/CustumorSupportConversationStates'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /blogStates:
+    get:
+      summary: List all blogStates
+      operationId: listBlogStates
+      tags:
+        - blogStates
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of blogStates
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/BlogStates'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a blogState
+      operationId: createBlogStates
+      tags:
+        - blogStates
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /blogStates/{blogStateId}:
+    get:
+      summary: Info for a specific blogState
+      operationId: showBlogStateById
+      tags:
+        - blogStates
+      parameters:
+        - name: blogStateId
+          in: path
+          required: true
+          description: The id of the blogState to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/BlogStates'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /packagingDetailGroups:
+    get:
+      summary: List all packagingDetailGroups
+      operationId: listPackagingDetailGroups
+      tags:
+        - packagingDetailGroups
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of packagingDetailGroups
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/PackagingDetailGroups'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a packagingDetailGroup
+      operationId: createPackagingDetailGroups
+      tags:
+        - packagingDetailGroups
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /packagingDetailGroups/{packagingDetailGroupId}:
+    get:
+      summary: Info for a specific packagingDetailGroup
+      operationId: showPackagingDetailGroupById
+      tags:
+        - packagingDetailGroups
+      parameters:
+        - name: packagingDetailGroupId
+          in: path
+          required: true
+          description: The id of the packagingDetailGroup to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/PackagingDetailGroups'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /conversations:
+    get:
+      summary: List all conversations
+      operationId: listConversations
+      tags:
+        - conversations
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of conversations
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/Conversations'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a conversation
+      operationId: createConversations
+      tags:
+        - conversations
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /conversations/{conversationId}:
+    get:
+      summary: Info for a specific conversation
+      operationId: showConversationById
+      tags:
+        - conversations
+      parameters:
+        - name: conversationId
+          in: path
+          required: true
+          description: The id of the conversation to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/Conversations'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /custumorSupportConversationMessages:
+    get:
+      summary: List all custumorSupportConversationMessages
+      operationId: listCustumorSupportConversationMessages
+      tags:
+        - custumorSupportConversationMessages
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of custumorSupportConversationMessages
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/CustumorSupportConversationMessages'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a custumorSupportConversationMessage
+      operationId: createCustumorSupportConversationMessages
+      tags:
+        - custumorSupportConversationMessages
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /custumorSupportConversationMessages/{custumorSupportConversationMessageId}:
+    get:
+      summary: Info for a specific custumorSupportConversationMessage
+      operationId: showCustumorSupportConversationMessageById
+      tags:
+        - custumorSupportConversationMessages
+      parameters:
+        - name: custumorSupportConversationMessageId
+          in: path
+          required: true
+          description: The id of the custumorSupportConversationMessage to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/CustumorSupportConversationMessages'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /collaborators:
+    get:
+      summary: List all collaborators
+      operationId: listCollaborators
+      tags:
+        - collaborators
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of collaborators
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/Collaborators'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a collaborator
+      operationId: createCollaborators
+      tags:
+        - collaborators
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /collaborators/{collaboratorId}:
+    get:
+      summary: Info for a specific collaborator
+      operationId: showCollaboratorById
+      tags:
+        - collaborators
+      parameters:
+        - name: collaboratorId
+          in: path
+          required: true
+          description: The id of the collaborator to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/Collaborators'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /paimentCollaboratorTypes:
+    get:
+      summary: List all paimentCollaboratorTypes
+      operationId: listPaimentCollaboratorTypes
+      tags:
+        - paimentCollaboratorTypes
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of paimentCollaboratorTypes
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/PaimentCollaboratorTypes'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a paimentCollaboratorType
+      operationId: createPaimentCollaboratorTypes
+      tags:
+        - paimentCollaboratorTypes
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /paimentCollaboratorTypes/{paimentCollaboratorTypeId}:
+    get:
+      summary: Info for a specific paimentCollaboratorType
+      operationId: showPaimentCollaboratorTypeById
+      tags:
+        - paimentCollaboratorTypes
+      parameters:
+        - name: paimentCollaboratorTypeId
+          in: path
+          required: true
+          description: The id of the paimentCollaboratorType to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/PaimentCollaboratorTypes'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /forumComments:
+    get:
+      summary: List all forumComments
+      operationId: listForumComments
+      tags:
+        - forumComments
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of forumComments
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/ForumComments'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a forumComment
+      operationId: createForumComments
+      tags:
+        - forumComments
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /forumComments/{forumCommentId}:
+    get:
+      summary: Info for a specific forumComment
+      operationId: showForumCommentById
+      tags:
+        - forumComments
+      parameters:
+        - name: forumCommentId
+          in: path
+          required: true
+          description: The id of the forumComment to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/ForumComments'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /projectDetails:
+    get:
+      summary: List all projectDetails
+      operationId: listProjectDetails
+      tags:
+        - projectDetails
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of projectDetails
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/ProjectDetails'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a projectDetail
+      operationId: createProjectDetails
+      tags:
+        - projectDetails
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /projectDetails/{projectDetailId}:
+    get:
+      summary: Info for a specific projectDetail
+      operationId: showProjectDetailById
+      tags:
+        - projectDetails
+      parameters:
+        - name: projectDetailId
+          in: path
+          required: true
+          description: The id of the projectDetail to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/ProjectDetails'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /packagingDetails:
+    get:
+      summary: List all packagingDetails
+      operationId: listPackagingDetails
+      tags:
+        - packagingDetails
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of packagingDetails
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/PackagingDetails'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a packagingDetail
+      operationId: createPackagingDetails
+      tags:
+        - packagingDetails
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /packagingDetails/{packagingDetailId}:
+    get:
+      summary: Info for a specific packagingDetail
+      operationId: showPackagingDetailById
+      tags:
+        - packagingDetails
+      parameters:
+        - name: packagingDetailId
+          in: path
+          required: true
+          description: The id of the packagingDetail to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/PackagingDetails'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /countrys:
+    get:
+      summary: List all countrys
+      operationId: listCountrys
+      tags:
+        - countrys
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of countrys
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/Countrys'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a country
+      operationId: createCountrys
+      tags:
+        - countrys
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /countrys/{countryId}:
+    get:
+      summary: Info for a specific country
+      operationId: showCountryById
+      tags:
+        - countrys
+      parameters:
+        - name: countryId
+          in: path
+          required: true
+          description: The id of the country to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/Countrys'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /contactUss:
+    get:
+      summary: List all contactUss
+      operationId: listContactUss
+      tags:
+        - contactUss
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of contactUss
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/ContactUss'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a contactUs
+      operationId: createContactUss
+      tags:
+        - contactUss
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /contactUss/{contactUsId}:
+    get:
+      summary: Info for a specific contactUs
+      operationId: showContactUsById
+      tags:
+        - contactUss
+      parameters:
+        - name: contactUsId
+          in: path
+          required: true
+          description: The id of the contactUs to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/ContactUss'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /remoteRepoInfos:
+    get:
+      summary: List all remoteRepoInfos
+      operationId: listRemoteRepoInfos
+      tags:
+        - remoteRepoInfos
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of remoteRepoInfos
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/RemoteRepoInfos'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a remoteRepoInfo
+      operationId: createRemoteRepoInfos
+      tags:
+        - remoteRepoInfos
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /remoteRepoInfos/{remoteRepoInfoId}:
+    get:
+      summary: Info for a specific remoteRepoInfo
+      operationId: showRemoteRepoInfoById
+      tags:
+        - remoteRepoInfos
+      parameters:
+        - name: remoteRepoInfoId
+          in: path
+          required: true
+          description: The id of the remoteRepoInfo to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/RemoteRepoInfos'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  
+
+
+definitions:
+  Project:
+    type: "object"
+    required:
+      - id
+      - title
+      - titleChat
+      - generatedDate
+      - chatDateStart
+      - microService
+      - microFront
+    properties:
+      id:
+        type: int
+      title:
+        type: string
+      titleChat:
+        type: string
+      generatedDate:
+        type: date
+      chatDateStart:
+        type: date
+      microService:
+        type: boolean
+      microFront:
+        type: boolean
+  Projects:
+    type: array
+    items:
+      $ref: '#/definitions/Project'
+  PaimentCoupon:
+    type: "object"
+    required:
+      - id
+      - description
+      - total
+      - paiementDate
+      - paiementDateConfirmation
+    properties:
+      id:
+        type: int
+      description:
+        type: string
+      total:
+        type: number
+      paiementDate:
+        type: date
+      paiementDateConfirmation:
+        type: date
+  PaimentCoupons:
+    type: array
+    items:
+      $ref: '#/definitions/PaimentCoupon'
+  Blog:
+    type: "object"
+    required:
+      - id
+      - content
+      - creationDate
+      - publicationDate
+      - title
+      - likes
+      - comments
+      - description
+    properties:
+      id:
+        type: int
+      content:
+        type: string
+      creationDate:
+        type: date
+      publicationDate:
+        type: date
+      title:
+        type: string
+      likes:
+        type: number
+      comments:
+        type: number
+      description:
+        type: string
+  Blogs:
+    type: array
+    items:
+      $ref: '#/definitions/Blog'
+  InscriptionCollaboratorState:
+    type: "object"
+    required:
+      - id
+      - code
+      - libelle
+    properties:
+      id:
+        type: int
+      code:
+        type: string
+      libelle:
+        type: string
+  InscriptionCollaboratorStates:
+    type: array
+    items:
+      $ref: '#/definitions/InscriptionCollaboratorState'
+  PaimentCollaboratorState:
+    type: "object"
+    required:
+      - id
+      - code
+      - libelle
+    properties:
+      id:
+        type: int
+      code:
+        type: string
+      libelle:
+        type: string
+  PaimentCollaboratorStates:
+    type: array
+    items:
+      $ref: '#/definitions/PaimentCollaboratorState'
+  RemoteRepoType:
+    type: "object"
+    required:
+      - id
+      - code
+      - libelle
+    properties:
+      id:
+        type: int
+      code:
+        type: string
+      libelle:
+        type: string
+  RemoteRepoTypes:
+    type: array
+    items:
+      $ref: '#/definitions/RemoteRepoType'
+  Influencer:
+    type: "object"
+    required:
+      - id
+      - description
+      - credentialsNonExpired
+      - enabled
+      - accountNonExpired
+      - accountNonLocked
+      - passwordChanged
+      - username
+      - password
+      - avatar
+      - fullName
+      - about
+    properties:
+      id:
+        type: int
+      description:
+        type: string
+      credentialsNonExpired:
+        type: boolean
+      enabled:
+        type: boolean
+      accountNonExpired:
+        type: boolean
+      accountNonLocked:
+        type: boolean
+      passwordChanged:
+        type: boolean
+      username:
+        type: string
+      password:
+        type: string
+      avatar:
+        type: string
+      fullName:
+        type: string
+      about:
+        type: string
+  Influencers:
+    type: array
+    items:
+      $ref: '#/definitions/Influencer'
+  PaimentCouponState:
+    type: "object"
+    required:
+      - id
+      - code
+      - libelle
+    properties:
+      id:
+        type: int
+      code:
+        type: string
+      libelle:
+        type: string
+  PaimentCouponStates:
+    type: array
+    items:
+      $ref: '#/definitions/PaimentCouponState'
+  ForumState:
+    type: "object"
+    required:
+      - id
+      - code
+      - libelle
+    properties:
+      id:
+        type: int
+      code:
+        type: string
+      libelle:
+        type: string
+  ForumStates:
+    type: array
+    items:
+      $ref: '#/definitions/ForumState'
+  ProjectTechnology:
+    type: "object"
+    required:
+      - id
+      - code
+      - libelle
+      - defaultDbName
+      - defaultUserName
+      - defaultUserPassword
+      - defaultPort
+      - defaultBasePackage
+    properties:
+      id:
+        type: int
+      code:
+        type: string
+      libelle:
+        type: string
+      defaultDbName:
+        type: string
+      defaultUserName:
+        type: string
+      defaultUserPassword:
+        type: string
+      defaultPort:
+        type: string
+      defaultBasePackage:
+        type: string
+  ProjectTechnologys:
+    type: array
+    items:
+      $ref: '#/definitions/ProjectTechnology'
+  YamlFile:
+    type: "object"
+    required:
+      - id
+      - title
+      - content
+    properties:
+      id:
+        type: int
+      title:
+        type: string
+      content:
+        type: string
+  YamlFiles:
+    type: array
+    items:
+      $ref: '#/definitions/YamlFile'
+  Agent:
+    type: "object"
+    required:
+      - id
+      - description
+      - credentialsNonExpired
+      - enabled
+      - accountNonExpired
+      - accountNonLocked
+      - passwordChanged
+      - username
+      - password
+      - avatar
+      - fullName
+      - about
+    properties:
+      id:
+        type: int
+      description:
+        type: string
+      credentialsNonExpired:
+        type: boolean
+      enabled:
+        type: boolean
+      accountNonExpired:
+        type: boolean
+      accountNonLocked:
+        type: boolean
+      passwordChanged:
+        type: boolean
+      username:
+        type: string
+      password:
+        type: string
+      avatar:
+        type: string
+      fullName:
+        type: string
+      about:
+        type: string
+  Agents:
+    type: array
+    items:
+      $ref: '#/definitions/Agent'
+  City:
+    type: "object"
+    required:
+      - id
+      - code
+      - libelle
+    properties:
+      id:
+        type: int
+      code:
+        type: string
+      libelle:
+        type: string
+  Citys:
+    type: array
+    items:
+      $ref: '#/definitions/City'
+  PackagingPlan:
+    type: "object"
+    required:
+      - id
+      - name
+      - code
+      - numberOfMonth
+      - price
+      - description
+      - maxEntity
+      - maxProjet
+      - maxAttribut
+      - maxTokenInput
+      - maxTokenOutput
+    properties:
+      id:
+        type: int
+      name:
+        type: string
+      code:
+        type: string
+      numberOfMonth:
+        type: int
+      price:
+        type: number
+      description:
+        type: string
+      maxEntity:
+        type: number
+      maxProjet:
+        type: number
+      maxAttribut:
+        type: number
+      maxTokenInput:
+        type: number
+      maxTokenOutput:
+        type: number
+  PackagingPlans:
+    type: array
+    items:
+      $ref: '#/definitions/PackagingPlan'
+  CouponState:
+    type: "object"
+    required:
+      - id
+      - code
+      - libelle
+    properties:
+      id:
+        type: int
+      code:
+        type: string
+      libelle:
+        type: string
+  CouponStates:
+    type: array
+    items:
+      $ref: '#/definitions/CouponState'
+  CustumorSupportConversation:
+    type: "object"
+    required:
+      - id
+      - object
+      - ratting
+      - creationDate
+      - closingDate
+      - description
+    properties:
+      id:
+        type: int
+      object:
+        type: string
+      ratting:
+        type: number
+      creationDate:
+        type: date
+      closingDate:
+        type: date
+      description:
+        type: string
+  CustumorSupportConversations:
+    type: array
+    items:
+      $ref: '#/definitions/CustumorSupportConversation'
+  Forum:
+    type: "object"
+    required:
+      - id
+      - content
+      - creationDate
+      - publicationDate
+      - title
+      - likes
+      - comments
+      - description
+    properties:
+      id:
+        type: int
+      content:
+        type: string
+      creationDate:
+        type: date
+      publicationDate:
+        type: date
+      title:
+        type: string
+      likes:
+        type: number
+      comments:
+        type: number
+      description:
+        type: string
+  Forums:
+    type: array
+    items:
+      $ref: '#/definitions/Forum'
+  OffreCloudProvider:
+    type: "object"
+    required:
+      - id
+      - code
+      - libelle
+      - description
+      - price
+    properties:
+      id:
+        type: int
+      code:
+        type: string
+      libelle:
+        type: string
+      description:
+        type: string
+      price:
+        type: number
+  OffreCloudProviders:
+    type: array
+    items:
+      $ref: '#/definitions/OffreCloudProvider'
+  PaimentCollaborator:
+    type: "object"
+    required:
+      - id
+      - cardHolder
+      - cardNumber
+      - expirationDate
+      - cvc
+      - postal
+      - description
+      - amountToPaid
+      - startDate
+      - endDate
+      - consumedEntity
+      - consumedProjet
+      - consumedAttribut
+      - consumedTokenInput
+      - consumedTokenOutput
+      - total
+      - basic
+      - discount
+      - remaining
+      - priceCloud
+      - paiementDate
+      - deployAndTestOnLine
+    properties:
+      id:
+        type: int
+      cardHolder:
+        type: string
+      cardNumber:
+        type: string
+      expirationDate:
+        type: string
+      cvc:
+        type: string
+      postal:
+        type: string
+      description:
+        type: string
+      amountToPaid:
+        type: number
+      startDate:
+        type: date
+      endDate:
+        type: date
+      consumedEntity:
+        type: number
+      consumedProjet:
+        type: number
+      consumedAttribut:
+        type: number
+      consumedTokenInput:
+        type: number
+      consumedTokenOutput:
+        type: number
+      total:
+        type: number
+      basic:
+        type: number
+      discount:
+        type: number
+      remaining:
+        type: number
+      priceCloud:
+        type: number
+      paiementDate:
+        type: date
+      deployAndTestOnLine:
+        type: boolean
+  PaimentCollaborators:
+    type: array
+    items:
+      $ref: '#/definitions/PaimentCollaborator'
+  ProjectTechnologyProfile:
+    type: "object"
+    required:
+      - id
+      - code
+      - libelle
+    properties:
+      id:
+        type: int
+      code:
+        type: string
+      libelle:
+        type: string
+  ProjectTechnologyProfiles:
+    type: array
+    items:
+      $ref: '#/definitions/ProjectTechnologyProfile'
+  CloudProvider:
+    type: "object"
+    required:
+      - id
+      - code
+      - libelle
+    properties:
+      id:
+        type: int
+      code:
+        type: string
+      libelle:
+        type: string
+  CloudProviders:
+    type: array
+    items:
+      $ref: '#/definitions/CloudProvider'
+  BlogSubject:
+    type: "object"
+    required:
+      - id
+      - code
+      - libelle
+    properties:
+      id:
+        type: int
+      code:
+        type: string
+      libelle:
+        type: string
+  BlogSubjects:
+    type: array
+    items:
+      $ref: '#/definitions/BlogSubject'
+  ContactUsCategory:
+    type: "object"
+    required:
+      - id
+      - code
+      - libelle
+    properties:
+      id:
+        type: int
+      code:
+        type: string
+      libelle:
+        type: string
+  ContactUsCategorys:
+    type: array
+    items:
+      $ref: '#/definitions/ContactUsCategory'
+  BlogComment:
+    type: "object"
+    required:
+      - id
+      - creationDate
+      - content
+    properties:
+      id:
+        type: int
+      creationDate:
+        type: date
+      content:
+        type: string
+  BlogComments:
+    type: array
+    items:
+      $ref: '#/definitions/BlogComment'
+  InscriptionCollaborator:
+    type: "object"
+    required:
+      - id
+      - description
+      - startDate
+      - endDate
+      - consumedEntity
+      - consumedProjet
+      - consumedAttribut
+      - consumedTokenInput
+      - consumedTokenOutput
+    properties:
+      id:
+        type: int
+      description:
+        type: string
+      startDate:
+        type: date
+      endDate:
+        type: date
+      consumedEntity:
+        type: number
+      consumedProjet:
+        type: number
+      consumedAttribut:
+        type: number
+      consumedTokenInput:
+        type: number
+      consumedTokenOutput:
+        type: number
+  InscriptionCollaborators:
+    type: array
+    items:
+      $ref: '#/definitions/InscriptionCollaborator'
+  ContactUsState:
+    type: "object"
+    required:
+      - id
+      - code
+      - libelle
+    properties:
+      id:
+        type: int
+      code:
+        type: string
+      libelle:
+        type: string
+  ContactUsStates:
+    type: array
+    items:
+      $ref: '#/definitions/ContactUsState'
+  ForumSubject:
+    type: "object"
+    required:
+      - id
+      - code
+      - libelle
+    properties:
+      id:
+        type: int
+      code:
+        type: string
+      libelle:
+        type: string
+  ForumSubjects:
+    type: array
+    items:
+      $ref: '#/definitions/ForumSubject'
+  ProjectTechnologyType:
+    type: "object"
+    required:
+      - id
+      - code
+      - libelle
+    properties:
+      id:
+        type: int
+      code:
+        type: string
+      libelle:
+        type: string
+  ProjectTechnologyTypes:
+    type: array
+    items:
+      $ref: '#/definitions/ProjectTechnologyType'
+  CustumorSupportConversationCategory:
+    type: "object"
+    required:
+      - id
+      - code
+      - libelle
+    properties:
+      id:
+        type: int
+      code:
+        type: string
+      libelle:
+        type: string
+  CustumorSupportConversationCategorys:
+    type: array
+    items:
+      $ref: '#/definitions/CustumorSupportConversationCategory'
+  Coupon:
+    type: "object"
+    required:
+      - id
+      - code
+      - libelle
+      - discountCollaborator
+      - percentInflucencer
+      - nombreInscriptionMax
+      - nombreCollaboratorInscrit
+    properties:
+      id:
+        type: int
+      code:
+        type: string
+      libelle:
+        type: string
+      discountCollaborator:
+        type: number
+      percentInflucencer:
+        type: number
+      nombreInscriptionMax:
+        type: int
+      nombreCollaboratorInscrit:
+        type: int
+  Coupons:
+    type: array
+    items:
+      $ref: '#/definitions/Coupon'
+  Packaging:
+    type: "object"
+    required:
+      - id
+      - name
+      - code
+      - description
+      - price
+      - maxEntity
+      - maxProjet
+      - maxAttribut
+      - maxTokenInput
+      - maxTokenOutput
+    properties:
+      id:
+        type: int
+      name:
+        type: string
+      code:
+        type: string
+      description:
+        type: string
+      price:
+        type: number
+      maxEntity:
+        type: number
+      maxProjet:
+        type: number
+      maxAttribut:
+        type: number
+      maxTokenInput:
+        type: number
+      maxTokenOutput:
+        type: number
+  Packagings:
+    type: array
+    items:
+      $ref: '#/definitions/Packaging'
+  CustumorSupportConversationState:
+    type: "object"
+    required:
+      - id
+      - code
+      - libelle
+    properties:
+      id:
+        type: int
+      code:
+        type: string
+      libelle:
+        type: string
+  CustumorSupportConversationStates:
+    type: array
+    items:
+      $ref: '#/definitions/CustumorSupportConversationState'
+  BlogState:
+    type: "object"
+    required:
+      - id
+      - code
+      - libelle
+    properties:
+      id:
+        type: int
+      code:
+        type: string
+      libelle:
+        type: string
+  BlogStates:
+    type: array
+    items:
+      $ref: '#/definitions/BlogState'
+  PackagingDetailGroup:
+    type: "object"
+    required:
+      - id
+      - code
+      - libelle
+      - seeMore
+    properties:
+      id:
+        type: int
+      code:
+        type: string
+      libelle:
+        type: string
+      seeMore:
+        type: boolean
+  PackagingDetailGroups:
+    type: array
+    items:
+      $ref: '#/definitions/PackagingDetailGroup'
+  Conversation:
+    type: "object"
+    required:
+      - id
+      - prompt
+      - response
+    properties:
+      id:
+        type: int
+      prompt:
+        type: string
+      response:
+        type: string
+  Conversations:
+    type: array
+    items:
+      $ref: '#/definitions/Conversation'
+  CustumorSupportConversationMessage:
+    type: "object"
+    required:
+      - id
+      - content
+      - collaborator
+      - creationDate
+    properties:
+      id:
+        type: int
+      content:
+        type: string
+      collaborator:
+        type: boolean
+      creationDate:
+        type: date
+  CustumorSupportConversationMessages:
+    type: array
+    items:
+      $ref: '#/definitions/CustumorSupportConversationMessage'
+  Collaborator:
+    type: "object"
+    required:
+      - id
+      - description
+      - postal
+      - credentialsNonExpired
+      - enabled
+      - accountNonExpired
+      - accountNonLocked
+      - passwordChanged
+      - username
+      - password
+      - avatar
+      - fullName
+      - about
+    properties:
+      id:
+        type: int
+      description:
+        type: string
+      postal:
+        type: string
+      credentialsNonExpired:
+        type: boolean
+      enabled:
+        type: boolean
+      accountNonExpired:
+        type: boolean
+      accountNonLocked:
+        type: boolean
+      passwordChanged:
+        type: boolean
+      username:
+        type: string
+      password:
+        type: string
+      avatar:
+        type: string
+      fullName:
+        type: string
+      about:
+        type: string
+  Collaborators:
+    type: array
+    items:
+      $ref: '#/definitions/Collaborator'
+  PaimentCollaboratorType:
+    type: "object"
+    required:
+      - id
+      - code
+      - libelle
+    properties:
+      id:
+        type: int
+      code:
+        type: string
+      libelle:
+        type: string
+  PaimentCollaboratorTypes:
+    type: array
+    items:
+      $ref: '#/definitions/PaimentCollaboratorType'
+  ForumComment:
+    type: "object"
+    required:
+      - id
+      - creationDate
+      - content
+    properties:
+      id:
+        type: int
+      creationDate:
+        type: date
+      content:
+        type: string
+  ForumComments:
+    type: array
+    items:
+      $ref: '#/definitions/ForumComment'
+  ProjectDetail:
+    type: "object"
+    required:
+      - id
+      - title
+      - dbName
+      - dbPassword
+      - dbUserName
+      - basePackage
+      - msName
+      - port
+      - portDev
+      - portTest
+      - portProd
+      - enabled
+    properties:
+      id:
+        type: int
+      title:
+        type: string
+      dbName:
+        type: string
+      dbPassword:
+        type: string
+      dbUserName:
+        type: string
+      basePackage:
+        type: string
+      msName:
+        type: string
+      port:
+        type: string
+      portDev:
+        type: string
+      portTest:
+        type: string
+      portProd:
+        type: string
+      enabled:
+        type: boolean
+  ProjectDetails:
+    type: array
+    items:
+      $ref: '#/definitions/ProjectDetail'
+  PackagingDetail:
+    type: "object"
+    required:
+      - id
+      - name
+      - exist
+      - description
+    properties:
+      id:
+        type: int
+      name:
+        type: string
+      exist:
+        type: boolean
+      description:
+        type: string
+  PackagingDetails:
+    type: array
+    items:
+      $ref: '#/definitions/PackagingDetail'
+  Country:
+    type: "object"
+    required:
+      - id
+      - code
+      - libelle
+    properties:
+      id:
+        type: int
+      code:
+        type: string
+      libelle:
+        type: string
+  Countrys:
+    type: array
+    items:
+      $ref: '#/definitions/Country'
+  ContactUs:
+    type: "object"
+    required:
+      - id
+      - phone
+      - email
+      - object
+      - message
+      - description
+    properties:
+      id:
+        type: int
+      phone:
+        type: string
+      email:
+        type: string
+      object:
+        type: string
+      message:
+        type: string
+      description:
+        type: string
+  ContactUss:
+    type: array
+    items:
+      $ref: '#/definitions/ContactUs'
+  RemoteRepoInfo:
+    type: "object"
+    required:
+      - id
+      - title
+      - username
+      - token
+      - name
+    properties:
+      id:
+        type: int
+      title:
+        type: string
+      username:
+        type: string
+      token:
+        type: string
+      name:
+        type: string
+  RemoteRepoInfos:
+    type: array
+    items:
+      $ref: '#/definitions/RemoteRepoInfo'
+
+  Error:
+    type: "object"
+    required:
+      - code
+      - message
+    properties:
+      code:
+        type: integer
+        format: int32
+      message:
+        type: string

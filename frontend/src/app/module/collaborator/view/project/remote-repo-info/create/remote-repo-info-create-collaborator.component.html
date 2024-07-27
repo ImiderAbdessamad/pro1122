@@ -1,0 +1,74 @@
+        <p-dialog [(visible)]="createDialog" [style]="{width: '70vw'}" header="{{'remoteRepoInfo.tabPan' | translate}}" [modal]="true" styleClass="p-fluid" [maximizable]="true" [draggable]="false" [resizable]="false">
+            <ng-template pTemplate="content" >
+                        <p-tabView>
+                            <p-tabPanel header="{{'remoteRepoInfo.tabPan' | translate}}">
+                                <div class="grid">
+
+                                                <div class="field col-12 md:col-6">
+                                                    <label for="1">{{'remoteRepoInfo.title' | translate}}<span style="color: red;">*</span></label>
+                                                    <input class="mb-2 mr-2" type="text" pInputText  placeholder="{{'remoteRepoInfo.title' | translate}}" id="1" [(ngModel)]="item.title"
+                                                            [ngClass]="{'ng-invalid ng-dirty' : !validRemoteRepoInfoTitle}"  />
+                                                    <small class='p-error' *ngIf='!validRemoteRepoInfoTitle'>Title is obligatory.</small>
+                                                </div>
+
+
+                                                <div class="field col-12 md:col-6">
+                                                    <label for="2">{{'remoteRepoInfo.username' | translate}}</label>
+                                                    <input class="mb-2 mr-2" type="text" pInputText  placeholder="{{'remoteRepoInfo.username' | translate}}" id="2" [(ngModel)]="item.username"
+                                                             />
+                                                    
+                                                </div>
+
+
+                                                <div class="field col-12 md:col-6">
+                                                    <label for="3">{{'remoteRepoInfo.token' | translate}}</label>
+                                                    <input class="mb-2 mr-2" type="text" pInputText  placeholder="{{'remoteRepoInfo.token' | translate}}" id="3" [(ngModel)]="item.token"
+                                                             />
+                                                    
+                                                </div>
+
+
+                                                <div class="field col-12 md:col-6">
+                                                    <label for="4">{{'remoteRepoInfo.name' | translate}}</label>
+                                                    <input class="mb-2 mr-2" type="text" pInputText  placeholder="{{'remoteRepoInfo.name' | translate}}" id="4" [(ngModel)]="item.name"
+                                                             />
+                                                    
+                                                </div>
+
+
+                                            <div class="field col-11 md:col-6">
+                                                <label for="5">{{'remoteRepoInfo.remoteRepoType' | translate}}</label>
+                                                <p-dropdown  appendTo="body"  [options]="remoteRepoTypes" [(ngModel)]="item.remoteRepoType" id="5" [filter]="true" filterMatchMode="contains"
+                                                        [showClear]="true" optionLabel="libelle" placeholder="{{'remoteRepoInfo.remoteRepoType' | translate}}"  >
+                                                </p-dropdown>
+                                                
+                                            </div>
+
+                                            <div class="field col-11 md:col-6">
+                                                <label for="6">{{'remoteRepoInfo.collaborator' | translate}}</label>
+                                                <p-dropdown  appendTo="body"  [options]="collaborators" [(ngModel)]="item.collaborator" id="6" [filter]="true" filterMatchMode="contains"
+                                                        [showClear]="true" optionLabel="id" placeholder="{{'remoteRepoInfo.collaborator' | translate}}"  >
+                                                </p-dropdown>
+                                                
+                                            </div>
+
+                                </div>
+                            </p-tabPanel>
+
+                        </p-tabView>
+
+            </ng-template>
+
+            <ng-template pTemplate="footer" >
+                <div class="p-flexbox">
+
+                            <button pButton pRipple  label="{{'validate' | translate}}"  icon="pi pi-check"  (click)="save()"></button>
+
+
+                            <button pButton pRipple  label="{{'cancel' | translate}}" icon="pi pi-times" class="p-button-outlined" (click)="hideCreateDialog()"></button>
+
+
+                </div>
+            </ng-template>
+
+    </p-dialog>

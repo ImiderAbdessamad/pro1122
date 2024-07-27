@@ -1,0 +1,50 @@
+    <p-dialog [(visible)]="editDialog" [style]="{width: '70vw'}" header="{{'yamlFile.tabPan' | translate}}" [modal]="true" styleClass="p-fluid" [maximizable]="true" [draggable]="false" [resizable]="false">
+        <ng-template pTemplate="content" >
+                <p-tabView>
+                    <p-tabPanel header="{{'yamlFile.tabPan' | translate}}">
+                        <div class="grid">
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="1">{{'yamlFile.title' | translate}}<span style="color: red;">*</span></label>
+                                            <input class="mb-2 mr-2" type="text" pInputText  placeholder="{{'yamlFile.title' | translate}}" id="1" [(ngModel)]="item.title"
+                                                   [ngClass]="{'ng-invalid ng-dirty' : !validYamlFileTitle}"  />
+                                            <small class='p-error' *ngIf='!validYamlFileTitle'>Title est obligatoire.</small>
+                                        </div>
+
+
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="2">{{'yamlFile.content' | translate}}</label>
+                                            <textarea id="2" pInputTextarea rows="5" cols="30" placeholder="{{'yamlFile.content' | translate}}"  [(ngModel)]="item.content"
+                                                       ></textarea>
+                                            
+                                        </div>
+
+                                    <div class="field col-11 md:col-6">
+                                        <label for="3">{{'yamlFile.project' | translate}}</label>
+                                        <p-dropdown  appendTo="body"  [options]="projects" [(ngModel)]="item.project" id="3" [filter]="true" filterMatchMode="contains"
+                                                     [showClear]="true" optionLabel="titleChat" placeholder="{{'yamlFile.project' | translate}}"  >
+                                        </p-dropdown>
+                                        
+                                    </div>
+
+                        </div>
+                    </p-tabPanel>
+
+                </p-tabView>
+
+        </ng-template>
+
+        <ng-template pTemplate="footer" >
+            <div class="p-flexbox">
+
+                    <button pButton pRipple  label="{{'validate' | translate}}"  icon="pi pi-check"  (click)="edit()"></button>
+
+
+                        <button pButton pRipple  label="{{'cancel' | translate}}" icon="pi pi-times" class="p-button-outlined" (click)="hideEditDialog()"></button>
+
+
+            </div>
+        </ng-template>
+
+    </p-dialog>

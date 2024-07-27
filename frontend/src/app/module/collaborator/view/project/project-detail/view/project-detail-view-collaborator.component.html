@@ -1,0 +1,84 @@
+
+<p-dialog [(visible)]="viewDialog" [style]="{width: '70vw'}" header="{{'projectDetail.tabPan' | translate}}" [modal]="true" styleClass="p-fluid">
+    <ng-template pTemplate="content">
+        <p-tabView>
+            <p-tabPanel header="{{'projectDetail.tabPan' | translate}}">
+                <div class="grid">
+                    <div class="field col-12 md:col-6">
+                        <label for="1">{{'projectDetail.title' | translate}}</label>
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'projectDetail.title' | translate}}" autofocus  id="1" [ngModel]="item.title">
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="2">{{'projectDetail.projectTechnology' | translate}}</label>
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'projectDetail.projectTechnology' | translate}}" autofocus  id="2" [ngModel]="item.projectTechnology?.libelle">
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="3">{{'projectDetail.project' | translate}}</label>
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'projectDetail.project' | translate}}" autofocus  id="3" [ngModel]="item.project?.titleChat">
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="4">{{'projectDetail.projectTechnologyProfile' | translate}}</label>
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'projectDetail.projectTechnologyProfile' | translate}}" autofocus  id="4" [ngModel]="item.projectTechnologyProfile?.libelle">
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="5">{{'projectDetail.dbName' | translate}}</label>
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'projectDetail.dbName' | translate}}" autofocus  id="5" [ngModel]="item.dbName">
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="6">{{'projectDetail.dbPassword' | translate}}</label>
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'projectDetail.dbPassword' | translate}}" autofocus  id="6" [ngModel]="item.dbPassword">
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="7">{{'projectDetail.dbUserName' | translate}}</label>
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'projectDetail.dbUserName' | translate}}" autofocus  id="7" [ngModel]="item.dbUserName">
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="8">{{'projectDetail.basePackage' | translate}}</label>
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'projectDetail.basePackage' | translate}}" autofocus  id="8" [ngModel]="item.basePackage">
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="9">{{'projectDetail.msName' | translate}}</label>
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'projectDetail.msName' | translate}}" autofocus  id="9" [ngModel]="item.msName">
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="10">{{'projectDetail.port' | translate}}</label>
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'projectDetail.port' | translate}}" autofocus  id="10" [ngModel]="item.port">
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="11">{{'projectDetail.portDev' | translate}}</label>
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'projectDetail.portDev' | translate}}" autofocus  id="11" [ngModel]="item.portDev">
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="12">{{'projectDetail.portTest' | translate}}</label>
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'projectDetail.portTest' | translate}}" autofocus  id="12" [ngModel]="item.portTest">
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="13">{{'projectDetail.portProd' | translate}}</label>
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'projectDetail.portProd' | translate}}" autofocus  id="13" [ngModel]="item.portProd">
+                    </div>
+                    <div class="field align-inputswitch col-12  md:col-6">
+                        <div  class="label-inputswitch">
+                            <label for="14">{{'projectDetail.enabled' | translate}}</label>
+                        </div>
+                        <div class="input-switch">
+                            <p-inputSwitch id="14"  [disabled]="true" [ngModel]="item.enabled"></p-inputSwitch>
+                        </div>
+                    </div>
+                </div>
+            </p-tabPanel>
+
+        </p-tabView>
+
+    </ng-template>
+
+    <ng-template pTemplate="footer" >
+        <div class="p-flexbox">
+            <div>
+                <button pButton pRipple label="Annuler" icon="pi pi-times" class="p-button-outlined" (click)="hideViewDialog()"></button>
+            </div>
+        </div>
+    </ng-template>
+</p-dialog>
+
+
+

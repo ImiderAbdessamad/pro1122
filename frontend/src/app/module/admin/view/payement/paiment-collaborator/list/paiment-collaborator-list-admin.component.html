@@ -1,0 +1,625 @@
+<div class="grid"  *ngIf="listActionIsValid">
+    <div class="col-12">
+        <p-toast></p-toast>
+        <div class="card">
+            <p-toolbar styleClass="mb-4">
+                <ng-template pTemplate="left">
+                                        <button pButton pRipple label=" {{'new' | translate}}" icon="pi pi-plus" class="p-button-info mr-2 mb-2" (click)="openCreate('PaimentCollaborator')" *ngIf="createActionIsValid"></button>
+                    <button [disabled]="isSelectionDisabled()" pButton pRipple label=" {{'delete' | translate}}" icon="pi pi-trash" class="p-button-danger mr-2 mb-2" (click)=deleteMultiple()  *ngIf="deleteActionIsValid"></button>
+                    <button pButton pRipple label=" {{'search' | translate}}" icon="pi pi-{{findByCriteriaShow?'angle-down':'angle-right'}}" class="p-button-secondary mr-2 mb-2" (click)="this.showSearch()"></button>
+                </ng-template>
+                <ng-template pTemplate="right">
+                    <div class="flex">
+                        <p-splitButton label=" {{'export' | translate}}" icon="pi pi-download" styleClass="p-button-secondary" [model]="excelPdfButons"></p-splitButton>
+                    </div>
+                </ng-template>
+
+            </p-toolbar>
+            <p-toolbar *ngIf="findByCriteriaShow">
+
+                <div class="col-12">
+                    <div class="flex flex-wrap p-fluid col-12">
+                       <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label  class="font-bold block mb-2" for="1">{{'paimentCollaborator.cardHolder' | translate}}</label>
+                            <input  class="w-full"  pInputText id="1" type="text"  [(ngModel)]="criteria.cardHolderLike">
+                        </div>
+                       <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label  class="font-bold block mb-2" for="2">{{'paimentCollaborator.cardNumber' | translate}}</label>
+                            <input  class="w-full"  pInputText id="2" type="text"  [(ngModel)]="criteria.cardNumberLike">
+                        </div>
+                       <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label  class="font-bold block mb-2" for="3">{{'paimentCollaborator.expirationDate' | translate}}</label>
+                            <input  class="w-full"  pInputText id="3" type="text"  [(ngModel)]="criteria.expirationDateLike">
+                        </div>
+                       <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label  class="font-bold block mb-2" for="4">{{'paimentCollaborator.cvc' | translate}}</label>
+                            <input  class="w-full"  pInputText id="4" type="text"  [(ngModel)]="criteria.cvcLike">
+                        </div>
+                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label  class="font-bold block mb-2" for="5-2">{{'paimentCollaborator.country' | translate}}</label>
+                            <p-dropdown [options]="countrys" [(ngModel)]="criteria.country" id="5" [filter]="true" class="p-fluid"
+                                        [showClear]="true"  placeholder="{{'paimentCollaborator.country' | translate}}" optionLabel="libelle">
+                            </p-dropdown>
+                        </div>
+                       <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label  class="font-bold block mb-2" for="6">{{'paimentCollaborator.postal' | translate}}</label>
+                            <input  class="w-full"  pInputText id="6" type="text"  [(ngModel)]="criteria.postalLike">
+                        </div>
+                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label  class="font-bold block mb-2" for="7-2">{{'paimentCollaborator.city' | translate}}</label>
+                            <p-dropdown [options]="citys" [(ngModel)]="criteria.city" id="7" [filter]="true" class="p-fluid"
+                                        [showClear]="true"  placeholder="{{'paimentCollaborator.city' | translate}}" optionLabel="libelle">
+                            </p-dropdown>
+                        </div>
+                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label  class="font-bold block mb-2" for="9-1">{{'paimentCollaborator.amountToPaidMin' | translate}}</label>
+                            <p-inputNumber  mode="decimal" [(ngModel)]="criteria.amountToPaidMin" id="9-1"></p-inputNumber>
+                        </div>
+                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label  class="font-bold block mb-2" for="9-2">{{'paimentCollaborator.amountToPaidMax' | translate}}</label>
+                            <p-inputNumber  mode="decimal" [(ngModel)]="criteria.amountToPaidMax" id="9-2"></p-inputNumber>
+                       </div>
+
+                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label class="font-bold block mb-2" for="10-1">{{'paimentCollaborator.startDateMin' | translate}}</label>
+                            <p-calendar class="mr-2" [(ngModel)]="criteria.startDateFrom"
+                                    id="10-1" dateFormat="dd-MM-yy"  [showIcon]="true"  class="p-fluid"></p-calendar>
+                        </div>
+
+                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label  class="font-bold block mb-2" for="10-2">{{'paimentCollaborator.startDateMax' | translate}}</label>
+                            <p-calendar class="mr-2" [(ngModel)]="criteria.startDateTo"
+                                    id="10-2" dateFormat="dd-MM-yy"  [showIcon]="true" class="p-fluid"></p-calendar>
+                        </div>
+
+
+                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label class="font-bold block mb-2" for="11-1">{{'paimentCollaborator.endDateMin' | translate}}</label>
+                            <p-calendar class="mr-2" [(ngModel)]="criteria.endDateFrom"
+                                    id="11-1" dateFormat="dd-MM-yy"  [showIcon]="true"  class="p-fluid"></p-calendar>
+                        </div>
+
+                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label  class="font-bold block mb-2" for="11-2">{{'paimentCollaborator.endDateMax' | translate}}</label>
+                            <p-calendar class="mr-2" [(ngModel)]="criteria.endDateTo"
+                                    id="11-2" dateFormat="dd-MM-yy"  [showIcon]="true" class="p-fluid"></p-calendar>
+                        </div>
+
+                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label  class="font-bold block mb-2" for="12-1">{{'paimentCollaborator.consumedEntityMin' | translate}}</label>
+                            <p-inputNumber  mode="decimal" [(ngModel)]="criteria.consumedEntityMin" id="12-1"></p-inputNumber>
+                        </div>
+                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label  class="font-bold block mb-2" for="12-2">{{'paimentCollaborator.consumedEntityMax' | translate}}</label>
+                            <p-inputNumber  mode="decimal" [(ngModel)]="criteria.consumedEntityMax" id="12-2"></p-inputNumber>
+                       </div>
+                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label  class="font-bold block mb-2" for="13-1">{{'paimentCollaborator.consumedProjetMin' | translate}}</label>
+                            <p-inputNumber  mode="decimal" [(ngModel)]="criteria.consumedProjetMin" id="13-1"></p-inputNumber>
+                        </div>
+                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label  class="font-bold block mb-2" for="13-2">{{'paimentCollaborator.consumedProjetMax' | translate}}</label>
+                            <p-inputNumber  mode="decimal" [(ngModel)]="criteria.consumedProjetMax" id="13-2"></p-inputNumber>
+                       </div>
+                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label  class="font-bold block mb-2" for="14-1">{{'paimentCollaborator.consumedAttributMin' | translate}}</label>
+                            <p-inputNumber  mode="decimal" [(ngModel)]="criteria.consumedAttributMin" id="14-1"></p-inputNumber>
+                        </div>
+                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label  class="font-bold block mb-2" for="14-2">{{'paimentCollaborator.consumedAttributMax' | translate}}</label>
+                            <p-inputNumber  mode="decimal" [(ngModel)]="criteria.consumedAttributMax" id="14-2"></p-inputNumber>
+                       </div>
+                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label  class="font-bold block mb-2" for="15-1">{{'paimentCollaborator.consumedTokenInputMin' | translate}}</label>
+                            <p-inputNumber  mode="decimal" [(ngModel)]="criteria.consumedTokenInputMin" id="15-1"></p-inputNumber>
+                        </div>
+                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label  class="font-bold block mb-2" for="15-2">{{'paimentCollaborator.consumedTokenInputMax' | translate}}</label>
+                            <p-inputNumber  mode="decimal" [(ngModel)]="criteria.consumedTokenInputMax" id="15-2"></p-inputNumber>
+                       </div>
+                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label  class="font-bold block mb-2" for="16-1">{{'paimentCollaborator.consumedTokenOutputMin' | translate}}</label>
+                            <p-inputNumber  mode="decimal" [(ngModel)]="criteria.consumedTokenOutputMin" id="16-1"></p-inputNumber>
+                        </div>
+                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label  class="font-bold block mb-2" for="16-2">{{'paimentCollaborator.consumedTokenOutputMax' | translate}}</label>
+                            <p-inputNumber  mode="decimal" [(ngModel)]="criteria.consumedTokenOutputMax" id="16-2"></p-inputNumber>
+                       </div>
+                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label  class="font-bold block mb-2" for="17-1">{{'paimentCollaborator.totalMin' | translate}}</label>
+                            <p-inputNumber  mode="decimal" [(ngModel)]="criteria.totalMin" id="17-1"></p-inputNumber>
+                        </div>
+                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label  class="font-bold block mb-2" for="17-2">{{'paimentCollaborator.totalMax' | translate}}</label>
+                            <p-inputNumber  mode="decimal" [(ngModel)]="criteria.totalMax" id="17-2"></p-inputNumber>
+                       </div>
+                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label  class="font-bold block mb-2" for="18-1">{{'paimentCollaborator.basicMin' | translate}}</label>
+                            <p-inputNumber  mode="decimal" [(ngModel)]="criteria.basicMin" id="18-1"></p-inputNumber>
+                        </div>
+                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label  class="font-bold block mb-2" for="18-2">{{'paimentCollaborator.basicMax' | translate}}</label>
+                            <p-inputNumber  mode="decimal" [(ngModel)]="criteria.basicMax" id="18-2"></p-inputNumber>
+                       </div>
+                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label  class="font-bold block mb-2" for="19-1">{{'paimentCollaborator.discountMin' | translate}}</label>
+                            <p-inputNumber  mode="decimal" [(ngModel)]="criteria.discountMin" id="19-1"></p-inputNumber>
+                        </div>
+                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label  class="font-bold block mb-2" for="19-2">{{'paimentCollaborator.discountMax' | translate}}</label>
+                            <p-inputNumber  mode="decimal" [(ngModel)]="criteria.discountMax" id="19-2"></p-inputNumber>
+                       </div>
+                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label  class="font-bold block mb-2" for="20-1">{{'paimentCollaborator.remainingMin' | translate}}</label>
+                            <p-inputNumber  mode="decimal" [(ngModel)]="criteria.remainingMin" id="20-1"></p-inputNumber>
+                        </div>
+                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label  class="font-bold block mb-2" for="20-2">{{'paimentCollaborator.remainingMax' | translate}}</label>
+                            <p-inputNumber  mode="decimal" [(ngModel)]="criteria.remainingMax" id="20-2"></p-inputNumber>
+                       </div>
+                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label  class="font-bold block mb-2" for="21-1">{{'paimentCollaborator.priceCloudMin' | translate}}</label>
+                            <p-inputNumber  mode="decimal" [(ngModel)]="criteria.priceCloudMin" id="21-1"></p-inputNumber>
+                        </div>
+                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label  class="font-bold block mb-2" for="21-2">{{'paimentCollaborator.priceCloudMax' | translate}}</label>
+                            <p-inputNumber  mode="decimal" [(ngModel)]="criteria.priceCloudMax" id="21-2"></p-inputNumber>
+                       </div>
+
+                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label class="font-bold block mb-2" for="22-1">{{'paimentCollaborator.paiementDateMin' | translate}}</label>
+                            <p-calendar class="mr-2" [(ngModel)]="criteria.paiementDateFrom"
+                                    id="22-1" dateFormat="dd-MM-yy"  [showIcon]="true"  class="p-fluid"></p-calendar>
+                        </div>
+
+                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label  class="font-bold block mb-2" for="22-2">{{'paimentCollaborator.paiementDateMax' | translate}}</label>
+                            <p-calendar class="mr-2" [(ngModel)]="criteria.paiementDateTo"
+                                    id="22-2" dateFormat="dd-MM-yy"  [showIcon]="true" class="p-fluid"></p-calendar>
+                        </div>
+
+                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label  class="font-bold block mb-2" for="23-2">{{'paimentCollaborator.collaborator' | translate}}</label>
+                            <p-dropdown [options]="collaborators" [(ngModel)]="criteria.collaborator" id="23" [filter]="true" class="p-fluid"
+                                        [showClear]="true"  placeholder="{{'paimentCollaborator.collaborator' | translate}}" optionLabel="id">
+                            </p-dropdown>
+                        </div>
+                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label  class="font-bold block mb-2" for="24-2">{{'paimentCollaborator.packaging' | translate}}</label>
+                            <p-dropdown [options]="packagings" [(ngModel)]="criteria.packaging" id="24" [filter]="true" class="p-fluid"
+                                        [showClear]="true"  placeholder="{{'paimentCollaborator.packaging' | translate}}" optionLabel="code">
+                            </p-dropdown>
+                        </div>
+                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label  class="font-bold block mb-2" for="25-2">{{'paimentCollaborator.paimentCollaboratorState' | translate}}</label>
+                            <p-dropdown [options]="paimentCollaboratorStates" [(ngModel)]="criteria.paimentCollaboratorState" id="25" [filter]="true" class="p-fluid"
+                                        [showClear]="true"  placeholder="{{'paimentCollaborator.paimentCollaboratorState' | translate}}" optionLabel="libelle">
+                            </p-dropdown>
+                        </div>
+                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label  class="font-bold block mb-2" for="26-2">{{'paimentCollaborator.paimentCollaboratorType' | translate}}</label>
+                            <p-dropdown [options]="paimentCollaboratorTypes" [(ngModel)]="criteria.paimentCollaboratorType" id="26" [filter]="true" class="p-fluid"
+                                        [showClear]="true"  placeholder="{{'paimentCollaborator.paimentCollaboratorType' | translate}}" optionLabel="libelle">
+                            </p-dropdown>
+                        </div>
+                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label  class="font-bold block mb-2" for="27-2">{{'paimentCollaborator.inscriptionCollaborator' | translate}}</label>
+                            <p-dropdown [options]="inscriptionCollaborators" [(ngModel)]="criteria.inscriptionCollaborator" id="27" [filter]="true" class="p-fluid"
+                                        [showClear]="true"  placeholder="{{'paimentCollaborator.inscriptionCollaborator' | translate}}" optionLabel="id">
+                            </p-dropdown>
+                        </div>
+                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label  class="font-bold block mb-2" for="28-2">{{'paimentCollaborator.coupon' | translate}}</label>
+                            <p-dropdown [options]="coupons" [(ngModel)]="criteria.coupon" id="28" [filter]="true" class="p-fluid"
+                                        [showClear]="true"  placeholder="{{'paimentCollaborator.coupon' | translate}}" optionLabel="libelle">
+                            </p-dropdown>
+                        </div>
+                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label  class="font-bold block mb-2" for="29">{{'paimentCollaborator.deployAndTestOnLine' | translate}}</label>
+                            <p-dropdown  id="29" [options]="yesOrNoDeployAndTestOnLine" [(ngModel)]="criteria.deployAndTestOnLine"  class="p-fluid"
+                                    [filter]="false" [showClear]="true"  placeholder="{{'paimentCollaborator.deployAndTestOnLine' | translate}}" optionLabel="label" optionValue="value">
+                            </p-dropdown>
+                        </div>
+                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label  class="font-bold block mb-2" for="30-2">{{'paimentCollaborator.offreCloudProvider' | translate}}</label>
+                            <p-dropdown [options]="offreCloudProviders" [(ngModel)]="criteria.offreCloudProvider" id="30" [filter]="true" class="p-fluid"
+                                        [showClear]="true"  placeholder="{{'paimentCollaborator.offreCloudProvider' | translate}}" optionLabel="libelle">
+                            </p-dropdown>
+                        </div>
+                    </div>
+                    <div [style]="{ marginTop : '1rem', display: 'flex', justifyContent: 'flex-end' }">
+                        <button pButton pRipple label="{{'validate' | translate}}" icon="pi pi-sort-amount-down" class="p-button-info mr-2" (click)="findPaginatedByCriteria()"></button>
+                    </div>
+                </div>
+
+
+            </p-toolbar>
+
+
+            <p-table #dt [value]="items" [columns]="cols" [rows]="8" [paginator]="false"
+                    [globalFilterFields]="['cardHolder', 'cardNumber', 'expirationDate', 'cvc', 'countrylibelle', 'postal', 'citylibelle', 'amountToPaid', 'startDate', 'endDate', 'consumedEntity', 'consumedProjet', 'consumedAttribut', 'consumedTokenInput', 'consumedTokenOutput', 'total', 'basic', 'discount', 'remaining', 'priceCloud', 'paiementDate', 'collaboratorid', 'packagingcode', 'paimentCollaboratorStatelibelle', 'paimentCollaboratorTypelibelle', 'inscriptionCollaboratorid', 'couponlibelle', 'deployAndTestOnLine', 'offreCloudProviderlibelle']" [(selection)]="selections"
+                    [rowHover]="true" dataKey="id" styleClass="p-datatable-customers"
+                    currentPageReportTemplate="{{'les éléments de {first} à {last} sur {totalRecords} ' | translate}}"
+                    [showCurrentPageReport]="true" [rowsPerPageOptions]="[10,25,50]" selectionMode="multiple">
+                <ng-template pTemplate="caption">
+                    <div class="flex flex-column flex-row justify-content-between table-header">
+                        <h5 class="p-m-0">{{'paimentCollaborator.header' | translate}}</h5>
+                        <span class="p-input-icon-left ml-auto">
+                            <i class="pi pi-search"></i>
+                            <input pInputText type="text" placeholder="{{'searchInput' | translate}}" (input)="dt.filterGlobal($event.target.value, 'contains')"/>
+                        </span>
+                    </div>
+                </ng-template>
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th style="width: 3rem">
+                            <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                        </th>
+                                
+                        <th pSortableColumn="cardHolder">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>{{'paimentCollaborator.cardHolder' | translate}}</span>
+                                <p-sortIcon field="cardHolder"></p-sortIcon>
+                                <p-columnFilter type="text" field="element.cardHolder" display="menu" class="ml-auto"></p-columnFilter>
+                            </div>
+                        </th>
+                                
+                                
+                        <th pSortableColumn="cardNumber">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>{{'paimentCollaborator.cardNumber' | translate}}</span>
+                                <p-sortIcon field="cardNumber"></p-sortIcon>
+                                <p-columnFilter type="text" field="element.cardNumber" display="menu" class="ml-auto"></p-columnFilter>
+                            </div>
+                        </th>
+                                
+                                
+                        <th pSortableColumn="expirationDate">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>{{'paimentCollaborator.expirationDate' | translate}}</span>
+                                <p-sortIcon field="expirationDate"></p-sortIcon>
+                                <p-columnFilter type="text" field="element.expirationDate" display="menu" class="ml-auto"></p-columnFilter>
+                            </div>
+                        </th>
+                                
+                                
+                        <th pSortableColumn="cvc">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>{{'paimentCollaborator.cvc' | translate}}</span>
+                                <p-sortIcon field="cvc"></p-sortIcon>
+                                <p-columnFilter type="text" field="element.cvc" display="menu" class="ml-auto"></p-columnFilter>
+                            </div>
+                        </th>
+                                
+                                
+                        <th pSortableColumn="country">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>{{'paimentCollaborator.country' | translate}}</span>
+                                <p-sortIcon field="country"></p-sortIcon>
+                            </div>
+                        </th>
+                                
+                                
+                        <th pSortableColumn="postal">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>{{'paimentCollaborator.postal' | translate}}</span>
+                                <p-sortIcon field="postal"></p-sortIcon>
+                                <p-columnFilter type="text" field="element.postal" display="menu" class="ml-auto"></p-columnFilter>
+                            </div>
+                        </th>
+                                
+                                
+                        <th pSortableColumn="city">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>{{'paimentCollaborator.city' | translate}}</span>
+                                <p-sortIcon field="city"></p-sortIcon>
+                            </div>
+                        </th>
+                                
+                                
+                        <th pSortableColumn="amountToPaid">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>{{'paimentCollaborator.amountToPaid' | translate}}</span>
+                                <p-sortIcon field="amountToPaid"></p-sortIcon>
+                            </div>
+                        </th>
+                                
+                                
+                        <th pSortableColumn="startDate">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>{{'paimentCollaborator.startDate' | translate}}</span>
+                                <p-sortIcon field="startDate"></p-sortIcon>
+                            </div>
+                        </th>
+                                
+                                <!-- 
+                        <th pSortableColumn="endDate">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>{{'paimentCollaborator.endDate' | translate}}</span>
+                                <p-sortIcon field="endDate"></p-sortIcon>
+                            </div>
+                        </th>
+                                --> 
+                                <!-- 
+                        <th pSortableColumn="consumedEntity">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>{{'paimentCollaborator.consumedEntity' | translate}}</span>
+                                <p-sortIcon field="consumedEntity"></p-sortIcon>
+                            </div>
+                        </th>
+                                --> 
+                                <!-- 
+                        <th pSortableColumn="consumedProjet">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>{{'paimentCollaborator.consumedProjet' | translate}}</span>
+                                <p-sortIcon field="consumedProjet"></p-sortIcon>
+                            </div>
+                        </th>
+                                --> 
+                                <!-- 
+                        <th pSortableColumn="consumedAttribut">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>{{'paimentCollaborator.consumedAttribut' | translate}}</span>
+                                <p-sortIcon field="consumedAttribut"></p-sortIcon>
+                            </div>
+                        </th>
+                                --> 
+                                <!-- 
+                        <th pSortableColumn="consumedTokenInput">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>{{'paimentCollaborator.consumedTokenInput' | translate}}</span>
+                                <p-sortIcon field="consumedTokenInput"></p-sortIcon>
+                            </div>
+                        </th>
+                                --> 
+                                <!-- 
+                        <th pSortableColumn="consumedTokenOutput">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>{{'paimentCollaborator.consumedTokenOutput' | translate}}</span>
+                                <p-sortIcon field="consumedTokenOutput"></p-sortIcon>
+                            </div>
+                        </th>
+                                --> 
+                                <!-- 
+                        <th pSortableColumn="total">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>{{'paimentCollaborator.total' | translate}}</span>
+                                <p-sortIcon field="total"></p-sortIcon>
+                            </div>
+                        </th>
+                                --> 
+                                <!-- 
+                        <th pSortableColumn="basic">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>{{'paimentCollaborator.basic' | translate}}</span>
+                                <p-sortIcon field="basic"></p-sortIcon>
+                            </div>
+                        </th>
+                                --> 
+                                <!-- 
+                        <th pSortableColumn="discount">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>{{'paimentCollaborator.discount' | translate}}</span>
+                                <p-sortIcon field="discount"></p-sortIcon>
+                            </div>
+                        </th>
+                                --> 
+                                <!-- 
+                        <th pSortableColumn="remaining">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>{{'paimentCollaborator.remaining' | translate}}</span>
+                                <p-sortIcon field="remaining"></p-sortIcon>
+                            </div>
+                        </th>
+                                --> 
+                                <!-- 
+                        <th pSortableColumn="priceCloud">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>{{'paimentCollaborator.priceCloud' | translate}}</span>
+                                <p-sortIcon field="priceCloud"></p-sortIcon>
+                            </div>
+                        </th>
+                                --> 
+                                <!-- 
+                        <th pSortableColumn="paiementDate">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>{{'paimentCollaborator.paiementDate' | translate}}</span>
+                                <p-sortIcon field="paiementDate"></p-sortIcon>
+                            </div>
+                        </th>
+                                --> 
+                                <!-- 
+                        <th pSortableColumn="collaborator">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>{{'paimentCollaborator.collaborator' | translate}}</span>
+                                <p-sortIcon field="collaborator"></p-sortIcon>
+                            </div>
+                        </th>
+                                --> 
+                                <!-- 
+                        <th pSortableColumn="packaging">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>{{'paimentCollaborator.packaging' | translate}}</span>
+                                <p-sortIcon field="packaging"></p-sortIcon>
+                            </div>
+                        </th>
+                                --> 
+                                <!-- 
+                        <th pSortableColumn="paimentCollaboratorState">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>{{'paimentCollaborator.paimentCollaboratorState' | translate}}</span>
+                                <p-sortIcon field="paimentCollaboratorState"></p-sortIcon>
+                            </div>
+                        </th>
+                                --> 
+                                <!-- 
+                        <th pSortableColumn="paimentCollaboratorType">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>{{'paimentCollaborator.paimentCollaboratorType' | translate}}</span>
+                                <p-sortIcon field="paimentCollaboratorType"></p-sortIcon>
+                            </div>
+                        </th>
+                                --> 
+                                <!-- 
+                        <th pSortableColumn="inscriptionCollaborator">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>{{'paimentCollaborator.inscriptionCollaborator' | translate}}</span>
+                                <p-sortIcon field="inscriptionCollaborator"></p-sortIcon>
+                            </div>
+                        </th>
+                                --> 
+                                <!-- 
+                        <th pSortableColumn="coupon">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>{{'paimentCollaborator.coupon' | translate}}</span>
+                                <p-sortIcon field="coupon"></p-sortIcon>
+                            </div>
+                        </th>
+                                --> 
+                                <!-- 
+                        <th pSortableColumn="deployAndTestOnLine">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>{{'paimentCollaborator.deployAndTestOnLine' | translate}}</span>
+                                <p-sortIcon field="deployAndTestOnLine"></p-sortIcon>
+                            </div>
+                        </th>
+                                --> 
+                                <!-- 
+                        <th pSortableColumn="offreCloudProvider">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>{{'paimentCollaborator.offreCloudProvider' | translate}}</span>
+                                <p-sortIcon field="offreCloudProvider"></p-sortIcon>
+                            </div>
+                        </th>
+                                --> 
+                        <th>Actions</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-element>
+                    <tr>
+                        <td>
+                            <p-tableCheckbox [value]="element"></p-tableCheckbox>
+                        </td>
+                            
+                        <td>{{element.cardHolder}}</td>
+                            
+                            
+                        <td>{{element.cardNumber}}</td>
+                            
+                            
+                        <td>{{element.expirationDate}}</td>
+                            
+                            
+                        <td>{{element.cvc}}</td>
+                            
+                            
+                        <td>{{element.country?.libelle}}</td>
+                            
+                            
+                        <td>{{element.postal}}</td>
+                            
+                            
+                        <td>{{element.city?.libelle}}</td>
+                            
+                            
+                        <td>{{element.amountToPaid}}</td>
+                            
+                            
+                        <td>{{element.startDate | date :'dd/MM/yyyy HH:mm' }}</td>
+                            
+                             <!-- 
+                        <td>{{element.endDate | date :'dd/MM/yyyy HH:mm' }}</td>
+                             --> 
+                             <!-- 
+                        <td>{{element.consumedEntity}}</td>
+                             --> 
+                             <!-- 
+                        <td>{{element.consumedProjet}}</td>
+                             --> 
+                             <!-- 
+                        <td>{{element.consumedAttribut}}</td>
+                             --> 
+                             <!-- 
+                        <td>{{element.consumedTokenInput}}</td>
+                             --> 
+                             <!-- 
+                        <td>{{element.consumedTokenOutput}}</td>
+                             --> 
+                             <!-- 
+                        <td>{{element.total}}</td>
+                             --> 
+                             <!-- 
+                        <td>{{element.basic}}</td>
+                             --> 
+                             <!-- 
+                        <td>{{element.discount}}</td>
+                             --> 
+                             <!-- 
+                        <td>{{element.remaining}}</td>
+                             --> 
+                             <!-- 
+                        <td>{{element.priceCloud}}</td>
+                             --> 
+                             <!-- 
+                        <td>{{element.paiementDate | date :'dd/MM/yyyy HH:mm' }}</td>
+                             --> 
+                             <!-- 
+                        <td>{{element.collaborator?.id}}</td>
+                             --> 
+                             <!-- 
+                        <td>{{element.packaging?.code}}</td>
+                             --> 
+                             <!-- 
+                        <td>
+                            <p-tag severity="{{element.paimentCollaboratorState?.code}}" value="{{element.paimentCollaboratorState?.libelle}}" [rounded]="true" />
+                        </td>
+                             --> 
+                             <!-- 
+                        <td>
+                            <p-tag severity="{{element.paimentCollaboratorType?.code}}" value="{{element.paimentCollaboratorType?.libelle}}" [rounded]="true" />
+                        </td>
+                             --> 
+                             <!-- 
+                        <td>{{element.inscriptionCollaborator?.id}}</td>
+                             --> 
+                             <!-- 
+                        <td>{{element.coupon?.libelle}}</td>
+                             --> 
+                             <!-- 
+                        <td><i *ngIf="element.deployAndTestOnLine" class="pi pi-check checked-toogle"></i>
+                            <i *ngIf="!element.deployAndTestOnLine" class="pi pi-times unchecked-toogle"></i>
+                        </td>
+                             --> 
+                             <!-- 
+                        <td>{{element.offreCloudProvider?.libelle}}</td>
+                             --> 
+                        <td>
+                            <button pButton pRipple icon="pi pi-pencil"  class="p-button-rounded p-button-info mr-2" (click)="edit(element)"  *ngIf="editActionIsValid"></button>
+                            <button pButton pRipple icon="pi pi-list" class="p-button-rounded p-button-secondary mr-2" (click)="view(element)"  *ngIf="viewActionIsValid"></button>
+                            <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-danger mr-2" (click)="delete(element)"  *ngIf="deleteActionIsValid"></button>
+                            <button pButton pRipple icon="pi pi-copy" class="p-button-rounded p-button-raised p-button-warning mr-2" (click)="duplicate(element)"  *ngIf="duplicateActionIsValid"></button>
+                        </td>
+                    </tr>
+                </ng-template>
+
+                <ng-template pTemplate="summary">
+                    <p-paginator  [rows]="10" [totalRecords]="totalRecords" (onPageChange)="onPage($event)"></p-paginator>
+                    <div class="p-d-flex p-ai-center p-jc-between">
+                        En totale il {{items ? totalRecords == 1 ? 'y a' : 'y a' : 'y a' }} {{items ? totalRecords : 0 }} {{items ? totalRecords == 1 ? 'paiment collaborator' : 'paiment collaborators' : 0 }}.
+                    </div>
+                </ng-template>
+            </p-table>
+        </div>
+
+        <app-paiment-collaborator-create-admin  *ngIf="createDialog  && createActionIsValid"></app-paiment-collaborator-create-admin>
+        <app-paiment-collaborator-edit-admin  *ngIf="editDialog  && editActionIsValid"></app-paiment-collaborator-edit-admin>
+        <app-paiment-collaborator-view-admin  *ngIf="viewDialog  && viewActionIsValid"></app-paiment-collaborator-view-admin>
+        <p-confirmDialog [style]="{width: '450px'}"></p-confirmDialog>
+    </div>
+</div>
+
+<p-card header="Permission not allowed" *ngIf="!listActionIsValid">
+    <p class="m-0">
+        You don't have permission to access !
+    </p>
+</p-card>

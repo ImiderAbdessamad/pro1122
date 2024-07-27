@@ -1,0 +1,108 @@
+    <p-dialog [(visible)]="editDialog" [style]="{width: '70vw'}" header="{{'packagingPlan.tabPan' | translate}}" [modal]="true" styleClass="p-fluid" [maximizable]="true" [draggable]="false" [resizable]="false">
+        <ng-template pTemplate="content" >
+                <p-tabView>
+                    <p-tabPanel header="{{'packagingPlan.tabPan' | translate}}">
+                        <div class="grid">
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="1">{{'packagingPlan.name' | translate}}</label>
+                                            <input class="mb-2 mr-2" type="text" pInputText  placeholder="{{'packagingPlan.name' | translate}}" id="1" [(ngModel)]="item.name"
+                                                    />
+                                            
+                                        </div>
+
+
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="2">{{'packagingPlan.code' | translate}}<span style="color: red;">*</span></label>
+                                            <input class="mb-2 mr-2" type="text" pInputText  placeholder="{{'packagingPlan.code' | translate}}" id="2" [(ngModel)]="item.code"
+                                                   [ngClass]="{'ng-invalid ng-dirty' : !validPackagingPlanCode}"  />
+                                            <small class='p-error' *ngIf='!validPackagingPlanCode'>Code est obligatoire.</small>
+                                        </div>
+
+
+
+                                    <div class="field col-11 md:col-6">
+                                        <label for="3">{{'packagingPlan.packaging' | translate}}</label>
+                                        <p-dropdown  appendTo="body"  [options]="packagings" [(ngModel)]="item.packaging" id="3" [filter]="true" filterMatchMode="contains"
+                                                     [showClear]="true" optionLabel="code" placeholder="{{'packagingPlan.packaging' | translate}}"  >
+                                        </p-dropdown>
+                                        
+                                    </div>
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="4">{{'packagingPlan.numberOfMonth' | translate}}</label>
+                                            <p-inputNumber class="mb-2 mr-2" id="4" placeholder="{{'packagingPlan.numberOfMonth' | translate}}" [(ngModel)]="item.numberOfMonth"  >
+                                            </p-inputNumber>
+                                            
+                                        </div>
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="5">{{'packagingPlan.price' | translate}}</label>
+                                            <p-inputNumber class="mb-2 mr-2" id="5" placeholder="{{'packagingPlan.price' | translate}}" [(ngModel)]="item.price"  >
+                                            </p-inputNumber>
+                                            
+                                        </div>
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="6">{{'packagingPlan.description' | translate}}</label>
+                                            <textarea id="6" pInputTextarea rows="5" cols="30" placeholder="{{'packagingPlan.description' | translate}}"  [(ngModel)]="item.description"
+                                                       ></textarea>
+                                            
+                                        </div>
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="7">{{'packagingPlan.maxEntity' | translate}}</label>
+                                            <p-inputNumber class="mb-2 mr-2" id="7" placeholder="{{'packagingPlan.maxEntity' | translate}}" [(ngModel)]="item.maxEntity"  >
+                                            </p-inputNumber>
+                                            
+                                        </div>
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="8">{{'packagingPlan.maxProjet' | translate}}</label>
+                                            <p-inputNumber class="mb-2 mr-2" id="8" placeholder="{{'packagingPlan.maxProjet' | translate}}" [(ngModel)]="item.maxProjet"  >
+                                            </p-inputNumber>
+                                            
+                                        </div>
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="9">{{'packagingPlan.maxAttribut' | translate}}</label>
+                                            <p-inputNumber class="mb-2 mr-2" id="9" placeholder="{{'packagingPlan.maxAttribut' | translate}}" [(ngModel)]="item.maxAttribut"  >
+                                            </p-inputNumber>
+                                            
+                                        </div>
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="10">{{'packagingPlan.maxTokenInput' | translate}}</label>
+                                            <p-inputNumber class="mb-2 mr-2" id="10" placeholder="{{'packagingPlan.maxTokenInput' | translate}}" [(ngModel)]="item.maxTokenInput"  >
+                                            </p-inputNumber>
+                                            
+                                        </div>
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="11">{{'packagingPlan.maxTokenOutput' | translate}}</label>
+                                            <p-inputNumber class="mb-2 mr-2" id="11" placeholder="{{'packagingPlan.maxTokenOutput' | translate}}" [(ngModel)]="item.maxTokenOutput"  >
+                                            </p-inputNumber>
+                                            
+                                        </div>
+
+                        </div>
+                    </p-tabPanel>
+
+                </p-tabView>
+
+        </ng-template>
+
+        <ng-template pTemplate="footer" >
+            <div class="p-flexbox">
+
+                    <button pButton pRipple  label="{{'validate' | translate}}"  icon="pi pi-check"  (click)="edit()"></button>
+
+
+                        <button pButton pRipple  label="{{'cancel' | translate}}" icon="pi pi-times" class="p-button-outlined" (click)="hideEditDialog()"></button>
+
+
+            </div>
+        </ng-template>
+
+    </p-dialog>

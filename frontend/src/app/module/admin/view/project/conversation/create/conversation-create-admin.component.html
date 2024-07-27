@@ -1,0 +1,48 @@
+        <p-dialog [(visible)]="createDialog" [style]="{width: '70vw'}" header="{{'conversation.tabPan' | translate}}" [modal]="true" styleClass="p-fluid" [maximizable]="true" [draggable]="false" [resizable]="false">
+            <ng-template pTemplate="content" >
+                        <p-tabView>
+                            <p-tabPanel header="{{'conversation.tabPan' | translate}}">
+                                <div class="grid">
+
+                                                <div class="field col-12 md:col-6">
+                                                    <label for="1">{{'conversation.prompt' | translate}}</label>
+                                                    <textarea id="1" pInputTextarea rows="5" cols="30" placeholder="{{'conversation.prompt' | translate}}"  [(ngModel)]="item.prompt"
+                                                             ></textarea>
+                                                    
+                                                </div>
+
+                                                <div class="field col-12 md:col-6">
+                                                    <label for="2">{{'conversation.response' | translate}}</label>
+                                                    <textarea id="2" pInputTextarea rows="5" cols="30" placeholder="{{'conversation.response' | translate}}"  [(ngModel)]="item.response"
+                                                             ></textarea>
+                                                    
+                                                </div>
+
+                                            <div class="field col-11 md:col-6">
+                                                <label for="3">{{'conversation.project' | translate}}</label>
+                                                <p-dropdown  appendTo="body"  [options]="projects" [(ngModel)]="item.project" id="3" [filter]="true" filterMatchMode="contains"
+                                                        [showClear]="true" optionLabel="titleChat" placeholder="{{'conversation.project' | translate}}"  >
+                                                </p-dropdown>
+                                                
+                                            </div>
+
+                                </div>
+                            </p-tabPanel>
+
+                        </p-tabView>
+
+            </ng-template>
+
+            <ng-template pTemplate="footer" >
+                <div class="p-flexbox">
+
+                            <button pButton pRipple  label="{{'validate' | translate}}"  icon="pi pi-check"  (click)="save()"></button>
+
+
+                            <button pButton pRipple  label="{{'cancel' | translate}}" icon="pi pi-times" class="p-button-outlined" (click)="hideCreateDialog()"></button>
+
+
+                </div>
+            </ng-template>
+
+    </p-dialog>

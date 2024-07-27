@@ -1,0 +1,976 @@
+{
+    "from-to": "العناصر من {first} إلى {last} (الإجمالي {totalRecords})",
+    "new": "جديد",
+    "search": "بحث",
+    "export": "تصدير",
+    "validate": "التحقق",
+    "search": "البحث...",
+    "delete": "حذف",
+    "cancel": "إلغاء",
+    "save": "حفظ",
+    "next": "التالي",
+    "yes": "نعم",
+    "no": "لا",
+    "actions": "الإجراءات",
+    "confirm": "تأكيد",
+    "creation": "إنشاء",
+    "list": "قائمة",
+
+    "actionPermission": {
+        "reference": "المرجع",
+        "libelle": "التسمية",
+        "actionPermission": "إذن الإجراء",
+        "tabPan": "إذن الإجراء",
+        "header": "قائمة أذونات الإجراءات",
+        "deleteActionPermissionConfirmationMessage": "هل أنت متأكد أنك تريد حذف إذن الإجراء؟",
+        "deleteActionPermissionsConfirmationMessage": "هل أنت متأكد أنك تريد حذف العناصر المحددة؟"
+    },
+
+    "modelPermissionUser": {
+        "actionPermission": "إذن الإجراء",
+        "actionPermissionPlaceHolder": "اختر إذن الإجراء",
+        "actionPermissionPlaceHolderFilter": "البحث حسب إذن الإجراء",
+        "modelPermission": "إذن النموذج",
+        "modelPermissionPlaceHolder": "اختر إذن النموذج",
+        "modelPermissionPlaceHolderFilter": "البحث حسب إذن النموذج",
+        "value": "القيمة",
+        "user": "المستخدم",
+        "userPlaceHolder": "اختر مستخدمًا",
+        "userPlaceHolderFilter": "البحث حسب المستخدم",
+        "subAttribute": "السمة الفرعية",
+        "modelPermissionUser": "إذن مستخدم النموذج",
+        "tabPan": "إذن مستخدم النموذج",
+        "header": "قائمة مستخدمي إذن النموذج",
+        "deleteModelPermissionUserConfirmationMessage": "هل أنت متأكد أنك تريد حذف مستخدم إذن النموذج؟",
+        "deleteModelPermissionUsersConfirmationMessage": "هل أنت متأكد أنك تريد حذف العناصر المحددة؟"
+    },
+
+    "role": {
+        "authority": "السلطة",
+        "role": "الدور",
+        "tabPan": "الدور",
+        "header": "قائمة الأدوار",
+        "deleteRoleConfirmationMessage": "هل أنت متأكد أنك تريد حذف الدور؟",
+        "deleteRolesConfirmationMessage": "هل أنت متأكد أنك تريد حذف العناصر المحددة؟"
+    },
+
+    "roleUser": {
+        "role": "الدور",
+        "rolePlaceHolder": "اختر دورًا",
+        "rolePlaceHolderFilter": "البحث حسب الدور",
+        "user": "المستخدم",
+        "userPlaceHolder": "اختر مستخدمًا",
+        "userPlaceHolderFilter": "البحث حسب المستخدم",
+        "roleUser": "دور المستخدم",
+        "tabPan": "دور المستخدم",
+        "header": "قائمة مستخدمي الدور",
+        "deleteRoleUserConfirmationMessage": "هل أنت متأكد أنك تريد حذف مستخدم الدور؟",
+        "deleteRoleUsersConfirmationMessage": "هل أنت متأكد أنك تريد حذف العناصر المحددة؟"
+    },
+
+    "user": {
+        "credentialsNonExpired": "صلاحية الاعتماد غير منتهية",
+        "enabled": "مفعل",
+        "email": "البريد الإلكتروني",
+        "accountNonExpired": "الحساب غير منتهي",
+        "accountNonLocked": "الحساب غير مقفل",
+        "username": "اسم المستخدم",
+        "password": "كلمة المرور",
+        "passwordChanged": "تم تغيير كلمة المرور",
+        "modelPermissionUsers": "مستخدمو إذن النموذج",
+        "roleUsers": "مستخدمو الدور",
+        "RoleUsersPlaceHolder": "حدد عدة أدوار",
+        "user": "المستخدم",
+        "tabPan": "المستخدم",
+        "header": "قائمة المستخدمين",
+        "deleteUserConfirmationMessage": "هل أنت متأكد أنك تريد حذف المستخدم؟",
+        "deleteUsersConfirmationMessage": "هل أنت متأكد أنك تريد حذف العناصر المحددة؟"
+    },
+
+	"modelPermission": {
+		"reference": "المرجع",
+		"libelle": "التسمية",
+		"modelPermission": "إذن النموذج",
+		"tabPan": "إذن النموذج",
+		"header": "قائمة أذونات النماذج",
+		"deleteModelPermissionConfirmationMessage": "هل أنت متأكد أنك تريد حذف إذن النموذج؟",
+		"deleteModelPermissionsConfirmationMessage": "هل أنت متأكد أنك تريد حذف العناصر المحددة؟"
+	}
+
+
+
+    "project":{
+        "title": "Title",
+        "titleChat": "Title chat",
+        "collaborator": "Collaborator",
+        "collaboratorPlaceHolder": "Select a Collaborator",
+        "collaboratorPlaceHolderFilter": "Search by Collaborator",
+        "generatedDate": "Generated date",
+        "generatedDateMin": "Generated date Min",
+        "generatedDateMax": "Generated date Max",
+        "remoteRepoInfo": "Remote repo info",
+        "remoteRepoInfoPlaceHolder": "Select a Remote repo info",
+        "remoteRepoInfoPlaceHolderFilter": "Search by Remote repo info",
+        "conversations": "Conversations",
+        "chatDateStart": "Chat date start",
+        "chatDateStartMin": "Chat date start Min",
+        "chatDateStartMax": "Chat date start Max",
+        "microService": "Micro service",
+        "microFront": "Micro front",
+        "projectDetails": "Project details",
+        "project": "Project",
+        "tabPan": "Project",
+        "header": "Liste des projects",
+        "deleteProjectConfirmationMessage": "Are you sure you want to delete project",
+        "deleteProjectsConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "paimentCoupon":{
+        "description": "Description",
+        "coupon": "Coupon",
+        "couponPlaceHolder": "Select a Coupon",
+        "couponPlaceHolderFilter": "Search by Coupon",
+        "total": "Total",
+        "totalMin": "Total Min",
+        "totalMax": "Total Max",
+        "paiementDate": "Paiement date",
+        "paiementDateMin": "Paiement date Min",
+        "paiementDateMax": "Paiement date Max",
+        "paiementDateConfirmation": "Paiement date confirmation",
+        "paiementDateConfirmationMin": "Paiement date confirmation Min",
+        "paiementDateConfirmationMax": "Paiement date confirmation Max",
+        "paimentCouponState": "Paiment coupon state",
+        "paimentCouponStatePlaceHolder": "Select a Paiment coupon state",
+        "paimentCouponStatePlaceHolderFilter": "Search by Paiment coupon state",
+        "paimentCoupon": "Paiment coupon",
+        "tabPan": "Paiment coupon",
+        "header": "Liste des paiment coupons",
+        "deletePaimentCouponConfirmationMessage": "Are you sure you want to delete paiment coupon",
+        "deletePaimentCouponsConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "blog":{
+        "content": "Content",
+        "collaborator": "Collaborator",
+        "collaboratorPlaceHolder": "Select a Collaborator",
+        "collaboratorPlaceHolderFilter": "Search by Collaborator",
+        "creationDate": "Creation date",
+        "creationDateMin": "Creation date Min",
+        "creationDateMax": "Creation date Max",
+        "publicationDate": "Publication date",
+        "publicationDateMin": "Publication date Min",
+        "publicationDateMax": "Publication date Max",
+        "title": "Title",
+        "likes": "Likes",
+        "likesMin": "Likes Min",
+        "likesMax": "Likes Max",
+        "comments": "Comments",
+        "commentsMin": "Comments Min",
+        "commentsMax": "Comments Max",
+        "description": "Description",
+        "blogSubject": "Blog subject",
+        "blogSubjectPlaceHolder": "Select a Blog subject",
+        "blogSubjectPlaceHolderFilter": "Search by Blog subject",
+        "blogState": "Blog state",
+        "blogStatePlaceHolder": "Select a Blog state",
+        "blogStatePlaceHolderFilter": "Search by Blog state",
+        "blogComments": "Blog comments",
+        "blog": "Blog",
+        "tabPan": "Blog",
+        "header": "Liste des blogs",
+        "deleteBlogConfirmationMessage": "Are you sure you want to delete blog",
+        "deleteBlogsConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "inscriptionCollaboratorState":{
+        "code": "Code",
+        "libelle": "Libelle",
+        "inscriptionCollaboratorState": "Inscription collaborator state",
+        "tabPan": "Inscription collaborator state",
+        "header": "Liste des inscription collaborator states",
+        "deleteInscriptionCollaboratorStateConfirmationMessage": "Are you sure you want to delete inscription collaborator state",
+        "deleteInscriptionCollaboratorStatesConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "paimentCollaboratorState":{
+        "code": "Code",
+        "libelle": "Libelle",
+        "paimentCollaboratorState": "Paiment collaborator state",
+        "tabPan": "Paiment collaborator state",
+        "header": "Liste des paiment collaborator states",
+        "deletePaimentCollaboratorStateConfirmationMessage": "Are you sure you want to delete paiment collaborator state",
+        "deletePaimentCollaboratorStatesConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "remoteRepoType":{
+        "code": "Code",
+        "libelle": "Libelle",
+        "remoteRepoType": "Remote repo type",
+        "tabPan": "Remote repo type",
+        "header": "Liste des remote repo types",
+        "deleteRemoteRepoTypeConfirmationMessage": "Are you sure you want to delete remote repo type",
+        "deleteRemoteRepoTypesConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "influencer":{
+        "description": "Description",
+        "credentialsNonExpired": "Credentials non expired",
+        "enabled": "Enabled",
+        "accountNonExpired": "Account non expired",
+        "accountNonLocked": "Account non locked",
+        "passwordChanged": "Password changed",
+        "username": "Username",
+        "password": "Password",
+        "avatar": "Avatar",
+        "fullName": "Full name",
+        "about": "About",
+        "influencer": "Influencer",
+        "tabPan": "Influencer",
+        "header": "Liste des influencers",
+        "deleteInfluencerConfirmationMessage": "Are you sure you want to delete influencer",
+        "deleteInfluencersConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "paimentCouponState":{
+        "code": "Code",
+        "libelle": "Libelle",
+        "paimentCouponState": "Paiment coupon state",
+        "tabPan": "Paiment coupon state",
+        "header": "Liste des paiment coupon states",
+        "deletePaimentCouponStateConfirmationMessage": "Are you sure you want to delete paiment coupon state",
+        "deletePaimentCouponStatesConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "forumState":{
+        "code": "Code",
+        "libelle": "Libelle",
+        "forumState": "Forum state",
+        "tabPan": "Forum state",
+        "header": "Liste des forum states",
+        "deleteForumStateConfirmationMessage": "Are you sure you want to delete forum state",
+        "deleteForumStatesConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "projectTechnology":{
+        "code": "Code",
+        "libelle": "Libelle",
+        "defaultDbName": "Default db name",
+        "defaultUserName": "Default user name",
+        "defaultUserPassword": "Default user password",
+        "defaultPort": "Default port",
+        "defaultBasePackage": "Default base package",
+        "projectTechnologyType": "Project technology type",
+        "projectTechnologyTypePlaceHolder": "Select a Project technology type",
+        "projectTechnologyTypePlaceHolderFilter": "Search by Project technology type",
+        "projectTechnology": "Project technology",
+        "tabPan": "Project technology",
+        "header": "Liste des project technologys",
+        "deleteProjectTechnologyConfirmationMessage": "Are you sure you want to delete project technology",
+        "deleteProjectTechnologysConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "yamlFile":{
+        "title": "Title",
+        "content": "Content",
+        "project": "Project",
+        "projectPlaceHolder": "Select a Project",
+        "projectPlaceHolderFilter": "Search by Project",
+        "yamlFile": "Yaml file",
+        "tabPan": "Yaml file",
+        "header": "Liste des yaml files",
+        "deleteYamlFileConfirmationMessage": "Are you sure you want to delete yaml file",
+        "deleteYamlFilesConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "agent":{
+        "description": "Description",
+        "credentialsNonExpired": "Credentials non expired",
+        "enabled": "Enabled",
+        "accountNonExpired": "Account non expired",
+        "accountNonLocked": "Account non locked",
+        "passwordChanged": "Password changed",
+        "username": "Username",
+        "password": "Password",
+        "avatar": "Avatar",
+        "fullName": "Full name",
+        "about": "About",
+        "agent": "Agent",
+        "tabPan": "Agent",
+        "header": "Liste des agents",
+        "deleteAgentConfirmationMessage": "Are you sure you want to delete agent",
+        "deleteAgentsConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "city":{
+        "code": "Code",
+        "libelle": "Libelle",
+        "country": "Country",
+        "countryPlaceHolder": "Select a Country",
+        "countryPlaceHolderFilter": "Search by Country",
+        "city": "City",
+        "tabPan": "City",
+        "header": "Liste des citys",
+        "deleteCityConfirmationMessage": "Are you sure you want to delete city",
+        "deleteCitysConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "packagingPlan":{
+        "name": "Name",
+        "code": "Code",
+        "packaging": "Packaging",
+        "packagingPlaceHolder": "Select a Packaging",
+        "packagingPlaceHolderFilter": "Search by Packaging",
+        "numberOfMonth": "Number of month",
+        "numberOfMonthMin": "Number of month Min",
+        "numberOfMonthMax": "Number of month Max",
+        "price": "Price",
+        "priceMin": "Price Min",
+        "priceMax": "Price Max",
+        "description": "Description",
+        "maxEntity": "Max entity",
+        "maxEntityMin": "Max entity Min",
+        "maxEntityMax": "Max entity Max",
+        "maxProjet": "Max projet",
+        "maxProjetMin": "Max projet Min",
+        "maxProjetMax": "Max projet Max",
+        "maxAttribut": "Max attribut",
+        "maxAttributMin": "Max attribut Min",
+        "maxAttributMax": "Max attribut Max",
+        "maxTokenInput": "Max token input",
+        "maxTokenInputMin": "Max token input Min",
+        "maxTokenInputMax": "Max token input Max",
+        "maxTokenOutput": "Max token output",
+        "maxTokenOutputMin": "Max token output Min",
+        "maxTokenOutputMax": "Max token output Max",
+        "packagingPlan": "Packaging plan",
+        "tabPan": "Packaging plan",
+        "header": "Liste des packaging plans",
+        "deletePackagingPlanConfirmationMessage": "Are you sure you want to delete packaging plan",
+        "deletePackagingPlansConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "couponState":{
+        "code": "Code",
+        "libelle": "Libelle",
+        "couponState": "Coupon state",
+        "tabPan": "Coupon state",
+        "header": "Liste des coupon states",
+        "deleteCouponStateConfirmationMessage": "Are you sure you want to delete coupon state",
+        "deleteCouponStatesConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "custumorSupportConversation":{
+        "collaborator": "Collaborator",
+        "collaboratorPlaceHolder": "Select a Collaborator",
+        "collaboratorPlaceHolderFilter": "Search by Collaborator",
+        "agent": "Agent",
+        "agentPlaceHolder": "Select a Agent",
+        "agentPlaceHolderFilter": "Search by Agent",
+        "object": "Object",
+        "ratting": "Ratting",
+        "rattingMin": "Ratting Min",
+        "rattingMax": "Ratting Max",
+        "creationDate": "Creation date",
+        "creationDateMin": "Creation date Min",
+        "creationDateMax": "Creation date Max",
+        "closingDate": "Closing date",
+        "closingDateMin": "Closing date Min",
+        "closingDateMax": "Closing date Max",
+        "description": "Description",
+        "custumorSupportConversationCategory": "Custumor support conversation category",
+        "custumorSupportConversationCategoryPlaceHolder": "Select a Custumor support conversation category",
+        "custumorSupportConversationCategoryPlaceHolderFilter": "Search by Custumor support conversation category",
+        "custumorSupportConversationState": "Custumor support conversation state",
+        "custumorSupportConversationStatePlaceHolder": "Select a Custumor support conversation state",
+        "custumorSupportConversationStatePlaceHolderFilter": "Search by Custumor support conversation state",
+        "custumorSupportConversationMessages": "Custumor support conversation messages",
+        "custumorSupportConversation": "Custumor support conversation",
+        "tabPan": "Custumor support conversation",
+        "header": "Liste des custumor support conversations",
+        "deleteCustumorSupportConversationConfirmationMessage": "Are you sure you want to delete custumor support conversation",
+        "deleteCustumorSupportConversationsConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "forum":{
+        "content": "Content",
+        "collaborator": "Collaborator",
+        "collaboratorPlaceHolder": "Select a Collaborator",
+        "collaboratorPlaceHolderFilter": "Search by Collaborator",
+        "creationDate": "Creation date",
+        "creationDateMin": "Creation date Min",
+        "creationDateMax": "Creation date Max",
+        "publicationDate": "Publication date",
+        "publicationDateMin": "Publication date Min",
+        "publicationDateMax": "Publication date Max",
+        "title": "Title",
+        "likes": "Likes",
+        "likesMin": "Likes Min",
+        "likesMax": "Likes Max",
+        "comments": "Comments",
+        "commentsMin": "Comments Min",
+        "commentsMax": "Comments Max",
+        "description": "Description",
+        "forumSubject": "Forum subject",
+        "forumSubjectPlaceHolder": "Select a Forum subject",
+        "forumSubjectPlaceHolderFilter": "Search by Forum subject",
+        "forumState": "Forum state",
+        "forumStatePlaceHolder": "Select a Forum state",
+        "forumStatePlaceHolderFilter": "Search by Forum state",
+        "forumComments": "Forum comments",
+        "forum": "Forum",
+        "tabPan": "Forum",
+        "header": "Liste des forums",
+        "deleteForumConfirmationMessage": "Are you sure you want to delete forum",
+        "deleteForumsConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "offreCloudProvider":{
+        "code": "Code",
+        "libelle": "Libelle",
+        "description": "Description",
+        "cloudProvider": "Cloud provider",
+        "cloudProviderPlaceHolder": "Select a Cloud provider",
+        "cloudProviderPlaceHolderFilter": "Search by Cloud provider",
+        "price": "Price",
+        "priceMin": "Price Min",
+        "priceMax": "Price Max",
+        "offreCloudProvider": "Offre cloud provider",
+        "tabPan": "Offre cloud provider",
+        "header": "Liste des offre cloud providers",
+        "deleteOffreCloudProviderConfirmationMessage": "Are you sure you want to delete offre cloud provider",
+        "deleteOffreCloudProvidersConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "paimentCollaborator":{
+        "cardHolder": "Card holder",
+        "cardNumber": "Card number",
+        "expirationDate": "Expiration date",
+        "cvc": "Cvc",
+        "country": "Country",
+        "countryPlaceHolder": "Select a Country",
+        "countryPlaceHolderFilter": "Search by Country",
+        "postal": "Postal",
+        "city": "City",
+        "cityPlaceHolder": "Select a City",
+        "cityPlaceHolderFilter": "Search by City",
+        "description": "Description",
+        "amountToPaid": "Amount to paid",
+        "amountToPaidMin": "Amount to paid Min",
+        "amountToPaidMax": "Amount to paid Max",
+        "startDate": "Start date",
+        "startDateMin": "Start date Min",
+        "startDateMax": "Start date Max",
+        "endDate": "End date",
+        "endDateMin": "End date Min",
+        "endDateMax": "End date Max",
+        "consumedEntity": "Consumed entity",
+        "consumedEntityMin": "Consumed entity Min",
+        "consumedEntityMax": "Consumed entity Max",
+        "consumedProjet": "Consumed projet",
+        "consumedProjetMin": "Consumed projet Min",
+        "consumedProjetMax": "Consumed projet Max",
+        "consumedAttribut": "Consumed attribut",
+        "consumedAttributMin": "Consumed attribut Min",
+        "consumedAttributMax": "Consumed attribut Max",
+        "consumedTokenInput": "Consumed token input",
+        "consumedTokenInputMin": "Consumed token input Min",
+        "consumedTokenInputMax": "Consumed token input Max",
+        "consumedTokenOutput": "Consumed token output",
+        "consumedTokenOutputMin": "Consumed token output Min",
+        "consumedTokenOutputMax": "Consumed token output Max",
+        "total": "Total",
+        "totalMin": "Total Min",
+        "totalMax": "Total Max",
+        "basic": "Basic",
+        "basicMin": "Basic Min",
+        "basicMax": "Basic Max",
+        "discount": "Discount",
+        "discountMin": "Discount Min",
+        "discountMax": "Discount Max",
+        "remaining": "Remaining",
+        "remainingMin": "Remaining Min",
+        "remainingMax": "Remaining Max",
+        "priceCloud": "Price cloud",
+        "priceCloudMin": "Price cloud Min",
+        "priceCloudMax": "Price cloud Max",
+        "paiementDate": "Paiement date",
+        "paiementDateMin": "Paiement date Min",
+        "paiementDateMax": "Paiement date Max",
+        "collaborator": "Collaborator",
+        "collaboratorPlaceHolder": "Select a Collaborator",
+        "collaboratorPlaceHolderFilter": "Search by Collaborator",
+        "packaging": "Packaging",
+        "packagingPlaceHolder": "Select a Packaging",
+        "packagingPlaceHolderFilter": "Search by Packaging",
+        "paimentCollaboratorState": "Paiment collaborator state",
+        "paimentCollaboratorStatePlaceHolder": "Select a Paiment collaborator state",
+        "paimentCollaboratorStatePlaceHolderFilter": "Search by Paiment collaborator state",
+        "paimentCollaboratorType": "Paiment collaborator type",
+        "paimentCollaboratorTypePlaceHolder": "Select a Paiment collaborator type",
+        "paimentCollaboratorTypePlaceHolderFilter": "Search by Paiment collaborator type",
+        "inscriptionCollaborator": "Inscription collaborator",
+        "inscriptionCollaboratorPlaceHolder": "Select a Inscription collaborator",
+        "inscriptionCollaboratorPlaceHolderFilter": "Search by Inscription collaborator",
+        "coupon": "Coupon",
+        "couponPlaceHolder": "Select a Coupon",
+        "couponPlaceHolderFilter": "Search by Coupon",
+        "deployAndTestOnLine": "Deploy and test on line",
+        "offreCloudProvider": "Offre cloud provider",
+        "offreCloudProviderPlaceHolder": "Select a Offre cloud provider",
+        "offreCloudProviderPlaceHolderFilter": "Search by Offre cloud provider",
+        "paimentCollaborator": "Paiment collaborator",
+        "tabPan": "Paiment collaborator",
+        "header": "Liste des paiment collaborators",
+        "deletePaimentCollaboratorConfirmationMessage": "Are you sure you want to delete paiment collaborator",
+        "deletePaimentCollaboratorsConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "projectTechnologyProfile":{
+        "code": "Code",
+        "libelle": "Libelle",
+        "projectTechnologyProfile": "Project technology profile",
+        "tabPan": "Project technology profile",
+        "header": "Liste des project technology profiles",
+        "deleteProjectTechnologyProfileConfirmationMessage": "Are you sure you want to delete project technology profile",
+        "deleteProjectTechnologyProfilesConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "cloudProvider":{
+        "code": "Code",
+        "libelle": "Libelle",
+        "cloudProvider": "Cloud provider",
+        "tabPan": "Cloud provider",
+        "header": "Liste des cloud providers",
+        "deleteCloudProviderConfirmationMessage": "Are you sure you want to delete cloud provider",
+        "deleteCloudProvidersConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "blogSubject":{
+        "code": "Code",
+        "libelle": "Libelle",
+        "blogSubject": "Blog subject",
+        "tabPan": "Blog subject",
+        "header": "Liste des blog subjects",
+        "deleteBlogSubjectConfirmationMessage": "Are you sure you want to delete blog subject",
+        "deleteBlogSubjectsConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "contactUsCategory":{
+        "code": "Code",
+        "libelle": "Libelle",
+        "contactUsCategory": "Contact us category",
+        "tabPan": "Contact us category",
+        "header": "Liste des contact us categorys",
+        "deleteContactUsCategoryConfirmationMessage": "Are you sure you want to delete contact us category",
+        "deleteContactUsCategorysConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "blogComment":{
+        "collaborator": "Collaborator",
+        "collaboratorPlaceHolder": "Select a Collaborator",
+        "collaboratorPlaceHolderFilter": "Search by Collaborator",
+        "creationDate": "Creation date",
+        "creationDateMin": "Creation date Min",
+        "creationDateMax": "Creation date Max",
+        "content": "Content",
+        "blog": "Blog",
+        "blogPlaceHolder": "Select a Blog",
+        "blogPlaceHolderFilter": "Search by Blog",
+        "blogComment": "Blog comment",
+        "tabPan": "Blog comment",
+        "header": "Liste des blog comments",
+        "deleteBlogCommentConfirmationMessage": "Are you sure you want to delete blog comment",
+        "deleteBlogCommentsConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "inscriptionCollaborator":{
+        "description": "Description",
+        "startDate": "Start date",
+        "startDateMin": "Start date Min",
+        "startDateMax": "Start date Max",
+        "endDate": "End date",
+        "endDateMin": "End date Min",
+        "endDateMax": "End date Max",
+        "consumedEntity": "Consumed entity",
+        "consumedEntityMin": "Consumed entity Min",
+        "consumedEntityMax": "Consumed entity Max",
+        "consumedProjet": "Consumed projet",
+        "consumedProjetMin": "Consumed projet Min",
+        "consumedProjetMax": "Consumed projet Max",
+        "consumedAttribut": "Consumed attribut",
+        "consumedAttributMin": "Consumed attribut Min",
+        "consumedAttributMax": "Consumed attribut Max",
+        "consumedTokenInput": "Consumed token input",
+        "consumedTokenInputMin": "Consumed token input Min",
+        "consumedTokenInputMax": "Consumed token input Max",
+        "consumedTokenOutput": "Consumed token output",
+        "consumedTokenOutputMin": "Consumed token output Min",
+        "consumedTokenOutputMax": "Consumed token output Max",
+        "collaborator": "Collaborator",
+        "collaboratorPlaceHolder": "Select a Collaborator",
+        "collaboratorPlaceHolderFilter": "Search by Collaborator",
+        "packagingPlan": "Packaging plan",
+        "packagingPlanPlaceHolder": "Select a Packaging plan",
+        "packagingPlanPlaceHolderFilter": "Search by Packaging plan",
+        "inscriptionCollaboratorState": "Inscription collaborator state",
+        "inscriptionCollaboratorStatePlaceHolder": "Select a Inscription collaborator state",
+        "inscriptionCollaboratorStatePlaceHolderFilter": "Search by Inscription collaborator state",
+        "inscriptionCollaborator": "Inscription collaborator",
+        "tabPan": "Inscription collaborator",
+        "header": "Liste des inscription collaborators",
+        "deleteInscriptionCollaboratorConfirmationMessage": "Are you sure you want to delete inscription collaborator",
+        "deleteInscriptionCollaboratorsConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "contactUsState":{
+        "code": "Code",
+        "libelle": "Libelle",
+        "contactUsState": "Contact us state",
+        "tabPan": "Contact us state",
+        "header": "Liste des contact us states",
+        "deleteContactUsStateConfirmationMessage": "Are you sure you want to delete contact us state",
+        "deleteContactUsStatesConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "forumSubject":{
+        "code": "Code",
+        "libelle": "Libelle",
+        "forumSubject": "Forum subject",
+        "tabPan": "Forum subject",
+        "header": "Liste des forum subjects",
+        "deleteForumSubjectConfirmationMessage": "Are you sure you want to delete forum subject",
+        "deleteForumSubjectsConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "projectTechnologyType":{
+        "code": "Code",
+        "libelle": "Libelle",
+        "projectTechnologyType": "Project technology type",
+        "tabPan": "Project technology type",
+        "header": "Liste des project technology types",
+        "deleteProjectTechnologyTypeConfirmationMessage": "Are you sure you want to delete project technology type",
+        "deleteProjectTechnologyTypesConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "custumorSupportConversationCategory":{
+        "code": "Code",
+        "libelle": "Libelle",
+        "custumorSupportConversationCategory": "Custumor support conversation category",
+        "tabPan": "Custumor support conversation category",
+        "header": "Liste des custumor support conversation categorys",
+        "deleteCustumorSupportConversationCategoryConfirmationMessage": "Are you sure you want to delete custumor support conversation category",
+        "deleteCustumorSupportConversationCategorysConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "coupon":{
+        "code": "Code",
+        "libelle": "Libelle",
+        "influencer": "Influencer",
+        "influencerPlaceHolder": "Select a Influencer",
+        "influencerPlaceHolderFilter": "Search by Influencer",
+        "discountCollaborator": "Discount collaborator",
+        "discountCollaboratorMin": "Discount collaborator Min",
+        "discountCollaboratorMax": "Discount collaborator Max",
+        "percentInflucencer": "Percent influcencer",
+        "percentInflucencerMin": "Percent influcencer Min",
+        "percentInflucencerMax": "Percent influcencer Max",
+        "nombreInscriptionMax": "Nombre inscription max",
+        "nombreInscriptionMaxMin": "Nombre inscription max Min",
+        "nombreInscriptionMaxMax": "Nombre inscription max Max",
+        "nombreCollaboratorInscrit": "Nombre collaborator inscrit",
+        "nombreCollaboratorInscritMin": "Nombre collaborator inscrit Min",
+        "nombreCollaboratorInscritMax": "Nombre collaborator inscrit Max",
+        "couponState": "Coupon state",
+        "couponStatePlaceHolder": "Select a Coupon state",
+        "couponStatePlaceHolderFilter": "Search by Coupon state",
+        "coupon": "Coupon",
+        "tabPan": "Coupon",
+        "header": "Liste des coupons",
+        "deleteCouponConfirmationMessage": "Are you sure you want to delete coupon",
+        "deleteCouponsConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "packaging":{
+        "name": "Name",
+        "code": "Code",
+        "description": "Description",
+        "price": "Price",
+        "priceMin": "Price Min",
+        "priceMax": "Price Max",
+        "maxEntity": "Max entity",
+        "maxEntityMin": "Max entity Min",
+        "maxEntityMax": "Max entity Max",
+        "maxProjet": "Max projet",
+        "maxProjetMin": "Max projet Min",
+        "maxProjetMax": "Max projet Max",
+        "maxAttribut": "Max attribut",
+        "maxAttributMin": "Max attribut Min",
+        "maxAttributMax": "Max attribut Max",
+        "maxTokenInput": "Max token input",
+        "maxTokenInputMin": "Max token input Min",
+        "maxTokenInputMax": "Max token input Max",
+        "maxTokenOutput": "Max token output",
+        "maxTokenOutputMin": "Max token output Min",
+        "maxTokenOutputMax": "Max token output Max",
+        "packagingPlans": "Packaging plans",
+        "packagingDetails": "Packaging details",
+        "packaging": "Packaging",
+        "tabPan": "Packaging",
+        "header": "Liste des packagings",
+        "deletePackagingConfirmationMessage": "Are you sure you want to delete packaging",
+        "deletePackagingsConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "custumorSupportConversationState":{
+        "code": "Code",
+        "libelle": "Libelle",
+        "custumorSupportConversationState": "Custumor support conversation state",
+        "tabPan": "Custumor support conversation state",
+        "header": "Liste des custumor support conversation states",
+        "deleteCustumorSupportConversationStateConfirmationMessage": "Are you sure you want to delete custumor support conversation state",
+        "deleteCustumorSupportConversationStatesConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "blogState":{
+        "code": "Code",
+        "libelle": "Libelle",
+        "blogState": "Blog state",
+        "tabPan": "Blog state",
+        "header": "Liste des blog states",
+        "deleteBlogStateConfirmationMessage": "Are you sure you want to delete blog state",
+        "deleteBlogStatesConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "packagingDetailGroup":{
+        "code": "Code",
+        "libelle": "Libelle",
+        "seeMore": "See more",
+        "packagingDetailGroup": "Packaging detail group",
+        "tabPan": "Packaging detail group",
+        "header": "Liste des packaging detail groups",
+        "deletePackagingDetailGroupConfirmationMessage": "Are you sure you want to delete packaging detail group",
+        "deletePackagingDetailGroupsConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "conversation":{
+        "prompt": "Prompt",
+        "response": "Response",
+        "project": "Project",
+        "projectPlaceHolder": "Select a Project",
+        "projectPlaceHolderFilter": "Search by Project",
+        "conversation": "Conversation",
+        "tabPan": "Conversation",
+        "header": "Liste des conversations",
+        "deleteConversationConfirmationMessage": "Are you sure you want to delete conversation",
+        "deleteConversationsConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "custumorSupportConversationMessage":{
+        "content": "Content",
+        "collaborator": "Collaborator",
+        "creationDate": "Creation date",
+        "creationDateMin": "Creation date Min",
+        "creationDateMax": "Creation date Max",
+        "custumorSupportConversation": "Custumor support conversation",
+        "custumorSupportConversationPlaceHolder": "Select a Custumor support conversation",
+        "custumorSupportConversationPlaceHolderFilter": "Search by Custumor support conversation",
+        "custumorSupportConversationMessage": "Custumor support conversation message",
+        "tabPan": "Custumor support conversation message",
+        "header": "Liste des custumor support conversation messages",
+        "deleteCustumorSupportConversationMessageConfirmationMessage": "Are you sure you want to delete custumor support conversation message",
+        "deleteCustumorSupportConversationMessagesConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "collaborator":{
+        "description": "Description",
+        "country": "Country",
+        "countryPlaceHolder": "Select a Country",
+        "countryPlaceHolderFilter": "Search by Country",
+        "postal": "Postal",
+        "city": "City",
+        "cityPlaceHolder": "Select a City",
+        "cityPlaceHolderFilter": "Search by City",
+        "credentialsNonExpired": "Credentials non expired",
+        "enabled": "Enabled",
+        "accountNonExpired": "Account non expired",
+        "accountNonLocked": "Account non locked",
+        "passwordChanged": "Password changed",
+        "username": "Username",
+        "password": "Password",
+        "avatar": "Avatar",
+        "fullName": "Full name",
+        "about": "About",
+        "collaborator": "Collaborator",
+        "tabPan": "Collaborator",
+        "header": "Liste des collaborators",
+        "deleteCollaboratorConfirmationMessage": "Are you sure you want to delete collaborator",
+        "deleteCollaboratorsConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "paimentCollaboratorType":{
+        "code": "Code",
+        "libelle": "Libelle",
+        "paimentCollaboratorType": "Paiment collaborator type",
+        "tabPan": "Paiment collaborator type",
+        "header": "Liste des paiment collaborator types",
+        "deletePaimentCollaboratorTypeConfirmationMessage": "Are you sure you want to delete paiment collaborator type",
+        "deletePaimentCollaboratorTypesConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "forumComment":{
+        "collaborator": "Collaborator",
+        "collaboratorPlaceHolder": "Select a Collaborator",
+        "collaboratorPlaceHolderFilter": "Search by Collaborator",
+        "creationDate": "Creation date",
+        "creationDateMin": "Creation date Min",
+        "creationDateMax": "Creation date Max",
+        "content": "Content",
+        "forum": "Forum",
+        "forumPlaceHolder": "Select a Forum",
+        "forumPlaceHolderFilter": "Search by Forum",
+        "forumComment": "Forum comment",
+        "tabPan": "Forum comment",
+        "header": "Liste des forum comments",
+        "deleteForumCommentConfirmationMessage": "Are you sure you want to delete forum comment",
+        "deleteForumCommentsConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "projectDetail":{
+        "title": "Title",
+        "projectTechnology": "Project technology",
+        "projectTechnologyPlaceHolder": "Select a Project technology",
+        "projectTechnologyPlaceHolderFilter": "Search by Project technology",
+        "project": "Project",
+        "projectPlaceHolder": "Select a Project",
+        "projectPlaceHolderFilter": "Search by Project",
+        "projectTechnologyProfile": "Project technology profile",
+        "projectTechnologyProfilePlaceHolder": "Select a Project technology profile",
+        "projectTechnologyProfilePlaceHolderFilter": "Search by Project technology profile",
+        "dbName": "Db name",
+        "dbPassword": "Db password",
+        "dbUserName": "Db user name",
+        "basePackage": "Base package",
+        "msName": "Ms name",
+        "port": "Port",
+        "portDev": "Port dev",
+        "portTest": "Port test",
+        "portProd": "Port prod",
+        "enabled": "Enabled",
+        "projectDetail": "Project detail",
+        "tabPan": "Project detail",
+        "header": "Liste des project details",
+        "deleteProjectDetailConfirmationMessage": "Are you sure you want to delete project detail",
+        "deleteProjectDetailsConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "packagingDetail":{
+        "packaging": "Packaging",
+        "packagingPlaceHolder": "Select a Packaging",
+        "packagingPlaceHolderFilter": "Search by Packaging",
+        "name": "Name",
+        "exist": "Exist",
+        "description": "Description",
+        "packagingDetailGroup": "Packaging detail group",
+        "packagingDetailGroupPlaceHolder": "Select a Packaging detail group",
+        "packagingDetailGroupPlaceHolderFilter": "Search by Packaging detail group",
+        "packagingDetail": "Packaging detail",
+        "tabPan": "Packaging detail",
+        "header": "Liste des packaging details",
+        "deletePackagingDetailConfirmationMessage": "Are you sure you want to delete packaging detail",
+        "deletePackagingDetailsConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "country":{
+        "code": "Code",
+        "libelle": "Libelle",
+        "country": "Country",
+        "tabPan": "Country",
+        "header": "Liste des countrys",
+        "deleteCountryConfirmationMessage": "Are you sure you want to delete country",
+        "deleteCountrysConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "contactUs":{
+        "phone": "Phone",
+        "email": "Email",
+        "object": "Object",
+        "message": "Message",
+        "description": "Description",
+        "contactUsCategory": "Contact us category",
+        "contactUsCategoryPlaceHolder": "Select a Contact us category",
+        "contactUsCategoryPlaceHolderFilter": "Search by Contact us category",
+        "contactUsState": "Contact us state",
+        "contactUsStatePlaceHolder": "Select a Contact us state",
+        "contactUsStatePlaceHolderFilter": "Search by Contact us state",
+        "contactUs": "Contact us",
+        "tabPan": "Contact us",
+        "header": "Liste des contact us",
+        "deleteContactUsConfirmationMessage": "Are you sure you want to delete contact us",
+        "deleteContactUssConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "remoteRepoInfo":{
+        "title": "Title",
+        "username": "Username",
+        "token": "Token",
+        "name": "Name",
+        "remoteRepoType": "Remote repo type",
+        "remoteRepoTypePlaceHolder": "Select a Remote repo type",
+        "remoteRepoTypePlaceHolderFilter": "Search by Remote repo type",
+        "collaborator": "Collaborator",
+        "collaboratorPlaceHolder": "Select a Collaborator",
+        "collaboratorPlaceHolderFilter": "Search by Collaborator",
+        "remoteRepoInfo": "Remote repo info",
+        "tabPan": "Remote repo info",
+        "header": "Liste des remote repo infos",
+        "deleteRemoteRepoInfoConfirmationMessage": "Are you sure you want to delete remote repo info",
+        "deleteRemoteRepoInfosConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+"appName": "GED"
+}
+
+

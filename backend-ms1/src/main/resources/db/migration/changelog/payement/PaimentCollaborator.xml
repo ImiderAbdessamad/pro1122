@@ -1,0 +1,171 @@
+<!-- db/changelog-1.1-container.xml -->
+
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.0.xsd">
+
+  <!-- Create Container Table -->
+    <changeSet id="1" author="your-name">
+    <createTable tableName="paiment_collaborator">
+      <column name="id" type="BIGINT">
+        <constraints primaryKey="true" nullable="false"/>
+      </column>
+        <column name="card_holder" type="VARCHAR(500)"/>
+        <column name="card_number" type="VARCHAR(500)"/>
+        <column name="expiration_date" type="VARCHAR(500)"/>
+        <column name="cvc" type="VARCHAR(500)"/>
+        <column name="postal" type="VARCHAR(500)"/>
+        <column name="description" type="VARCHAR(500)"/>
+        <column name="amount_to_paid" type="NUMERIC"/>
+        <column name="start_date" type="TIMESTAMP"/>
+        <column name="end_date" type="TIMESTAMP"/>
+        <column name="consumed_entity" type="NUMERIC"/>
+        <column name="consumed_projet" type="NUMERIC"/>
+        <column name="consumed_attribut" type="NUMERIC"/>
+        <column name="consumed_token_input" type="NUMERIC"/>
+        <column name="consumed_token_output" type="NUMERIC"/>
+        <column name="total" type="NUMERIC"/>
+        <column name="basic" type="NUMERIC"/>
+        <column name="discount" type="NUMERIC"/>
+        <column name="remaining" type="NUMERIC"/>
+        <column name="price_cloud" type="NUMERIC"/>
+        <column name="paiement_date" type="TIMESTAMP"/>
+        <column name="deploy_and_test_on_line" type="TINYINT"/>
+
+        <column name="country_id" type="BIGINT">
+          <constraints nullable="false"/>
+        </column>
+        <column name="city_id" type="BIGINT">
+          <constraints nullable="false"/>
+        </column>
+        <column name="collaborator_id" type="BIGINT">
+          <constraints nullable="false"/>
+        </column>
+        <column name="packaging_id" type="BIGINT">
+          <constraints nullable="false"/>
+        </column>
+        <column name="paiment_collaborator_state_id" type="BIGINT">
+          <constraints nullable="false"/>
+        </column>
+        <column name="paiment_collaborator_type_id" type="BIGINT">
+          <constraints nullable="false"/>
+        </column>
+        <column name="inscription_collaborator_id" type="BIGINT">
+          <constraints nullable="false"/>
+        </column>
+        <column name="coupon_id" type="BIGINT">
+          <constraints nullable="false"/>
+        </column>
+        <column name="offre_cloud_provider_id" type="BIGINT">
+          <constraints nullable="false"/>
+        </column>
+
+    </createTable>
+  </changeSet>
+
+    <!-- Add foreign key constraint -->
+  <changeSet id="2" author="your-name">
+      <addForeignKeyConstraint
+              baseTableName="paiment_collaborator"
+              baseColumnNames="country_id"
+              referencedTableName="country"
+              referencedColumnNames="id"
+              constraintName="fk_paiment_collaborator_country"/>
+      <addForeignKeyConstraint
+              baseTableName="paiment_collaborator"
+              baseColumnNames="city_id"
+              referencedTableName="city"
+              referencedColumnNames="id"
+              constraintName="fk_paiment_collaborator_city"/>
+      <addForeignKeyConstraint
+              baseTableName="paiment_collaborator"
+              baseColumnNames="collaborator_id"
+              referencedTableName="collaborator"
+              referencedColumnNames="id"
+              constraintName="fk_paiment_collaborator_collaborator"/>
+      <addForeignKeyConstraint
+              baseTableName="paiment_collaborator"
+              baseColumnNames="packaging_id"
+              referencedTableName="packaging"
+              referencedColumnNames="id"
+              constraintName="fk_paiment_collaborator_packaging"/>
+      <addForeignKeyConstraint
+              baseTableName="paiment_collaborator"
+              baseColumnNames="paiment_collaborator_state_id"
+              referencedTableName="paiment_collaborator_state"
+              referencedColumnNames="id"
+              constraintName="fk_paiment_collaborator_paiment_collaborator_state"/>
+      <addForeignKeyConstraint
+              baseTableName="paiment_collaborator"
+              baseColumnNames="paiment_collaborator_type_id"
+              referencedTableName="paiment_collaborator_type"
+              referencedColumnNames="id"
+              constraintName="fk_paiment_collaborator_paiment_collaborator_type"/>
+      <addForeignKeyConstraint
+              baseTableName="paiment_collaborator"
+              baseColumnNames="inscription_collaborator_id"
+              referencedTableName="inscription_collaborator"
+              referencedColumnNames="id"
+              constraintName="fk_paiment_collaborator_inscription_collaborator"/>
+      <addForeignKeyConstraint
+              baseTableName="paiment_collaborator"
+              baseColumnNames="coupon_id"
+              referencedTableName="coupon"
+              referencedColumnNames="id"
+              constraintName="fk_paiment_collaborator_coupon"/>
+      <addForeignKeyConstraint
+              baseTableName="paiment_collaborator"
+              baseColumnNames="offre_cloud_provider_id"
+              referencedTableName="offre_cloud_provider"
+              referencedColumnNames="id"
+              constraintName="fk_paiment_collaborator_offre_cloud_provider"/>
+
+  </changeSet>
+
+    <!-- Create Sequence for ContainerType -->
+  <changeSet id="3" author="your-name">
+    <createSequence sequenceName="paiment_collaborator_seq" startValue="1" incrementBy="1"/>
+  </changeSet>
+
+  <!-- Load Data from CSV -->
+  <changeSet id="4" author="your-name">
+    <loadData
+            file="classpath:/db/migration/data/payement/PaimentCollaborator.csv"
+            tableName="paiment_collaborator">
+      <column name="id" type="NUMERIC"/>
+          <column name="card_holder" type="STRING"/>
+          <column name="card_number" type="STRING"/>
+          <column name="expiration_date" type="STRING"/>
+          <column name="cvc" type="STRING"/>
+          <column name="postal" type="STRING"/>
+          <column name="description" type="STRING"/>
+          <column name="amount_to_paid" type="NUMERIC"/>
+          <column name="start_date" type="TIMESTAMP"/>
+          <column name="end_date" type="TIMESTAMP"/>
+          <column name="consumed_entity" type="NUMERIC"/>
+          <column name="consumed_projet" type="NUMERIC"/>
+          <column name="consumed_attribut" type="NUMERIC"/>
+          <column name="consumed_token_input" type="NUMERIC"/>
+          <column name="consumed_token_output" type="NUMERIC"/>
+          <column name="total" type="NUMERIC"/>
+          <column name="basic" type="NUMERIC"/>
+          <column name="discount" type="NUMERIC"/>
+          <column name="remaining" type="NUMERIC"/>
+          <column name="price_cloud" type="NUMERIC"/>
+          <column name="paiement_date" type="TIMESTAMP"/>
+          <column name="deploy_and_test_on_line" type="BOOLEAN"/>
+        <column name="country" type="BIGINT"/>
+        <column name="city" type="BIGINT"/>
+        <column name="collaborator" type="BIGINT"/>
+        <column name="packaging" type="BIGINT"/>
+        <column name="paiment_collaborator_state" type="BIGINT"/>
+        <column name="paiment_collaborator_type" type="BIGINT"/>
+        <column name="inscription_collaborator" type="BIGINT"/>
+        <column name="coupon" type="BIGINT"/>
+        <column name="offre_cloud_provider" type="BIGINT"/>
+    </loadData>
+  </changeSet>
+
+
+</databaseChangeLog>

@@ -1,0 +1,156 @@
+    <p-dialog [(visible)]="editDialog" [style]="{width: '70vw'}" header="{{'custumorSupportConversation.tabPan' | translate}}" [modal]="true" styleClass="p-fluid" [maximizable]="true" [draggable]="false" [resizable]="false">
+        <ng-template pTemplate="content" >
+                <p-tabView>
+                    <p-tabPanel header="{{'custumorSupportConversation.tabPan' | translate}}">
+                        <div class="grid">
+
+                                    <div class="field col-11 md:col-6">
+                                        <label for="1">{{'custumorSupportConversation.collaborator' | translate}}</label>
+                                        <p-dropdown  appendTo="body"  [options]="collaborators" [(ngModel)]="item.collaborator" id="1" [filter]="true" filterMatchMode="contains"
+                                                     [showClear]="true" optionLabel="id" placeholder="{{'custumorSupportConversation.collaborator' | translate}}"  >
+                                        </p-dropdown>
+                                        
+                                    </div>
+
+                                    <div class="field col-11 md:col-6">
+                                        <label for="2">{{'custumorSupportConversation.agent' | translate}}</label>
+                                        <p-dropdown  appendTo="body"  [options]="agents" [(ngModel)]="item.agent" id="2" [filter]="true" filterMatchMode="contains"
+                                                     [showClear]="true" optionLabel="id" placeholder="{{'custumorSupportConversation.agent' | translate}}"  >
+                                        </p-dropdown>
+                                        
+                                    </div>
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="3">{{'custumorSupportConversation.object' | translate}}</label>
+                                            <input class="mb-2 mr-2" type="text" pInputText  placeholder="{{'custumorSupportConversation.object' | translate}}" id="3" [(ngModel)]="item.object"
+                                                    />
+                                            
+                                        </div>
+
+
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="4">{{'custumorSupportConversation.ratting' | translate}}</label>
+                                            <p-inputNumber class="mb-2 mr-2" id="4" placeholder="{{'custumorSupportConversation.ratting' | translate}}" [(ngModel)]="item.ratting"  >
+                                            </p-inputNumber>
+                                            
+                                        </div>
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="5">{{'custumorSupportConversation.creationDate' | translate}}</label>
+                                            <p-calendar appendTo="body" id="5"  [showTime]="true" [showSeconds]="false" placeholder="{{'custumorSupportConversation.creationDate' | translate}}"  [(ngModel)]="item.creationDate"
+                                                        dateFormat="{{dateFormat}}"  >
+                                            </p-calendar>
+                                            
+                                        </div>
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="6">{{'custumorSupportConversation.closingDate' | translate}}</label>
+                                            <p-calendar appendTo="body" id="6"  [showTime]="true" [showSeconds]="false" placeholder="{{'custumorSupportConversation.closingDate' | translate}}"  [(ngModel)]="item.closingDate"
+                                                        dateFormat="{{dateFormat}}"  >
+                                            </p-calendar>
+                                            
+                                        </div>
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="7">{{'custumorSupportConversation.description' | translate}}</label>
+                                            <textarea id="7" pInputTextarea rows="5" cols="30" placeholder="{{'custumorSupportConversation.description' | translate}}"  [(ngModel)]="item.description"
+                                                       ></textarea>
+                                            
+                                        </div>
+
+                                    <div class="field col-11 md:col-6">
+                                        <label for="8">{{'custumorSupportConversation.custumorSupportConversationCategory' | translate}}</label>
+                                        <p-dropdown  appendTo="body"  [options]="custumorSupportConversationCategorys" [(ngModel)]="item.custumorSupportConversationCategory" id="8" [filter]="true" filterMatchMode="contains"
+                                                     [showClear]="true" optionLabel="libelle" placeholder="{{'custumorSupportConversation.custumorSupportConversationCategory' | translate}}"  >
+                                        </p-dropdown>
+                                        
+                                    </div>
+
+                                    <div class="field col-11 md:col-6">
+                                        <label for="9">{{'custumorSupportConversation.custumorSupportConversationState' | translate}}</label>
+                                        <p-dropdown  appendTo="body"  [options]="custumorSupportConversationStates" [(ngModel)]="item.custumorSupportConversationState" id="9" [filter]="true" filterMatchMode="contains"
+                                                     [showClear]="true" optionLabel="libelle" placeholder="{{'custumorSupportConversation.custumorSupportConversationState' | translate}}"  >
+                                        </p-dropdown>
+                                        
+                                    </div>
+
+                        </div>
+                    </p-tabPanel>
+                            <p-tabPanel header="{{'custumorSupportConversation.custumorSupportConversationMessages' | translate}}">
+                                        <div class="p-col">
+                                            <div class="grid">
+                                                            <div class="field col-12 md:col-6">
+                                                                <label for="1">{{'custumorSupportConversationMessage.content' | translate}}</label>
+                                                                <textarea id="1" pInputTextarea rows="5" cols="30" placeholder="{{'custumorSupportConversationMessage.content' | translate}}"  [(ngModel)]="item.content"
+                                                                           ></textarea>
+                                                                
+                                                            </div>
+                                                            <div class="field  align-inputswitch col-12 md:col-6">
+                                                                <div  class="label-inputswitch">
+                                                                    <label for="2">Collaborator</label>
+                                                                </div>
+                                                                <div class="input-switch">
+                                                                    <p-inputSwitch id="2"  [(ngModel)]="custumorSupportConversationMessagesElement.collaborator"></p-inputSwitch>
+                                                                </div>
+                                                            </div>
+                                                            <div class="field col-12 md:col-6">
+                                                                <label for="3">Creation date</label>
+                                                                <p-calendar appendTo="body" id="3"  [showTime]="true" [showSeconds]="false" placeholder="Creation date" [(ngModel)]="custumorSupportConversationMessagesElement.creationDate"
+                                                                            dateFormat="{{dateFormat}}" [showIcon]="true"  ></p-calendar>
+                                                                
+                                                            </div>
+                                                <div class="field col-12 md:col-1">
+                                                    <button pButton pRipple type="button" icon="pi pi-plus" class="mt-4" label="OK" (click)="addCustumorSupportConversationMessages()"></button>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="p-col">
+                                            <div class="card">
+                                                <p-table [value]="item.custumorSupportConversationMessages" [scrollable]="true" scrollHeight="200px">
+                                                    <ng-template pTemplate="header">
+                                                        <tr>
+                                                                        <th>Content</th>
+                                                                        <th>Collaborator</th>
+                                                                        <th>Creation date</th>
+                                                            <th>Actions</th>
+                                                        </tr>
+                                                    </ng-template>
+                                                    <ng-template pTemplate="body" let-p>
+                                                        <tr>
+                                                                        <td>{{p.content}}</td>
+                                                                        <td><i *ngIf="p.collaborator" class="pi pi-check checked-toogle"></i>
+                                                                            <i *ngIf="!p.collaborator" class="pi pi-times unchecked-toogle"></i>
+                                                                        </td>
+                                                                        <td>{{p.creationDate | date: dateFormatColumn}}</td>
+                                                            <td>
+                                                                <button (click)="deleteCustumorSupportConversationMessages(p)" pButton type="button" icon="pi pi-times"  class="p-button-rounded p-button-danger"></button>
+                                                                <button (click)="editCustumorSupportConversationMessages(p)" pButton type="button" icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2"></button>
+                                                            </td>
+                                                        </tr>
+                                                    </ng-template>
+                                                </p-table>
+                                            </div>
+
+                                        </div>
+                            </p-tabPanel>
+
+
+                </p-tabView>
+
+        </ng-template>
+
+        <ng-template pTemplate="footer" >
+            <div class="p-flexbox">
+
+                    <button pButton pRipple  label="{{'validate' | translate}}"  icon="pi pi-check"  (click)="edit()"></button>
+
+
+                        <button pButton pRipple  label="{{'cancel' | translate}}" icon="pi pi-times" class="p-button-outlined" (click)="hideEditDialog()"></button>
+
+
+            </div>
+        </ng-template>
+
+    </p-dialog>

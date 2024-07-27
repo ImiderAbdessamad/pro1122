@@ -1,0 +1,89 @@
+<!-- db/changelog-1.1-container.xml -->
+
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.0.xsd">
+
+  <!-- Create Container Table -->
+    <changeSet id="1" author="your-name">
+    <createTable tableName="custumor_support_conversation">
+      <column name="id" type="BIGINT">
+        <constraints primaryKey="true" nullable="false"/>
+      </column>
+        <column name="object" type="VARCHAR(500)"/>
+        <column name="ratting" type="NUMERIC"/>
+        <column name="creation_date" type="TIMESTAMP"/>
+        <column name="closing_date" type="TIMESTAMP"/>
+        <column name="description" type="VARCHAR(500)"/>
+
+        <column name="collaborator_id" type="BIGINT">
+          <constraints nullable="false"/>
+        </column>
+        <column name="agent_id" type="BIGINT">
+          <constraints nullable="false"/>
+        </column>
+        <column name="custumor_support_conversation_category_id" type="BIGINT">
+          <constraints nullable="false"/>
+        </column>
+        <column name="custumor_support_conversation_state_id" type="BIGINT">
+          <constraints nullable="false"/>
+        </column>
+
+    </createTable>
+  </changeSet>
+
+    <!-- Add foreign key constraint -->
+  <changeSet id="2" author="your-name">
+      <addForeignKeyConstraint
+              baseTableName="custumor_support_conversation"
+              baseColumnNames="collaborator_id"
+              referencedTableName="collaborator"
+              referencedColumnNames="id"
+              constraintName="fk_custumor_support_conversation_collaborator"/>
+      <addForeignKeyConstraint
+              baseTableName="custumor_support_conversation"
+              baseColumnNames="agent_id"
+              referencedTableName="agent"
+              referencedColumnNames="id"
+              constraintName="fk_custumor_support_conversation_agent"/>
+      <addForeignKeyConstraint
+              baseTableName="custumor_support_conversation"
+              baseColumnNames="custumor_support_conversation_category_id"
+              referencedTableName="custumor_support_conversation_category"
+              referencedColumnNames="id"
+              constraintName="fk_custumor_support_conversation_custumor_support_conversation_category"/>
+      <addForeignKeyConstraint
+              baseTableName="custumor_support_conversation"
+              baseColumnNames="custumor_support_conversation_state_id"
+              referencedTableName="custumor_support_conversation_state"
+              referencedColumnNames="id"
+              constraintName="fk_custumor_support_conversation_custumor_support_conversation_state"/>
+
+  </changeSet>
+
+    <!-- Create Sequence for ContainerType -->
+  <changeSet id="3" author="your-name">
+    <createSequence sequenceName="custumor_support_conversation_seq" startValue="1" incrementBy="1"/>
+  </changeSet>
+
+  <!-- Load Data from CSV -->
+  <changeSet id="4" author="your-name">
+    <loadData
+            file="classpath:/db/migration/data/support/CustumorSupportConversation.csv"
+            tableName="custumor_support_conversation">
+      <column name="id" type="NUMERIC"/>
+          <column name="object" type="STRING"/>
+          <column name="ratting" type="NUMERIC"/>
+          <column name="creation_date" type="TIMESTAMP"/>
+          <column name="closing_date" type="TIMESTAMP"/>
+          <column name="description" type="STRING"/>
+        <column name="collaborator" type="BIGINT"/>
+        <column name="agent" type="BIGINT"/>
+        <column name="custumor_support_conversation_category" type="BIGINT"/>
+        <column name="custumor_support_conversation_state" type="BIGINT"/>
+    </loadData>
+  </changeSet>
+
+
+</databaseChangeLog>

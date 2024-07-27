@@ -1,0 +1,68 @@
+
+<p-dialog [(visible)]="viewDialog" [style]="{width: '70vw'}" header="{{'inscriptionCollaborator.tabPan' | translate}}" [modal]="true" styleClass="p-fluid">
+    <ng-template pTemplate="content">
+        <p-tabView>
+            <p-tabPanel header="{{'inscriptionCollaborator.tabPan' | translate}}">
+                <div class="grid">
+                    <div class="field col-12 md:col-6">
+                        <label for="1">{{'inscriptionCollaborator.description' | translate}}</label>
+                        <textarea id="1" pInputTextarea rows="5" cols="30" [disabled]="true" placeholder="{{'inscriptionCollaborator.description' | translate}}"  [ngModel]="item.description"></textarea>
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="2">{{'inscriptionCollaborator.startDate' | translate}}</label>
+                        <p-calendar id="2" [disabled]="true"  [showTime]="true" [showSeconds]="false" placeholder="{{'inscriptionCollaborator.startDate' | translate}}"  [ngModel]="item.startDate" dateFormat="{{dateFormat}}"></p-calendar>
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="3">{{'inscriptionCollaborator.endDate' | translate}}</label>
+                        <p-calendar id="3" [disabled]="true"  [showTime]="true" [showSeconds]="false" placeholder="{{'inscriptionCollaborator.endDate' | translate}}"  [ngModel]="item.endDate" dateFormat="{{dateFormat}}"></p-calendar>
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="4">{{'inscriptionCollaborator.consumedEntity' | translate}}</label>
+                        <p-inputNumber class="mb-2 mr-2" id="4" [disabled]="true" placeholder="{{'inscriptionCollaborator.consumedEntity' | translate}}" [ngModel]="item.consumedEntity"></p-inputNumber>
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="5">{{'inscriptionCollaborator.consumedProjet' | translate}}</label>
+                        <p-inputNumber class="mb-2 mr-2" id="5" [disabled]="true" placeholder="{{'inscriptionCollaborator.consumedProjet' | translate}}" [ngModel]="item.consumedProjet"></p-inputNumber>
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="6">{{'inscriptionCollaborator.consumedAttribut' | translate}}</label>
+                        <p-inputNumber class="mb-2 mr-2" id="6" [disabled]="true" placeholder="{{'inscriptionCollaborator.consumedAttribut' | translate}}" [ngModel]="item.consumedAttribut"></p-inputNumber>
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="7">{{'inscriptionCollaborator.consumedTokenInput' | translate}}</label>
+                        <p-inputNumber class="mb-2 mr-2" id="7" [disabled]="true" placeholder="{{'inscriptionCollaborator.consumedTokenInput' | translate}}" [ngModel]="item.consumedTokenInput"></p-inputNumber>
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="8">{{'inscriptionCollaborator.consumedTokenOutput' | translate}}</label>
+                        <p-inputNumber class="mb-2 mr-2" id="8" [disabled]="true" placeholder="{{'inscriptionCollaborator.consumedTokenOutput' | translate}}" [ngModel]="item.consumedTokenOutput"></p-inputNumber>
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="9">{{'inscriptionCollaborator.collaborator' | translate}}</label>
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'inscriptionCollaborator.collaborator' | translate}}" autofocus  id="9" [ngModel]="item.collaborator?.id">
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="10">{{'inscriptionCollaborator.packagingPlan' | translate}}</label>
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'inscriptionCollaborator.packagingPlan' | translate}}" autofocus  id="10" [ngModel]="item.packagingPlan?.code">
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="11">{{'inscriptionCollaborator.inscriptionCollaboratorState' | translate}}</label>
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'inscriptionCollaborator.inscriptionCollaboratorState' | translate}}" autofocus  id="11" [ngModel]="item.inscriptionCollaboratorState?.libelle">
+                    </div>
+                </div>
+            </p-tabPanel>
+
+        </p-tabView>
+
+    </ng-template>
+
+    <ng-template pTemplate="footer" >
+        <div class="p-flexbox">
+            <div>
+                <button pButton pRipple label="Annuler" icon="pi pi-times" class="p-button-outlined" (click)="hideViewDialog()"></button>
+            </div>
+        </div>
+    </ng-template>
+</p-dialog>
+
+
+

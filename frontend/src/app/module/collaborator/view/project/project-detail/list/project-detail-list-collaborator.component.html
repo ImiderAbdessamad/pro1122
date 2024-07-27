@@ -1,0 +1,320 @@
+<div class="grid"  *ngIf="listActionIsValid">
+    <div class="col-12">
+        <p-toast></p-toast>
+        <div class="card">
+            <p-toolbar styleClass="mb-4">
+                <ng-template pTemplate="left">
+                                        <button pButton pRipple label=" {{'new' | translate}}" icon="pi pi-plus" class="p-button-info mr-2 mb-2" (click)="openCreate('ProjectDetail')" *ngIf="createActionIsValid"></button>
+                    <button [disabled]="isSelectionDisabled()" pButton pRipple label=" {{'delete' | translate}}" icon="pi pi-trash" class="p-button-danger mr-2 mb-2" (click)=deleteMultiple()  *ngIf="deleteActionIsValid"></button>
+                    <button pButton pRipple label=" {{'search' | translate}}" icon="pi pi-{{findByCriteriaShow?'angle-down':'angle-right'}}" class="p-button-secondary mr-2 mb-2" (click)="this.showSearch()"></button>
+                </ng-template>
+                <ng-template pTemplate="right">
+                    <div class="flex">
+                        <p-splitButton label=" {{'export' | translate}}" icon="pi pi-download" styleClass="p-button-secondary" [model]="excelPdfButons"></p-splitButton>
+                    </div>
+                </ng-template>
+
+            </p-toolbar>
+            <p-toolbar *ngIf="findByCriteriaShow">
+
+                <div class="col-12">
+                    <div class="flex flex-wrap p-fluid col-12">
+                       <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label  class="font-bold block mb-2" for="1">{{'projectDetail.title' | translate}}</label>
+                            <input  class="w-full"  pInputText id="1" type="text"  [(ngModel)]="criteria.titleLike">
+                        </div>
+                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label  class="font-bold block mb-2" for="2-2">{{'projectDetail.projectTechnology' | translate}}</label>
+                            <p-dropdown [options]="projectTechnologys" [(ngModel)]="criteria.projectTechnology" id="2" [filter]="true" class="p-fluid"
+                                        [showClear]="true"  placeholder="{{'projectDetail.projectTechnology' | translate}}" optionLabel="libelle">
+                            </p-dropdown>
+                        </div>
+                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label  class="font-bold block mb-2" for="3-2">{{'projectDetail.project' | translate}}</label>
+                            <p-dropdown [options]="projects" [(ngModel)]="criteria.project" id="3" [filter]="true" class="p-fluid"
+                                        [showClear]="true"  placeholder="{{'projectDetail.project' | translate}}" optionLabel="titleChat">
+                            </p-dropdown>
+                        </div>
+                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label  class="font-bold block mb-2" for="4-2">{{'projectDetail.projectTechnologyProfile' | translate}}</label>
+                            <p-dropdown [options]="projectTechnologyProfiles" [(ngModel)]="criteria.projectTechnologyProfile" id="4" [filter]="true" class="p-fluid"
+                                        [showClear]="true"  placeholder="{{'projectDetail.projectTechnologyProfile' | translate}}" optionLabel="libelle">
+                            </p-dropdown>
+                        </div>
+                       <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label  class="font-bold block mb-2" for="5">{{'projectDetail.dbName' | translate}}</label>
+                            <input  class="w-full"  pInputText id="5" type="text"  [(ngModel)]="criteria.dbNameLike">
+                        </div>
+                       <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label  class="font-bold block mb-2" for="6">{{'projectDetail.dbPassword' | translate}}</label>
+                            <input  class="w-full"  pInputText id="6" type="text"  [(ngModel)]="criteria.dbPasswordLike">
+                        </div>
+                       <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label  class="font-bold block mb-2" for="7">{{'projectDetail.dbUserName' | translate}}</label>
+                            <input  class="w-full"  pInputText id="7" type="text"  [(ngModel)]="criteria.dbUserNameLike">
+                        </div>
+                       <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label  class="font-bold block mb-2" for="8">{{'projectDetail.basePackage' | translate}}</label>
+                            <input  class="w-full"  pInputText id="8" type="text"  [(ngModel)]="criteria.basePackageLike">
+                        </div>
+                       <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label  class="font-bold block mb-2" for="9">{{'projectDetail.msName' | translate}}</label>
+                            <input  class="w-full"  pInputText id="9" type="text"  [(ngModel)]="criteria.msNameLike">
+                        </div>
+                       <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label  class="font-bold block mb-2" for="10">{{'projectDetail.port' | translate}}</label>
+                            <input  class="w-full"  pInputText id="10" type="text"  [(ngModel)]="criteria.portLike">
+                        </div>
+                       <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label  class="font-bold block mb-2" for="11">{{'projectDetail.portDev' | translate}}</label>
+                            <input  class="w-full"  pInputText id="11" type="text"  [(ngModel)]="criteria.portDevLike">
+                        </div>
+                       <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label  class="font-bold block mb-2" for="12">{{'projectDetail.portTest' | translate}}</label>
+                            <input  class="w-full"  pInputText id="12" type="text"  [(ngModel)]="criteria.portTestLike">
+                        </div>
+                       <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label  class="font-bold block mb-2" for="13">{{'projectDetail.portProd' | translate}}</label>
+                            <input  class="w-full"  pInputText id="13" type="text"  [(ngModel)]="criteria.portProdLike">
+                        </div>
+                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label  class="font-bold block mb-2" for="14">{{'projectDetail.enabled' | translate}}</label>
+                            <p-dropdown  id="14" [options]="yesOrNoEnabled" [(ngModel)]="criteria.enabled"  class="p-fluid"
+                                    [filter]="false" [showClear]="true"  placeholder="{{'projectDetail.enabled' | translate}}" optionLabel="label" optionValue="value">
+                            </p-dropdown>
+                        </div>
+                    </div>
+                    <div [style]="{ marginTop : '1rem', display: 'flex', justifyContent: 'flex-end' }">
+                        <button pButton pRipple label="{{'validate' | translate}}" icon="pi pi-sort-amount-down" class="p-button-info mr-2" (click)="findPaginatedByCriteria()"></button>
+                    </div>
+                </div>
+
+
+            </p-toolbar>
+
+
+            <p-table #dt [value]="items" [columns]="cols" [rows]="8" [paginator]="false"
+                    [globalFilterFields]="['title', 'projectTechnologylibelle', 'projecttitleChat', 'projectTechnologyProfilelibelle', 'dbName', 'dbPassword', 'dbUserName', 'basePackage', 'msName', 'port', 'portDev', 'portTest', 'portProd', 'enabled']" [(selection)]="selections"
+                    [rowHover]="true" dataKey="id" styleClass="p-datatable-customers"
+                    currentPageReportTemplate="{{'les éléments de {first} à {last} sur {totalRecords} ' | translate}}"
+                    [showCurrentPageReport]="true" [rowsPerPageOptions]="[10,25,50]" selectionMode="multiple">
+                <ng-template pTemplate="caption">
+                    <div class="flex flex-column flex-row justify-content-between table-header">
+                        <h5 class="p-m-0">{{'projectDetail.header' | translate}}</h5>
+                        <span class="p-input-icon-left ml-auto">
+                            <i class="pi pi-search"></i>
+                            <input pInputText type="text" placeholder="{{'searchInput' | translate}}" (input)="dt.filterGlobal($event.target.value, 'contains')"/>
+                        </span>
+                    </div>
+                </ng-template>
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th style="width: 3rem">
+                            <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                        </th>
+                                
+                        <th pSortableColumn="title">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>{{'projectDetail.title' | translate}}</span>
+                                <p-sortIcon field="title"></p-sortIcon>
+                                <p-columnFilter type="text" field="element.title" display="menu" class="ml-auto"></p-columnFilter>
+                            </div>
+                        </th>
+                                
+                                
+                        <th pSortableColumn="projectTechnology">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>{{'projectDetail.projectTechnology' | translate}}</span>
+                                <p-sortIcon field="projectTechnology"></p-sortIcon>
+                            </div>
+                        </th>
+                                
+                                
+                        <th pSortableColumn="project">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>{{'projectDetail.project' | translate}}</span>
+                                <p-sortIcon field="project"></p-sortIcon>
+                            </div>
+                        </th>
+                                
+                                
+                        <th pSortableColumn="projectTechnologyProfile">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>{{'projectDetail.projectTechnologyProfile' | translate}}</span>
+                                <p-sortIcon field="projectTechnologyProfile"></p-sortIcon>
+                            </div>
+                        </th>
+                                
+                                
+                        <th pSortableColumn="dbName">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>{{'projectDetail.dbName' | translate}}</span>
+                                <p-sortIcon field="dbName"></p-sortIcon>
+                                <p-columnFilter type="text" field="element.dbName" display="menu" class="ml-auto"></p-columnFilter>
+                            </div>
+                        </th>
+                                
+                                
+                        <th pSortableColumn="dbPassword">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>{{'projectDetail.dbPassword' | translate}}</span>
+                                <p-sortIcon field="dbPassword"></p-sortIcon>
+                                <p-columnFilter type="text" field="element.dbPassword" display="menu" class="ml-auto"></p-columnFilter>
+                            </div>
+                        </th>
+                                
+                                
+                        <th pSortableColumn="dbUserName">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>{{'projectDetail.dbUserName' | translate}}</span>
+                                <p-sortIcon field="dbUserName"></p-sortIcon>
+                                <p-columnFilter type="text" field="element.dbUserName" display="menu" class="ml-auto"></p-columnFilter>
+                            </div>
+                        </th>
+                                
+                                
+                        <th pSortableColumn="basePackage">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>{{'projectDetail.basePackage' | translate}}</span>
+                                <p-sortIcon field="basePackage"></p-sortIcon>
+                                <p-columnFilter type="text" field="element.basePackage" display="menu" class="ml-auto"></p-columnFilter>
+                            </div>
+                        </th>
+                                
+                                
+                        <th pSortableColumn="msName">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>{{'projectDetail.msName' | translate}}</span>
+                                <p-sortIcon field="msName"></p-sortIcon>
+                                <p-columnFilter type="text" field="element.msName" display="menu" class="ml-auto"></p-columnFilter>
+                            </div>
+                        </th>
+                                
+                                <!-- 
+                        <th pSortableColumn="port">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>{{'projectDetail.port' | translate}}</span>
+                                <p-sortIcon field="port"></p-sortIcon>
+                                <p-columnFilter type="text" field="element.port" display="menu" class="ml-auto"></p-columnFilter>
+                            </div>
+                        </th>
+                                --> 
+                                <!-- 
+                        <th pSortableColumn="portDev">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>{{'projectDetail.portDev' | translate}}</span>
+                                <p-sortIcon field="portDev"></p-sortIcon>
+                                <p-columnFilter type="text" field="element.portDev" display="menu" class="ml-auto"></p-columnFilter>
+                            </div>
+                        </th>
+                                --> 
+                                <!-- 
+                        <th pSortableColumn="portTest">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>{{'projectDetail.portTest' | translate}}</span>
+                                <p-sortIcon field="portTest"></p-sortIcon>
+                                <p-columnFilter type="text" field="element.portTest" display="menu" class="ml-auto"></p-columnFilter>
+                            </div>
+                        </th>
+                                --> 
+                                <!-- 
+                        <th pSortableColumn="portProd">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>{{'projectDetail.portProd' | translate}}</span>
+                                <p-sortIcon field="portProd"></p-sortIcon>
+                                <p-columnFilter type="text" field="element.portProd" display="menu" class="ml-auto"></p-columnFilter>
+                            </div>
+                        </th>
+                                --> 
+                                <!-- 
+                        <th pSortableColumn="enabled">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>{{'projectDetail.enabled' | translate}}</span>
+                                <p-sortIcon field="enabled"></p-sortIcon>
+                            </div>
+                        </th>
+                                --> 
+                        <th>Actions</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-element>
+                    <tr>
+                        <td>
+                            <p-tableCheckbox [value]="element"></p-tableCheckbox>
+                        </td>
+                            
+                        <td>{{element.title}}</td>
+                            
+                            
+                        <td>{{element.projectTechnology?.libelle}}</td>
+                            
+                            
+                        <td>{{element.project?.titleChat}}</td>
+                            
+                            
+                        <td>
+                            <p-tag severity="{{element.projectTechnologyProfile?.code}}" value="{{element.projectTechnologyProfile?.libelle}}" [rounded]="true" />
+                        </td>
+                            
+                            
+                        <td>{{element.dbName}}</td>
+                            
+                            
+                        <td>{{element.dbPassword}}</td>
+                            
+                            
+                        <td>{{element.dbUserName}}</td>
+                            
+                            
+                        <td>{{element.basePackage}}</td>
+                            
+                            
+                        <td>{{element.msName}}</td>
+                            
+                             <!-- 
+                        <td>{{element.port}}</td>
+                             --> 
+                             <!-- 
+                        <td>{{element.portDev}}</td>
+                             --> 
+                             <!-- 
+                        <td>{{element.portTest}}</td>
+                             --> 
+                             <!-- 
+                        <td>{{element.portProd}}</td>
+                             --> 
+                             <!-- 
+                        <td><i *ngIf="element.enabled" class="pi pi-check checked-toogle"></i>
+                            <i *ngIf="!element.enabled" class="pi pi-times unchecked-toogle"></i>
+                        </td>
+                             --> 
+                        <td>
+                            <button pButton pRipple icon="pi pi-pencil"  class="p-button-rounded p-button-info mr-2" (click)="edit(element)"  *ngIf="editActionIsValid"></button>
+                            <button pButton pRipple icon="pi pi-list" class="p-button-rounded p-button-secondary mr-2" (click)="view(element)"  *ngIf="viewActionIsValid"></button>
+                            <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-danger mr-2" (click)="delete(element)"  *ngIf="deleteActionIsValid"></button>
+                            <button pButton pRipple icon="pi pi-copy" class="p-button-rounded p-button-raised p-button-warning mr-2" (click)="duplicate(element)"  *ngIf="duplicateActionIsValid"></button>
+                        </td>
+                    </tr>
+                </ng-template>
+
+                <ng-template pTemplate="summary">
+                    <p-paginator  [rows]="10" [totalRecords]="totalRecords" (onPageChange)="onPage($event)"></p-paginator>
+                    <div class="p-d-flex p-ai-center p-jc-between">
+                        En totale il {{items ? totalRecords == 1 ? 'y a' : 'y a' : 'y a' }} {{items ? totalRecords : 0 }} {{items ? totalRecords == 1 ? 'project detail' : 'project details' : 0 }}.
+                    </div>
+                </ng-template>
+            </p-table>
+        </div>
+
+        <app-project-detail-create-collaborator  *ngIf="createDialog  && createActionIsValid"></app-project-detail-create-collaborator>
+        <app-project-detail-edit-collaborator  *ngIf="editDialog  && editActionIsValid"></app-project-detail-edit-collaborator>
+        <app-project-detail-view-collaborator  *ngIf="viewDialog  && viewActionIsValid"></app-project-detail-view-collaborator>
+        <p-confirmDialog [style]="{width: '450px'}"></p-confirmDialog>
+    </div>
+</div>
+
+<p-card header="Permission not allowed" *ngIf="!listActionIsValid">
+    <p class="m-0">
+        You don't have permission to access !
+    </p>
+</p-card>

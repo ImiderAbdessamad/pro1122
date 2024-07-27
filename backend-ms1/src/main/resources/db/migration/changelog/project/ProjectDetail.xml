@@ -1,0 +1,91 @@
+<!-- db/changelog-1.1-container.xml -->
+
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.0.xsd">
+
+  <!-- Create Container Table -->
+    <changeSet id="1" author="your-name">
+    <createTable tableName="project_detail">
+      <column name="id" type="BIGINT">
+        <constraints primaryKey="true" nullable="false"/>
+      </column>
+        <column name="title" type="VARCHAR(500)"/>
+        <column name="db_name" type="VARCHAR(500)"/>
+        <column name="db_password" type="VARCHAR(500)"/>
+        <column name="db_user_name" type="VARCHAR(500)"/>
+        <column name="base_package" type="VARCHAR(500)"/>
+        <column name="ms_name" type="VARCHAR(500)"/>
+        <column name="port" type="VARCHAR(500)"/>
+        <column name="port_dev" type="VARCHAR(500)"/>
+        <column name="port_test" type="VARCHAR(500)"/>
+        <column name="port_prod" type="VARCHAR(500)"/>
+        <column name="enabled" type="TINYINT"/>
+
+        <column name="project_technology_id" type="BIGINT">
+          <constraints nullable="false"/>
+        </column>
+        <column name="project_id" type="BIGINT">
+          <constraints nullable="false"/>
+        </column>
+        <column name="project_technology_profile_id" type="BIGINT">
+          <constraints nullable="false"/>
+        </column>
+
+    </createTable>
+  </changeSet>
+
+    <!-- Add foreign key constraint -->
+  <changeSet id="2" author="your-name">
+      <addForeignKeyConstraint
+              baseTableName="project_detail"
+              baseColumnNames="project_technology_id"
+              referencedTableName="project_technology"
+              referencedColumnNames="id"
+              constraintName="fk_project_detail_project_technology"/>
+      <addForeignKeyConstraint
+              baseTableName="project_detail"
+              baseColumnNames="project_id"
+              referencedTableName="project"
+              referencedColumnNames="id"
+              constraintName="fk_project_detail_project"/>
+      <addForeignKeyConstraint
+              baseTableName="project_detail"
+              baseColumnNames="project_technology_profile_id"
+              referencedTableName="project_technology_profile"
+              referencedColumnNames="id"
+              constraintName="fk_project_detail_project_technology_profile"/>
+
+  </changeSet>
+
+    <!-- Create Sequence for ContainerType -->
+  <changeSet id="3" author="your-name">
+    <createSequence sequenceName="project_detail_seq" startValue="1" incrementBy="1"/>
+  </changeSet>
+
+  <!-- Load Data from CSV -->
+  <changeSet id="4" author="your-name">
+    <loadData
+            file="classpath:/db/migration/data/project/ProjectDetail.csv"
+            tableName="project_detail">
+      <column name="id" type="NUMERIC"/>
+          <column name="title" type="STRING"/>
+          <column name="db_name" type="STRING"/>
+          <column name="db_password" type="STRING"/>
+          <column name="db_user_name" type="STRING"/>
+          <column name="base_package" type="STRING"/>
+          <column name="ms_name" type="STRING"/>
+          <column name="port" type="STRING"/>
+          <column name="port_dev" type="STRING"/>
+          <column name="port_test" type="STRING"/>
+          <column name="port_prod" type="STRING"/>
+          <column name="enabled" type="BOOLEAN"/>
+        <column name="project_technology" type="BIGINT"/>
+        <column name="project" type="BIGINT"/>
+        <column name="project_technology_profile" type="BIGINT"/>
+    </loadData>
+  </changeSet>
+
+
+</databaseChangeLog>

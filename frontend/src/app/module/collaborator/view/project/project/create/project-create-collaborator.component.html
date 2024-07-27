@@ -1,0 +1,294 @@
+        <p-dialog [(visible)]="createDialog" [style]="{width: '70vw'}" header="{{'project.tabPan' | translate}}" [modal]="true" styleClass="p-fluid" [maximizable]="true" [draggable]="false" [resizable]="false">
+            <ng-template pTemplate="content" >
+                        <p-tabView>
+                            <p-tabPanel header="{{'project.tabPan' | translate}}">
+                                <div class="grid">
+
+                                                <div class="field col-12 md:col-6">
+                                                    <label for="1">{{'project.title' | translate}}<span style="color: red;">*</span></label>
+                                                    <input class="mb-2 mr-2" type="text" pInputText  placeholder="{{'project.title' | translate}}" id="1" [(ngModel)]="item.title"
+                                                            [ngClass]="{'ng-invalid ng-dirty' : !validProjectTitle}"  />
+                                                    <small class='p-error' *ngIf='!validProjectTitle'>Title is obligatory.</small>
+                                                </div>
+
+
+                                                <div class="field col-12 md:col-6">
+                                                    <label for="2">{{'project.titleChat' | translate}}<span style="color: red;">*</span></label>
+                                                    <input class="mb-2 mr-2" type="text" pInputText  placeholder="{{'project.titleChat' | translate}}" id="2" [(ngModel)]="item.titleChat"
+                                                            [ngClass]="{'ng-invalid ng-dirty' : !validProjectTitleChat}"  />
+                                                    <small class='p-error' *ngIf='!validProjectTitleChat'>TitleChat is obligatory.</small>
+                                                </div>
+
+
+                                            <div class="field col-11 md:col-6">
+                                                <label for="3">{{'project.collaborator' | translate}}</label>
+                                                <p-dropdown  appendTo="body"  [options]="collaborators" [(ngModel)]="item.collaborator" id="3" [filter]="true" filterMatchMode="contains"
+                                                        [showClear]="true" optionLabel="id" placeholder="{{'project.collaborator' | translate}}"  >
+                                                </p-dropdown>
+                                                
+                                            </div>
+
+                                                <div class="field col-12 md:col-6">
+                                                    <label for="4">{{'project.generatedDate' | translate}}</label>
+                                                    <p-calendar appendTo="body" id="4"  [showTime]="true" [showSeconds]="false" placeholder="{{'project.generatedDate' | translate}}"  [(ngModel)]="item.generatedDate"
+                                                            dateFormat="{{dateFormat}}"  >
+                                                    </p-calendar>
+                                                    
+                                                </div>
+
+                                            <div class="field col-11 md:col-6">
+                                                <label for="5">{{'project.remoteRepoInfo' | translate}}</label>
+                                                <p-dropdown  appendTo="body"  [options]="remoteRepoInfos" [(ngModel)]="item.remoteRepoInfo" id="5" [filter]="true" filterMatchMode="contains"
+                                                        [showClear]="true" optionLabel="title" placeholder="{{'project.remoteRepoInfo' | translate}}"  >
+                                                </p-dropdown>
+                                                
+                                            </div>
+
+                                                <div class="field col-12 md:col-6">
+                                                    <label for="7">{{'project.chatDateStart' | translate}}</label>
+                                                    <p-calendar appendTo="body" id="7"  [showTime]="true" [showSeconds]="false" placeholder="{{'project.chatDateStart' | translate}}"  [(ngModel)]="item.chatDateStart"
+                                                            dateFormat="{{dateFormat}}"  >
+                                                    </p-calendar>
+                                                    
+                                                </div>
+
+                                                <div class="field align-inputswitch col-12  md:col-6">
+                                                    <div  class="label-inputswitch">
+                                                        <label for="8">{{'project.microService' | translate}}</label>
+                                                    </div>
+                                                    <div class="input-switch">
+                                                        <p-inputSwitch id="8"  [(ngModel)]="item.microService"
+                                                                 >
+                                                        </p-inputSwitch>
+                                                        
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="field align-inputswitch col-12  md:col-6">
+                                                    <div  class="label-inputswitch">
+                                                        <label for="9">{{'project.microFront' | translate}}</label>
+                                                    </div>
+                                                    <div class="input-switch">
+                                                        <p-inputSwitch id="9"  [(ngModel)]="item.microFront"
+                                                                 >
+                                                        </p-inputSwitch>
+                                                        
+                                                    </div>
+                                                </div>
+
+
+                                </div>
+                            </p-tabPanel>
+                                    <p-tabPanel header="{{'project.conversations' | translate}}">
+                                                <div class="p-col">
+                                                    <div class="grid">
+                                                                    <div class="field col-12 md:col-6">
+                                                                        <label for="1">{{'conversation.prompt' | translate}}</label>
+                                                                        <textarea id="1" pInputTextarea rows="5" cols="30" placeholder="{{'conversation.prompt' | translate}}"  [(ngModel)]="item.prompt"
+                                                                                 ></textarea>
+                                                                        
+                                                                    </div>
+                                                                    <div class="field col-12 md:col-6">
+                                                                        <label for="2">{{'conversation.response' | translate}}</label>
+                                                                        <textarea id="2" pInputTextarea rows="5" cols="30" placeholder="{{'conversation.response' | translate}}"  [(ngModel)]="item.response"
+                                                                                 ></textarea>
+                                                                        
+                                                                    </div>
+                                                        <div class="field col-12 md:col-1">
+                                                            <button pButton pRipple type="button" icon="pi pi-plus" class="mt-4" label="OK" (click)="addConversations()"></button>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                                <div class="p-col">
+                                                    <div class="card">
+                                                        <p-table [value]="item.conversations" [scrollable]="true" scrollHeight="200px">
+                                                            <ng-template pTemplate="header">
+                                                                <tr>
+                                                                                <th>Prompt</th>
+                                                                                <th>Response</th>
+                                                                    <th>Actions</th>
+                                                                </tr>
+                                                            </ng-template>
+                                                            <ng-template pTemplate="body" let-p>
+                                                                <tr>
+                                                                                <td>{{p.prompt}}</td>
+                                                                                <td>{{p.response}}</td>
+                                                                    <td>
+                                                                        <button (click)="deleteConversations(p)" pButton type="button" icon="pi pi-times"  class="p-button-rounded p-button-danger"></button>
+                                                                        <button (click)="editConversations(p)" pButton type="button" icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2"></button>
+                                                                    </td>
+                                                                </tr>
+                                                            </ng-template>
+                                                        </p-table>
+                                                    </div>
+
+                                                </div>
+                                    </p-tabPanel>
+
+                                    <p-tabPanel header="{{'project.projectDetails' | translate}}">
+                                        <p-tabView [(activeIndex)]="activeTab">
+                                            <p-tabPanel header="Création">
+                                                    <div class="grid">
+                                                                    <div class="field col-12 md:col-6">
+                                                                        <label for="1">Title<span style="color: red;">*</span></label>
+                                                                        <input class="mb-2 mr-2" type="text" pInputText placeholder="Title"
+                                                                               id="1" [(ngModel)]="projectDetailsElement.title" autofocus  [ngClass]="{'ng-invalid ng-dirty' : !validProjectDetailsTitle}"  >
+                                                                        <small class='p-error' *ngIf='!validProjectDetailsTitle'>Title is obligatory.</small>
+                                                                    </div>
+                                                                    <div class="field col-11 md:col-6">
+                                                                        <label>Project technology<span style="color: red;">*</span></label>
+                                                                        <p-dropdown  appendTo="body"  [options]="projectTechnologys" [(ngModel)]="projectDetailsElement.projectTechnology"
+                                                                                     id="2"  [filter]="true" filterMatchMode="contains" [showClear]="true" optionLabel="libelle"
+                                                                                     placeholder="Project technology"  [ngClass]="{'ng-invalid ng-dirty' : !validProjectDetailsProjectTechnology}" >
+                                                                        </p-dropdown>
+                                                                        <small class='p-error' *ngIf='!validProjectDetailsProjectTechnology'>ProjectTechnology is obligatory.</small>
+                                                                    </div>
+
+                                                                    <div class="field col-11 md:col-6">
+                                                                        <label>Project technology profile<span style="color: red;">*</span></label>
+                                                                        <p-dropdown  appendTo="body"  [options]="projectTechnologyProfiles" [(ngModel)]="projectDetailsElement.projectTechnologyProfile"
+                                                                                     id="4"  [filter]="true" filterMatchMode="contains" [showClear]="true" optionLabel="libelle"
+                                                                                     placeholder="Project technology profile"  [ngClass]="{'ng-invalid ng-dirty' : !validProjectDetailsProjectTechnologyProfile}" >
+                                                                        </p-dropdown>
+                                                                        <small class='p-error' *ngIf='!validProjectDetailsProjectTechnologyProfile'>ProjectTechnologyProfile is obligatory.</small>
+                                                                    </div>
+
+                                                                    <div class="field col-12 md:col-6">
+                                                                        <label for="5">Db name<span style="color: red;">*</span></label>
+                                                                        <input class="mb-2 mr-2" type="text" pInputText placeholder="Db name"
+                                                                               id="5" [(ngModel)]="projectDetailsElement.dbName" autofocus  [ngClass]="{'ng-invalid ng-dirty' : !validProjectDetailsDbName}"  >
+                                                                        <small class='p-error' *ngIf='!validProjectDetailsDbName'>DbName is obligatory.</small>
+                                                                    </div>
+                                                                    <div class="field col-12 md:col-6">
+                                                                        <label for="6">Db password<span style="color: red;">*</span></label>
+                                                                        <input class="mb-2 mr-2" type="text" pInputText placeholder="Db password"
+                                                                               id="6" [(ngModel)]="projectDetailsElement.dbPassword" autofocus  [ngClass]="{'ng-invalid ng-dirty' : !validProjectDetailsDbPassword}"  >
+                                                                        <small class='p-error' *ngIf='!validProjectDetailsDbPassword'>DbPassword is obligatory.</small>
+                                                                    </div>
+                                                                    <div class="field col-12 md:col-6">
+                                                                        <label for="7">Db user name<span style="color: red;">*</span></label>
+                                                                        <input class="mb-2 mr-2" type="text" pInputText placeholder="Db user name"
+                                                                               id="7" [(ngModel)]="projectDetailsElement.dbUserName" autofocus  [ngClass]="{'ng-invalid ng-dirty' : !validProjectDetailsDbUserName}"  >
+                                                                        <small class='p-error' *ngIf='!validProjectDetailsDbUserName'>DbUserName is obligatory.</small>
+                                                                    </div>
+                                                                    <div class="field col-12 md:col-6">
+                                                                        <label for="8">Base package<span style="color: red;">*</span></label>
+                                                                        <input class="mb-2 mr-2" type="text" pInputText placeholder="Base package"
+                                                                               id="8" [(ngModel)]="projectDetailsElement.basePackage" autofocus  [ngClass]="{'ng-invalid ng-dirty' : !validProjectDetailsBasePackage}"  >
+                                                                        <small class='p-error' *ngIf='!validProjectDetailsBasePackage'>BasePackage is obligatory.</small>
+                                                                    </div>
+                                                                    <div class="field col-12 md:col-6">
+                                                                        <label for="9">Ms name<span style="color: red;">*</span></label>
+                                                                        <input class="mb-2 mr-2" type="text" pInputText placeholder="Ms name"
+                                                                               id="9" [(ngModel)]="projectDetailsElement.msName" autofocus  [ngClass]="{'ng-invalid ng-dirty' : !validProjectDetailsMsName}"  >
+                                                                        <small class='p-error' *ngIf='!validProjectDetailsMsName'>MsName is obligatory.</small>
+                                                                    </div>
+                                                                    <div class="field col-12 md:col-6">
+                                                                        <label for="10">Port<span style="color: red;">*</span></label>
+                                                                        <input class="mb-2 mr-2" type="text" pInputText placeholder="Port"
+                                                                               id="10" [(ngModel)]="projectDetailsElement.port" autofocus  [ngClass]="{'ng-invalid ng-dirty' : !validProjectDetailsPort}"  >
+                                                                        <small class='p-error' *ngIf='!validProjectDetailsPort'>Port is obligatory.</small>
+                                                                    </div>
+                                                                    <div class="field col-12 md:col-6">
+                                                                        <label for="11">Port dev</label>
+                                                                        <input class="mb-2 mr-2" type="text" pInputText placeholder="Port dev"
+                                                                               id="11" [(ngModel)]="projectDetailsElement.portDev" autofocus   >
+                                                                        
+                                                                    </div>
+                                                                    <div class="field col-12 md:col-6">
+                                                                        <label for="12">Port test</label>
+                                                                        <input class="mb-2 mr-2" type="text" pInputText placeholder="Port test"
+                                                                               id="12" [(ngModel)]="projectDetailsElement.portTest" autofocus   >
+                                                                        
+                                                                    </div>
+                                                                    <div class="field col-12 md:col-6">
+                                                                        <label for="13">Port prod</label>
+                                                                        <input class="mb-2 mr-2" type="text" pInputText placeholder="Port prod"
+                                                                               id="13" [(ngModel)]="projectDetailsElement.portProd" autofocus   >
+                                                                        
+                                                                    </div>
+                                                                    <div class="field  align-inputswitch col-12 md:col-6">
+                                                                        <div  class="label-inputswitch">
+                                                                            <label for="14">Enabled</label>
+                                                                        </div>
+                                                                        <div class="input-switch">
+                                                                            <p-inputSwitch id="14"  [(ngModel)]="projectDetailsElement.enabled"></p-inputSwitch>
+                                                                        </div>
+                                                                    </div>
+                                                        <div class="field col-12 md:col-1">
+                                                            <button pButton pRipple type="button" icon="pi pi-plus" class="mt-4" label="OK" (click)="addProjectDetails()"></button>
+                                                        </div>
+
+                                                    </div>
+                                            </p-tabPanel>
+                                            <p-tabPanel header="Liste {{item.projectDetails?.length > 0 ? '(' + item.projectDetails?.length + ')' : ''}}">
+                                                    <div class="card">
+                                                        <p-table [value]="item.projectDetails" [scrollable]="true" scrollHeight="200px">
+                                                            <ng-template pTemplate="header">
+                                                                <tr>
+                                                                                <th>Title</th>
+                                                                                <th>Project technology</th>
+                                                                                <th>Project technology profile</th>
+                                                                                <th>Db name</th>
+                                                                                <th>Db password</th>
+                                                                                <th>Db user name</th>
+                                                                                <th>Base package</th>
+                                                                                <th>Ms name</th>
+                                                                                <th>Port</th>
+                                                                                <th>Port dev</th>
+                                                                                <th>Port test</th>
+                                                                                <th>Port prod</th>
+                                                                                <th>Enabled</th>
+                                                                    <th>Actions</th>
+                                                                </tr>
+                                                            </ng-template>
+                                                            <ng-template pTemplate="body" let-p>
+                                                                <tr>
+                                                                                <td>{{p.title}}</td>
+                                                                            <td>{{p.projectTechnology?.libelle}}</td>
+                                                                            <td>{{p.projectTechnologyProfile?.libelle}}</td>
+                                                                                <td>{{p.dbName}}</td>
+                                                                                <td>{{p.dbPassword}}</td>
+                                                                                <td>{{p.dbUserName}}</td>
+                                                                                <td>{{p.basePackage}}</td>
+                                                                                <td>{{p.msName}}</td>
+                                                                                <td>{{p.port}}</td>
+                                                                                <td>{{p.portDev}}</td>
+                                                                                <td>{{p.portTest}}</td>
+                                                                                <td>{{p.portProd}}</td>
+                                                                                <td><i *ngIf="p.enabled" class="pi pi-check checked-toogle"></i>
+                                                                                    <i *ngIf="!p.enabled" class="pi pi-times unchecked-toogle"></i>
+                                                                                </td>
+                                                                    <td>
+                                                                        <button (click)="deleteProjectDetails(p)" pButton type="button" icon="pi pi-times"  class="p-button-rounded p-button-danger"></button>
+                                                                        <button (click)="editProjectDetails(p)" pButton type="button" icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2"></button>
+                                                                    </td>
+                                                                </tr>
+                                                            </ng-template>
+                                                        </p-table>
+                                                    </div>
+
+                                            </p-tabPanel>
+                                        </p-tabView>
+                                    </p-tabPanel>
+
+
+                        </p-tabView>
+
+            </ng-template>
+
+            <ng-template pTemplate="footer" >
+                <div class="p-flexbox">
+
+                            <button pButton pRipple  label="{{'validate' | translate}}"  icon="pi pi-check"  (click)="save()"></button>
+
+
+                            <button pButton pRipple  label="{{'cancel' | translate}}" icon="pi pi-times" class="p-button-outlined" (click)="hideCreateDialog()"></button>
+
+
+                </div>
+            </ng-template>
+
+    </p-dialog>

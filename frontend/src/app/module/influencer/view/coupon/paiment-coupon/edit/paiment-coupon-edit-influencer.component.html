@@ -1,0 +1,72 @@
+    <p-dialog [(visible)]="editDialog" [style]="{width: '70vw'}" header="{{'paimentCoupon.tabPan' | translate}}" [modal]="true" styleClass="p-fluid" [maximizable]="true" [draggable]="false" [resizable]="false">
+        <ng-template pTemplate="content" >
+                <p-tabView>
+                    <p-tabPanel header="{{'paimentCoupon.tabPan' | translate}}">
+                        <div class="grid">
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="1">{{'paimentCoupon.description' | translate}}</label>
+                                            <textarea id="1" pInputTextarea rows="5" cols="30" placeholder="{{'paimentCoupon.description' | translate}}"  [(ngModel)]="item.description"
+                                                       ></textarea>
+                                            
+                                        </div>
+
+                                    <div class="field col-11 md:col-6">
+                                        <label for="2">{{'paimentCoupon.coupon' | translate}}</label>
+                                        <p-dropdown  appendTo="body"  [options]="coupons" [(ngModel)]="item.coupon" id="2" [filter]="true" filterMatchMode="contains"
+                                                     [showClear]="true" optionLabel="libelle" placeholder="{{'paimentCoupon.coupon' | translate}}"  >
+                                        </p-dropdown>
+                                        
+                                    </div>
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="3">{{'paimentCoupon.total' | translate}}</label>
+                                            <p-inputNumber class="mb-2 mr-2" id="3" placeholder="{{'paimentCoupon.total' | translate}}" [(ngModel)]="item.total"  >
+                                            </p-inputNumber>
+                                            
+                                        </div>
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="4">{{'paimentCoupon.paiementDate' | translate}}</label>
+                                            <p-calendar appendTo="body" id="4"  [showTime]="true" [showSeconds]="false" placeholder="{{'paimentCoupon.paiementDate' | translate}}"  [(ngModel)]="item.paiementDate"
+                                                        dateFormat="{{dateFormat}}"  >
+                                            </p-calendar>
+                                            
+                                        </div>
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="5">{{'paimentCoupon.paiementDateConfirmation' | translate}}</label>
+                                            <p-calendar appendTo="body" id="5"  [showTime]="true" [showSeconds]="false" placeholder="{{'paimentCoupon.paiementDateConfirmation' | translate}}"  [(ngModel)]="item.paiementDateConfirmation"
+                                                        dateFormat="{{dateFormat}}"  >
+                                            </p-calendar>
+                                            
+                                        </div>
+
+                                    <div class="field col-11 md:col-6">
+                                        <label for="6">{{'paimentCoupon.paimentCouponState' | translate}}</label>
+                                        <p-dropdown  appendTo="body"  [options]="paimentCouponStates" [(ngModel)]="item.paimentCouponState" id="6" [filter]="true" filterMatchMode="contains"
+                                                     [showClear]="true" optionLabel="libelle" placeholder="{{'paimentCoupon.paimentCouponState' | translate}}"  >
+                                        </p-dropdown>
+                                        
+                                    </div>
+
+                        </div>
+                    </p-tabPanel>
+
+                </p-tabView>
+
+        </ng-template>
+
+        <ng-template pTemplate="footer" >
+            <div class="p-flexbox">
+
+                    <button pButton pRipple  label="{{'validate' | translate}}"  icon="pi pi-check"  (click)="edit()"></button>
+
+
+                        <button pButton pRipple  label="{{'cancel' | translate}}" icon="pi pi-times" class="p-button-outlined" (click)="hideEditDialog()"></button>
+
+
+            </div>
+        </ng-template>
+
+    </p-dialog>

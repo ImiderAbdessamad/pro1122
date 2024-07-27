@@ -1,0 +1,51 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.0.xsd">
+
+            <include file="classpath:db/migration/changelog/project/Project.xml"/>
+        <include file="classpath:db/migration/changelog/coupon/PaimentCoupon.xml"/>
+        <include file="classpath:db/migration/changelog/blog/Blog.xml"/>
+        <include file="classpath:db/migration/changelog/inscription/InscriptionCollaboratorState.xml"/>
+        <include file="classpath:db/migration/changelog/payement/PaimentCollaboratorState.xml"/>
+        <include file="classpath:db/migration/changelog/project/RemoteRepoType.xml"/>
+        <include file="classpath:db/migration/changelog/coupon/Influencer.xml"/>
+        <include file="classpath:db/migration/changelog/coupon/PaimentCouponState.xml"/>
+        <include file="classpath:db/migration/changelog/forum/ForumState.xml"/>
+        <include file="classpath:db/migration/changelog/project/ProjectTechnology.xml"/>
+        <include file="classpath:db/migration/changelog/project/YamlFile.xml"/>
+        <include file="classpath:db/migration/changelog/support/Agent.xml"/>
+        <include file="classpath:db/migration/changelog/collaborator/City.xml"/>
+        <include file="classpath:db/migration/changelog/packaging/PackagingPlan.xml"/>
+        <include file="classpath:db/migration/changelog/coupon/CouponState.xml"/>
+        <include file="classpath:db/migration/changelog/support/CustumorSupportConversation.xml"/>
+        <include file="classpath:db/migration/changelog/forum/Forum.xml"/>
+        <include file="classpath:db/migration/changelog/cloud/OffreCloudProvider.xml"/>
+        <include file="classpath:db/migration/changelog/payement/PaimentCollaborator.xml"/>
+        <include file="classpath:db/migration/changelog/project/ProjectTechnologyProfile.xml"/>
+        <include file="classpath:db/migration/changelog/cloud/CloudProvider.xml"/>
+        <include file="classpath:db/migration/changelog/blog/BlogSubject.xml"/>
+        <include file="classpath:db/migration/changelog/contactus/ContactUsCategory.xml"/>
+        <include file="classpath:db/migration/changelog/blog/BlogComment.xml"/>
+        <include file="classpath:db/migration/changelog/inscription/InscriptionCollaborator.xml"/>
+        <include file="classpath:db/migration/changelog/contactus/ContactUsState.xml"/>
+        <include file="classpath:db/migration/changelog/forum/ForumSubject.xml"/>
+        <include file="classpath:db/migration/changelog/project/ProjectTechnologyType.xml"/>
+        <include file="classpath:db/migration/changelog/support/CustumorSupportConversationCategory.xml"/>
+        <include file="classpath:db/migration/changelog/coupon/Coupon.xml"/>
+        <include file="classpath:db/migration/changelog/packaging/Packaging.xml"/>
+        <include file="classpath:db/migration/changelog/support/CustumorSupportConversationState.xml"/>
+        <include file="classpath:db/migration/changelog/blog/BlogState.xml"/>
+        <include file="classpath:db/migration/changelog/packaging/PackagingDetailGroup.xml"/>
+        <include file="classpath:db/migration/changelog/project/Conversation.xml"/>
+        <include file="classpath:db/migration/changelog/support/CustumorSupportConversationMessage.xml"/>
+        <include file="classpath:db/migration/changelog/collaborator/Collaborator.xml"/>
+        <include file="classpath:db/migration/changelog/payement/PaimentCollaboratorType.xml"/>
+        <include file="classpath:db/migration/changelog/forum/ForumComment.xml"/>
+        <include file="classpath:db/migration/changelog/project/ProjectDetail.xml"/>
+        <include file="classpath:db/migration/changelog/packaging/PackagingDetail.xml"/>
+        <include file="classpath:db/migration/changelog/collaborator/Country.xml"/>
+        <include file="classpath:db/migration/changelog/contactus/ContactUs.xml"/>
+        <include file="classpath:db/migration/changelog/project/RemoteRepoInfo.xml"/>
+
+</databaseChangeLog>

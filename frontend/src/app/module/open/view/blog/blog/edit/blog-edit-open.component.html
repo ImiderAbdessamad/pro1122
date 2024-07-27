@@ -1,0 +1,161 @@
+    <p-dialog [(visible)]="editDialog" [style]="{width: '70vw'}" header="{{'blog.tabPan' | translate}}" [modal]="true" styleClass="p-fluid" [maximizable]="true" [draggable]="false" [resizable]="false">
+        <ng-template pTemplate="content" >
+                <p-tabView>
+                    <p-tabPanel header="{{'blog.tabPan' | translate}}">
+                        <div class="grid">
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="1">{{'blog.content' | translate}}</label>
+                                            <textarea id="1" pInputTextarea rows="5" cols="30" placeholder="{{'blog.content' | translate}}"  [(ngModel)]="item.content"
+                                                       ></textarea>
+                                            
+                                        </div>
+
+                                    <div class="field col-11 md:col-6">
+                                        <label for="2">{{'blog.collaborator' | translate}}</label>
+                                        <p-dropdown  appendTo="body"  [options]="collaborators" [(ngModel)]="item.collaborator" id="2" [filter]="true" filterMatchMode="contains"
+                                                     [showClear]="true" optionLabel="id" placeholder="{{'blog.collaborator' | translate}}"  >
+                                        </p-dropdown>
+                                        
+                                    </div>
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="3">{{'blog.creationDate' | translate}}</label>
+                                            <p-calendar appendTo="body" id="3"  [showTime]="true" [showSeconds]="false" placeholder="{{'blog.creationDate' | translate}}"  [(ngModel)]="item.creationDate"
+                                                        dateFormat="{{dateFormat}}"  >
+                                            </p-calendar>
+                                            
+                                        </div>
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="4">{{'blog.publicationDate' | translate}}</label>
+                                            <p-calendar appendTo="body" id="4"  [showTime]="true" [showSeconds]="false" placeholder="{{'blog.publicationDate' | translate}}"  [(ngModel)]="item.publicationDate"
+                                                        dateFormat="{{dateFormat}}"  >
+                                            </p-calendar>
+                                            
+                                        </div>
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="5">{{'blog.title' | translate}}</label>
+                                            <input class="mb-2 mr-2" type="text" pInputText  placeholder="{{'blog.title' | translate}}" id="5" [(ngModel)]="item.title"
+                                                    />
+                                            
+                                        </div>
+
+
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="6">{{'blog.likes' | translate}}</label>
+                                            <p-inputNumber class="mb-2 mr-2" id="6" placeholder="{{'blog.likes' | translate}}" [(ngModel)]="item.likes"  >
+                                            </p-inputNumber>
+                                            
+                                        </div>
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="7">{{'blog.comments' | translate}}</label>
+                                            <p-inputNumber class="mb-2 mr-2" id="7" placeholder="{{'blog.comments' | translate}}" [(ngModel)]="item.comments"  >
+                                            </p-inputNumber>
+                                            
+                                        </div>
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="8">{{'blog.description' | translate}}</label>
+                                            <textarea id="8" pInputTextarea rows="5" cols="30" placeholder="{{'blog.description' | translate}}"  [(ngModel)]="item.description"
+                                                       ></textarea>
+                                            
+                                        </div>
+
+                                    <div class="field col-11 md:col-6">
+                                        <label for="9">{{'blog.blogSubject' | translate}}</label>
+                                        <p-dropdown  appendTo="body"  [options]="blogSubjects" [(ngModel)]="item.blogSubject" id="9" [filter]="true" filterMatchMode="contains"
+                                                     [showClear]="true" optionLabel="libelle" placeholder="{{'blog.blogSubject' | translate}}"  >
+                                        </p-dropdown>
+                                        
+                                    </div>
+
+                                    <div class="field col-11 md:col-6">
+                                        <label for="10">{{'blog.blogState' | translate}}</label>
+                                        <p-dropdown  appendTo="body"  [options]="blogStates" [(ngModel)]="item.blogState" id="10" [filter]="true" filterMatchMode="contains"
+                                                     [showClear]="true" optionLabel="libelle" placeholder="{{'blog.blogState' | translate}}"  >
+                                        </p-dropdown>
+                                        
+                                    </div>
+
+                        </div>
+                    </p-tabPanel>
+                            <p-tabPanel header="{{'blog.blogComments' | translate}}">
+                                        <div class="p-col">
+                                            <div class="grid">
+                                                            <div class="field col-11 md:col-6">
+                                                                <label>Collaborator</label>
+                                                                <p-dropdown  appendTo="body"  [options]="collaborators" [(ngModel)]="blogCommentsElement.collaborator"
+                                                                             id="1"  [filter]="true" filterMatchMode="contains" [showClear]="true" optionLabel="id"
+                                                                             placeholder="Collaborator"  >
+                                                                </p-dropdown>
+                                                                
+                                                            </div>
+
+                                                            <div class="field col-12 md:col-6">
+                                                                <label for="2">Creation date</label>
+                                                                <p-calendar appendTo="body" id="2"  [showTime]="true" [showSeconds]="false" placeholder="Creation date" [(ngModel)]="blogCommentsElement.creationDate"
+                                                                            dateFormat="{{dateFormat}}" [showIcon]="true"  ></p-calendar>
+                                                                
+                                                            </div>
+                                                            <div class="field col-12 md:col-6">
+                                                                <label for="3">{{'blogComment.content' | translate}}</label>
+                                                                <textarea id="3" pInputTextarea rows="5" cols="30" placeholder="{{'blogComment.content' | translate}}"  [(ngModel)]="item.content"
+                                                                           ></textarea>
+                                                                
+                                                            </div>
+                                                <div class="field col-12 md:col-1">
+                                                    <button pButton pRipple type="button" icon="pi pi-plus" class="mt-4" label="OK" (click)="addBlogComments()"></button>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="p-col">
+                                            <div class="card">
+                                                <p-table [value]="item.blogComments" [scrollable]="true" scrollHeight="200px">
+                                                    <ng-template pTemplate="header">
+                                                        <tr>
+                                                                        <th>Collaborator</th>
+                                                                        <th>Creation date</th>
+                                                                        <th>Content</th>
+                                                            <th>Actions</th>
+                                                        </tr>
+                                                    </ng-template>
+                                                    <ng-template pTemplate="body" let-p>
+                                                        <tr>
+                                                                    <td>{{p.collaborator?.id}}</td>
+                                                                        <td>{{p.creationDate | date: dateFormatColumn}}</td>
+                                                                        <td>{{p.content}}</td>
+                                                            <td>
+                                                                <button (click)="deleteBlogComments(p)" pButton type="button" icon="pi pi-times"  class="p-button-rounded p-button-danger"></button>
+                                                                <button (click)="editBlogComments(p)" pButton type="button" icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2"></button>
+                                                            </td>
+                                                        </tr>
+                                                    </ng-template>
+                                                </p-table>
+                                            </div>
+
+                                        </div>
+                            </p-tabPanel>
+
+
+                </p-tabView>
+
+        </ng-template>
+
+        <ng-template pTemplate="footer" >
+            <div class="p-flexbox">
+
+                    <button pButton pRipple  label="{{'validate' | translate}}"  icon="pi pi-check"  (click)="edit()"></button>
+
+
+                        <button pButton pRipple  label="{{'cancel' | translate}}" icon="pi pi-times" class="p-button-outlined" (click)="hideEditDialog()"></button>
+
+
+            </div>
+        </ng-template>
+
+    </p-dialog>

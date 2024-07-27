@@ -1,0 +1,264 @@
+    <p-dialog [(visible)]="editDialog" [style]="{width: '70vw'}" header="{{'paimentCollaborator.tabPan' | translate}}" [modal]="true" styleClass="p-fluid" [maximizable]="true" [draggable]="false" [resizable]="false">
+        <ng-template pTemplate="content" >
+                <p-tabView>
+                    <p-tabPanel header="{{'paimentCollaborator.tabPan' | translate}}">
+                        <div class="grid">
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="1">{{'paimentCollaborator.cardHolder' | translate}}<span style="color: red;">*</span></label>
+                                            <input class="mb-2 mr-2" type="text" pInputText  placeholder="{{'paimentCollaborator.cardHolder' | translate}}" id="1" [(ngModel)]="item.cardHolder"
+                                                   [ngClass]="{'ng-invalid ng-dirty' : !validPaimentCollaboratorCardHolder}"  />
+                                            <small class='p-error' *ngIf='!validPaimentCollaboratorCardHolder'>CardHolder est obligatoire.</small>
+                                        </div>
+
+
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="2">{{'paimentCollaborator.cardNumber' | translate}}<span style="color: red;">*</span></label>
+                                            <input class="mb-2 mr-2" type="text" pInputText  placeholder="{{'paimentCollaborator.cardNumber' | translate}}" id="2" [(ngModel)]="item.cardNumber"
+                                                   [ngClass]="{'ng-invalid ng-dirty' : !validPaimentCollaboratorCardNumber}"  />
+                                            <small class='p-error' *ngIf='!validPaimentCollaboratorCardNumber'>CardNumber est obligatoire.</small>
+                                        </div>
+
+
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="3">{{'paimentCollaborator.expirationDate' | translate}}</label>
+                                            <input class="mb-2 mr-2" type="text" pInputText  placeholder="{{'paimentCollaborator.expirationDate' | translate}}" id="3" [(ngModel)]="item.expirationDate"
+                                                    />
+                                            
+                                        </div>
+
+
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="4">{{'paimentCollaborator.cvc' | translate}}<span style="color: red;">*</span></label>
+                                            <input class="mb-2 mr-2" type="text" pInputText  placeholder="{{'paimentCollaborator.cvc' | translate}}" id="4" [(ngModel)]="item.cvc"
+                                                   [ngClass]="{'ng-invalid ng-dirty' : !validPaimentCollaboratorCvc}"  />
+                                            <small class='p-error' *ngIf='!validPaimentCollaboratorCvc'>Cvc est obligatoire.</small>
+                                        </div>
+
+
+
+                                    <div class="field col-11 md:col-6">
+                                        <label for="5">{{'paimentCollaborator.country' | translate}}<span style="color: red;">*</span></label>
+                                        <p-dropdown  appendTo="body"  [options]="countrys" [(ngModel)]="item.country" id="5" [filter]="true" filterMatchMode="contains"
+                                                     [showClear]="true" optionLabel="libelle" placeholder="{{'paimentCollaborator.country' | translate}}" [ngClass]="{'ng-invalid ng-dirty' : !validPaimentCollaboratorCountry}"  >
+                                        </p-dropdown>
+                                        <small class='p-error' *ngIf='!validPaimentCollaboratorCountry'>Country est obligatoire.</small>
+                                    </div>
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="6">{{'paimentCollaborator.postal' | translate}}</label>
+                                            <input class="mb-2 mr-2" type="text" pInputText  placeholder="{{'paimentCollaborator.postal' | translate}}" id="6" [(ngModel)]="item.postal"
+                                                    />
+                                            
+                                        </div>
+
+
+
+                                    <div class="field col-11 md:col-6">
+                                        <label for="7">{{'paimentCollaborator.city' | translate}}</label>
+                                        <p-dropdown  appendTo="body"  [options]="citys" [(ngModel)]="item.city" id="7" [filter]="true" filterMatchMode="contains"
+                                                     [showClear]="true" optionLabel="libelle" placeholder="{{'paimentCollaborator.city' | translate}}"  >
+                                        </p-dropdown>
+                                        
+                                    </div>
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="8">{{'paimentCollaborator.description' | translate}}</label>
+                                            <textarea id="8" pInputTextarea rows="5" cols="30" placeholder="{{'paimentCollaborator.description' | translate}}"  [(ngModel)]="item.description"
+                                                       ></textarea>
+                                            
+                                        </div>
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="9">{{'paimentCollaborator.amountToPaid' | translate}}</label>
+                                            <p-inputNumber class="mb-2 mr-2" id="9" placeholder="{{'paimentCollaborator.amountToPaid' | translate}}" [(ngModel)]="item.amountToPaid"  >
+                                            </p-inputNumber>
+                                            
+                                        </div>
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="10">{{'paimentCollaborator.startDate' | translate}}</label>
+                                            <p-calendar appendTo="body" id="10"  [showTime]="true" [showSeconds]="false" placeholder="{{'paimentCollaborator.startDate' | translate}}"  [(ngModel)]="item.startDate"
+                                                        dateFormat="{{dateFormat}}"  >
+                                            </p-calendar>
+                                            
+                                        </div>
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="11">{{'paimentCollaborator.endDate' | translate}}</label>
+                                            <p-calendar appendTo="body" id="11"  [showTime]="true" [showSeconds]="false" placeholder="{{'paimentCollaborator.endDate' | translate}}"  [(ngModel)]="item.endDate"
+                                                        dateFormat="{{dateFormat}}"  >
+                                            </p-calendar>
+                                            
+                                        </div>
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="12">{{'paimentCollaborator.consumedEntity' | translate}}</label>
+                                            <p-inputNumber class="mb-2 mr-2" id="12" placeholder="{{'paimentCollaborator.consumedEntity' | translate}}" [(ngModel)]="item.consumedEntity"  >
+                                            </p-inputNumber>
+                                            
+                                        </div>
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="13">{{'paimentCollaborator.consumedProjet' | translate}}</label>
+                                            <p-inputNumber class="mb-2 mr-2" id="13" placeholder="{{'paimentCollaborator.consumedProjet' | translate}}" [(ngModel)]="item.consumedProjet"  >
+                                            </p-inputNumber>
+                                            
+                                        </div>
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="14">{{'paimentCollaborator.consumedAttribut' | translate}}</label>
+                                            <p-inputNumber class="mb-2 mr-2" id="14" placeholder="{{'paimentCollaborator.consumedAttribut' | translate}}" [(ngModel)]="item.consumedAttribut"  >
+                                            </p-inputNumber>
+                                            
+                                        </div>
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="15">{{'paimentCollaborator.consumedTokenInput' | translate}}</label>
+                                            <p-inputNumber class="mb-2 mr-2" id="15" placeholder="{{'paimentCollaborator.consumedTokenInput' | translate}}" [(ngModel)]="item.consumedTokenInput"  >
+                                            </p-inputNumber>
+                                            
+                                        </div>
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="16">{{'paimentCollaborator.consumedTokenOutput' | translate}}</label>
+                                            <p-inputNumber class="mb-2 mr-2" id="16" placeholder="{{'paimentCollaborator.consumedTokenOutput' | translate}}" [(ngModel)]="item.consumedTokenOutput"  >
+                                            </p-inputNumber>
+                                            
+                                        </div>
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="17">{{'paimentCollaborator.total' | translate}}</label>
+                                            <p-inputNumber class="mb-2 mr-2" id="17" placeholder="{{'paimentCollaborator.total' | translate}}" [(ngModel)]="item.total"  >
+                                            </p-inputNumber>
+                                            
+                                        </div>
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="18">{{'paimentCollaborator.basic' | translate}}</label>
+                                            <p-inputNumber class="mb-2 mr-2" id="18" placeholder="{{'paimentCollaborator.basic' | translate}}" [(ngModel)]="item.basic"  >
+                                            </p-inputNumber>
+                                            
+                                        </div>
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="19">{{'paimentCollaborator.discount' | translate}}</label>
+                                            <p-inputNumber class="mb-2 mr-2" id="19" placeholder="{{'paimentCollaborator.discount' | translate}}" [(ngModel)]="item.discount"  >
+                                            </p-inputNumber>
+                                            
+                                        </div>
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="20">{{'paimentCollaborator.remaining' | translate}}</label>
+                                            <p-inputNumber class="mb-2 mr-2" id="20" placeholder="{{'paimentCollaborator.remaining' | translate}}" [(ngModel)]="item.remaining"  >
+                                            </p-inputNumber>
+                                            
+                                        </div>
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="21">{{'paimentCollaborator.priceCloud' | translate}}</label>
+                                            <p-inputNumber class="mb-2 mr-2" id="21" placeholder="{{'paimentCollaborator.priceCloud' | translate}}" [(ngModel)]="item.priceCloud"  >
+                                            </p-inputNumber>
+                                            
+                                        </div>
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="22">{{'paimentCollaborator.paiementDate' | translate}}</label>
+                                            <p-calendar appendTo="body" id="22"  [showTime]="true" [showSeconds]="false" placeholder="{{'paimentCollaborator.paiementDate' | translate}}"  [(ngModel)]="item.paiementDate"
+                                                        dateFormat="{{dateFormat}}"  >
+                                            </p-calendar>
+                                            
+                                        </div>
+
+                                    <div class="field col-11 md:col-6">
+                                        <label for="23">{{'paimentCollaborator.collaborator' | translate}}</label>
+                                        <p-dropdown  appendTo="body"  [options]="collaborators" [(ngModel)]="item.collaborator" id="23" [filter]="true" filterMatchMode="contains"
+                                                     [showClear]="true" optionLabel="id" placeholder="{{'paimentCollaborator.collaborator' | translate}}"  >
+                                        </p-dropdown>
+                                        
+                                    </div>
+
+                                    <div class="field col-11 md:col-6">
+                                        <label for="24">{{'paimentCollaborator.packaging' | translate}}</label>
+                                        <p-dropdown  appendTo="body"  [options]="packagings" [(ngModel)]="item.packaging" id="24" [filter]="true" filterMatchMode="contains"
+                                                     [showClear]="true" optionLabel="code" placeholder="{{'paimentCollaborator.packaging' | translate}}"  >
+                                        </p-dropdown>
+                                        
+                                    </div>
+
+                                    <div class="field col-11 md:col-6">
+                                        <label for="25">{{'paimentCollaborator.paimentCollaboratorState' | translate}}</label>
+                                        <p-dropdown  appendTo="body"  [options]="paimentCollaboratorStates" [(ngModel)]="item.paimentCollaboratorState" id="25" [filter]="true" filterMatchMode="contains"
+                                                     [showClear]="true" optionLabel="libelle" placeholder="{{'paimentCollaborator.paimentCollaboratorState' | translate}}"  >
+                                        </p-dropdown>
+                                        
+                                    </div>
+
+                                    <div class="field col-11 md:col-6">
+                                        <label for="26">{{'paimentCollaborator.paimentCollaboratorType' | translate}}</label>
+                                        <p-dropdown  appendTo="body"  [options]="paimentCollaboratorTypes" [(ngModel)]="item.paimentCollaboratorType" id="26" [filter]="true" filterMatchMode="contains"
+                                                     [showClear]="true" optionLabel="libelle" placeholder="{{'paimentCollaborator.paimentCollaboratorType' | translate}}"  >
+                                        </p-dropdown>
+                                        
+                                    </div>
+
+                                    <div class="field col-11 md:col-6">
+                                        <label for="27">{{'paimentCollaborator.inscriptionCollaborator' | translate}}</label>
+                                        <p-dropdown  appendTo="body"  [options]="inscriptionCollaborators" [(ngModel)]="item.inscriptionCollaborator" id="27" [filter]="true" filterMatchMode="contains"
+                                                     [showClear]="true" optionLabel="id" placeholder="{{'paimentCollaborator.inscriptionCollaborator' | translate}}"  >
+                                        </p-dropdown>
+                                        
+                                    </div>
+
+                                    <div class="field col-11 md:col-6">
+                                        <label for="28">{{'paimentCollaborator.coupon' | translate}}</label>
+                                        <p-dropdown  appendTo="body"  [options]="coupons" [(ngModel)]="item.coupon" id="28" [filter]="true" filterMatchMode="contains"
+                                                     [showClear]="true" optionLabel="libelle" placeholder="{{'paimentCollaborator.coupon' | translate}}"  >
+                                        </p-dropdown>
+                                        
+                                    </div>
+
+                                        <div class="field align-inputswitch col-12  md:col-6">
+                                            <div  class="label-inputswitch">
+                                                <label for="29">{{'paimentCollaborator.deployAndTestOnLine' | translate}}</label>
+                                            </div>
+                                            <div class="input-switch">
+                                                <p-inputSwitch id="29"  [(ngModel)]="item.deployAndTestOnLine"
+                                                                >
+                                                </p-inputSwitch>
+                                                
+                                            </div>
+                                        </div>
+
+
+                                    <div class="field col-11 md:col-6">
+                                        <label for="30">{{'paimentCollaborator.offreCloudProvider' | translate}}</label>
+                                        <p-dropdown  appendTo="body"  [options]="offreCloudProviders" [(ngModel)]="item.offreCloudProvider" id="30" [filter]="true" filterMatchMode="contains"
+                                                     [showClear]="true" optionLabel="libelle" placeholder="{{'paimentCollaborator.offreCloudProvider' | translate}}"  >
+                                        </p-dropdown>
+                                        
+                                    </div>
+
+                        </div>
+                    </p-tabPanel>
+
+                </p-tabView>
+
+        </ng-template>
+
+        <ng-template pTemplate="footer" >
+            <div class="p-flexbox">
+
+                    <button pButton pRipple  label="{{'validate' | translate}}"  icon="pi pi-check"  (click)="edit()"></button>
+
+
+                        <button pButton pRipple  label="{{'cancel' | translate}}" icon="pi pi-times" class="p-button-outlined" (click)="hideEditDialog()"></button>
+
+
+            </div>
+        </ng-template>
+
+    </p-dialog>
